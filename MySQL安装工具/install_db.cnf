@@ -1,0 +1,10 @@
+DBType=master
+MySqlInstallTarFile="mysql-5.6.28-linux-glibc2.5-x86_64.tar.gz"
+#MySqlInstallTarFile="mysql-5.7.10-linux-glibc2.5-x86_64.tar.gz"
+MySqlVersion="mysql56"
+#MySqlVersion="mysql57"
+innodb_buffer_pool_size_per=0.1
+GameSiteID=test_9191
+WebInnetIP=10.10.10.10
+MasterDBInnetIP=10.10.10.11
+SlaveDBInnetIP=10.10.10.12

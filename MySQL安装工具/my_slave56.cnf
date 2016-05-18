@@ -1,0 +1,134 @@
+#for  innodb
+#edited by robert  2011-03-23
+
+[client]
+port= 2433
+socket= /data/mysqldata/sock/mysql.sock2433
+default-character-set=utf8
+
+[mysqld]
+#skip-grant-tables 
+
+innodb_file_per_table=1
+user        = mysql
+bind-address= LOCAL_IP
+port= 2433
+socket= /data/mysqldata/sock/mysql.sock2433
+lower_case_table_names = 1
+datadir=/data/mysqldata/data/2433/
+pid-file= /data/mysqldata/var/2433.pid
+
+tmpdir=/data/mysqllog/2433/tmpdir 
+
+#add mysql 5.6
+innodb_print_all_deadlocks = 1
+
+skip-external-locking
+skip-name-resolve
+
+#default-table-type = InnoDB
+default-storage-engine=InnoDB
+default_tmp_storage_engine=InnoDB
+key_buffer_size  = 64M  
+
+max_allowed_packet = 16M
+table_open_cache = 2048   
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 2M
+myisam_sort_buffer_size = 64M
+thread_cache_size = 12
+query_cache_size = 32M
+#thread_concurrency = 8
+max_binlog_size = 20M
+
+wait_timeout=86400
+interactive_timeout=86400
+
+max_connections = 5000
+max_connect_errors = 99999
+#event-scheduler = on
+
+
+character-set-server=utf8
+
+
+slow_query_log = 1
+long_query_time = 1
+slow_query_log_file = /data/mysqllog/2433/slow-query.log 
+
+log_bin = /data/mysqllog/binlog/2433/binlog.bin
+log_bin_trust_function_creators=1
+binlog_format = mixed
+
+#mysql 5.6
+log_queries_not_using_indexes = 1
+#每分钟记录没有使用索引最多不超过5条
+log_throttle_queries_not_using_indexes = 5
+explicit_defaults_for_timestamp = 1
+gtid-mode=on
+enforce-gtid-consistency
+log-slave-updates
+
+relay-log = /data/mysqldata/data/2433/relay.bin
+
+log-bin-trust-function-creators=1
+
+server-id = 168148150
+
+########replication settings########
+master_info_repository = TABLE
+relay_log_info_repository = TABLE
+# sync_binlog = 1
+#gtid_mode=ON,log_slave_updates,enforce_gtid_consistency 这三个参数一定要同时在my.cnf中配置
+gtid_mode = on
+log_slave_updates
+enforce_gtid_consistency = 1
+relay_log_recovery = 1
+
+slave-net-timeout=300
+replicate-wild-ignore-table=mysql.%
+replicate-wild-ignore-table=test.%
+#
+innodb_data_home_dir      = /data/mysqldata/innodb/data/2433
+innodb_data_file_path     = ibdata1:1G:autoextend
+innodb_log_group_home_dir = /data/mysqldata/innodb/log/2433
+#innodb_log_arch_dir       = /data/mysqldata/innodb/log  5.1.30 no support
+
+innodb_buffer_pool_size = 22478M
+#innodb_additional_mem_pool_size = 20M
+innodb_buffer_pool_instances=3
+
+
+innodb_log_file_size       = 256M  
+innodb_log_buffer_size     = 32M
+#innodb_mirrored_log_groups = 1
+innodb_log_files_in_group  = 4     
+innodb_flush_log_at_trx_commit = 0
+innodb_lock_wait_timeout = 50
+innodb_thread_concurrency = 8
+#innodb_file_io_threads=4
+innodb_write_io_threads=4
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysql]
+no-auto-rehash
+prompt=\U|\d>
+
+[isamchk]
+key_buffer = 256M
+sort_buffer_size = 256M
+read_buffer = 2M
+write_buffer = 2M
+
+[myisamchk]
+key_buffer = 256M
+sort_buffer_size = 256M
+read_buffer = 2M
+write_buffer = 2M
+
+[mysqlhotcopy]
+interactive-timeout
