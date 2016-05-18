@@ -1,0 +1,5 @@
+com::: mkdir -p /data/comparedb/schema
+file::: ./subShell/compared_getModel.sh /data/comparedb/ push
+com::: cd /data/comparedb/;sh compared_getModel.sh  'db_game|db_log'
+com::: rm -f /data/comparedb/compared_getModel.sh
+file::: /data/comparedb/compared.tar.gz ./tar/  pull
