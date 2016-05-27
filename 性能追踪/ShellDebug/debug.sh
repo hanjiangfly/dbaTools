@@ -1,5 +1,4 @@
 #!/bin/bash
-#warrior
 #2013-01-01
 #debug.sh
 
