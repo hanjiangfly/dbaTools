@@ -1,0 +1,15 @@
+1、上传shc-3.8.3.tgz
+
+2、安装shc
+tar zxvf shc-3.8.3.tgz
+cd shc-3.8.3
+make test
+make
+make test
+make strings
+make install
+
+3、上传complie.sh到/usr/bin，并改名为complie
+mv complie.sh complie
+chmod +x complie
+
