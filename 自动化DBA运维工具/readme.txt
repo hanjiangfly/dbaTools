@@ -1,0 +1,1 @@
+sh comparedServer.sh

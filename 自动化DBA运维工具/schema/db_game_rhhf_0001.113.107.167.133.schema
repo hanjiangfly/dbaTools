@@ -1,0 +1,4307 @@
+
+
+
+
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cleandbinfo` (
+  `DBName` varchar(100) NOT NULL,
+  `openTime` datetime DEFAULT NULL,
+  `cleanTime` datetime DEFAULT NULL,
+  `canCleanDB` int(11) DEFAULT '1' COMMENT '1 can clean',
+  PRIMARY KEY (`DBName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `combine_uniqueid_bak` (
+  `IdType` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Id类型',
+  `CurrentId` bigint(20) DEFAULT '0' COMMENT '当前最大Id',
+  `SiteId` varchar(50) NOT NULL DEFAULT '' COMMENT '被合区的siteid',
+  `CombineTime` datetime DEFAULT NULL COMMENT '被合区备份时间',
+  PRIMARY KEY (`IdType`,`SiteId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='唯一Id合区从区备份';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_drugitem_20161009` (
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `DrugTempId` int(6) DEFAULT NULL COMMENT 'DrugTempId',
+  `Count` int(6) DEFAULT NULL COMMENT '数量'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='补发药剂兑换物品临时表20161009';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_getfirstbillplayerid_0816` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `BillId` varchar(50) NOT NULL COMMENT '订单编号',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家Id',
+  `GoodsId` varchar(50) NOT NULL COMMENT '货物Id',
+  `ChannelGoodsId` varchar(100) DEFAULT NULL COMMENT '渠道货物Id',
+  `Price` varchar(20) NOT NULL COMMENT '价格',
+  `FinishTime` datetime DEFAULT NULL COMMENT '订单完成时间',
+  PRIMARY KEY (`BillId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='getFirstBillPlayerid充值订单';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_item_20161009` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家ID',
+  `srcCount` int(6) DEFAULT NULL COMMENT '原来数量',
+  `desCount` int(6) DEFAULT NULL COMMENT '换算数量',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='补发物品临时表20161009';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_player_rank` (
+  `gamezoneid` int(11) NOT NULL COMMENT 'gamezoneid',
+  `playerid` bigint(20) NOT NULL COMMENT '角色id',
+  `ranktype` int(11) NOT NULL DEFAULT '0' COMMENT '类型（领地）',
+  `rewardtype` int(11) NOT NULL DEFAULT '0' COMMENT '奖励类型',
+  `orderid` int(11) NOT NULL DEFAULT '0' COMMENT '排行',
+  `orderscore` int(11) NOT NULL DEFAULT '0' COMMENT '排名分数',
+  `reward1` int(11) NOT NULL DEFAULT '0' COMMENT '奖励物品id1',
+  `reward2` int(11) NOT NULL DEFAULT '0' COMMENT '奖励物品id2',
+  PRIMARY KEY (`playerid`,`reward1`,`reward2`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='dba_player_rank 2016.08.01 修复领地月奖励周奖励';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_playerid_20160920` (
+  `PlayerId` bigint(20) NOT NULL,
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='2016.09.20连续登录奖励补偿';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_server_version` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `currentdate` datetime NOT NULL COMMENT '发布日期',
+  `version` varchar(100) NOT NULL COMMENT '版本号',
+  `patch` varchar(100) NOT NULL COMMENT '补丁号',
+  `state` tinyint(4) NOT NULL COMMENT '状态 -1失败 0过期 1正常',
+  `description` varchar(1000) NOT NULL DEFAULT '' COMMENT '说明',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='游戏版本';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_t_l_log_reward_20160810` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `recorddate` datetime NOT NULL COMMENT '记录时间',
+  `gamezoneid` int(11) NOT NULL COMMENT '区服ID',
+  `playerid` bigint(21) NOT NULL COMMENT '玩家ID',
+  `type` int(11) NOT NULL COMMENT '类型',
+  `reward` varchar(20) NOT NULL COMMENT '奖励内容',
+  `remark` varchar(500) NOT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_t_u_guild_20160810` (
+  `GuildId` bigint(11) NOT NULL COMMENT '公会ID',
+  `Name` varchar(255) NOT NULL COMMENT '公会名称',
+  `Level` int(11) NOT NULL COMMENT '公会等级',
+  `Money` int(11) NOT NULL COMMENT '公会资产',
+  `Notice` varchar(255) NOT NULL COMMENT '公会公告',
+  `UpgradeTime` int(11) NOT NULL COMMENT '升级时间',
+  `CreateTime` datetime NOT NULL COMMENT '创建时间',
+  `TechIds` text NOT NULL COMMENT '公会科技列表',
+  `IsExist` int(255) NOT NULL COMMENT '是否存在',
+  `AutoPass` tinyint(4) NOT NULL DEFAULT '0' COMMENT '自动通过加入申请',
+  `BattleApply` tinyint(4) NOT NULL DEFAULT '0' COMMENT '公会战是否报名',
+  `BattleScore` int(11) NOT NULL COMMENT '公会战积分',
+  `WeekContributes` int(11) DEFAULT '0' COMMENT '公会周贡献',
+  `BattleWin` int(11) DEFAULT NULL COMMENT '公会战胜利次数(第一名次数)',
+  `WarNotice` varchar(255) DEFAULT NULL COMMENT '战场公告',
+  PRIMARY KEY (`GuildId`),
+  UNIQUE KEY `name_uni` (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dba_t_u_guildmember_2016081011` (
+  `GuildMemberId` bigint(20) NOT NULL COMMENT '公会成员ID',
+  `GuildId` bigint(11) NOT NULL COMMENT '公会ID',
+  `PlayerId` bigint(11) NOT NULL COMMENT '成员玩家ID',
+  `Identity` int(11) NOT NULL COMMENT '成员身份',
+  `ContributeGoldCount` int(11) NOT NULL COMMENT '每日捐献剩余数量',
+  `WeekContribute` int(11) DEFAULT '0' COMMENT '个人周贡献',
+  `ContributeMoneyCount` int(11) NOT NULL COMMENT '每日捐献钻石剩余数',
+  `CreateTime` datetime NOT NULL COMMENT '加入公会时间',
+  `TotalContribute` int(11) NOT NULL COMMENT '历史贡献值',
+  `AidTime` int(11) NOT NULL COMMENT '上次援助时间',
+  `ToAidWotch` int(11) NOT NULL COMMENT '已援助价值',
+  `ToAidQualityCounts` varchar(255) NOT NULL COMMENT '援助他人各个品质的数量',
+  `ToAidTime` int(11) NOT NULL COMMENT '上次援助他人时间(用于计算重置)',
+  `IsExist` int(11) NOT NULL COMMENT '是否存在',
+  `BattleBuyCount` int(11) NOT NULL COMMENT '公会战行动力购买次数',
+  `BattleStrength` int(11) NOT NULL DEFAULT '0' COMMENT '公会战行动力',
+  `BattleStrengthUpdataTime` int(11) NOT NULL DEFAULT '0' COMMENT '公会战体力上次更新时间',
+  `BattleUseStrength` int(11) NOT NULL DEFAULT '0' COMMENT '公会战消耗行动力',
+  PRIMARY KEY (`GuildMemberId`),
+  KEY `PlayerId` (`PlayerId`),
+  KEY `GuildId` (`GuildId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activity` (
+  `ActivityId` varchar(36) NOT NULL COMMENT '活动ID，UUID',
+  `ActivityName` varchar(30) NOT NULL COMMENT '活动名称',
+  `MasterType` int(11) NOT NULL COMMENT '主类型',
+  `SonType` int(11) NOT NULL COMMENT '子类型',
+  `GetWay` smallint(6) DEFAULT '0' COMMENT '领取方式',
+  `SonOrder` varchar(5) NOT NULL COMMENT '活动排序',
+  `Desc` varchar(1000) NOT NULL COMMENT '活动描述',
+  `IconUrl` varchar(100) DEFAULT NULL COMMENT '活动图标URL',
+  `BannerUrl` varchar(200) DEFAULT '' COMMENT 'Banner条url',
+  `TitleUrl` varchar(100) DEFAULT NULL COMMENT '活动标题图片Url',
+  `BeginTime` datetime NOT NULL COMMENT '活动开始时间',
+  `EndTime` datetime NOT NULL COMMENT '活动结束时间',
+  `ShowBeginTime` datetime NOT NULL COMMENT '公布开始时间',
+  `ShowEndTime` datetime NOT NULL COMMENT '公布结束时间',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否存在',
+  `UpdateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '更新时间',
+  `TypeTag` int(11) NOT NULL DEFAULT '0' COMMENT '类型标签',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`ActivityId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activityclassify` (
+  `ClassId` varchar(36) NOT NULL COMMENT '分类活动ID',
+  `ClassName` varchar(40) DEFAULT NULL COMMENT '活动分类名',
+  `ActivityIds` varchar(200) DEFAULT NULL COMMENT '分类活动ID列表',
+  `OrderIndex` int(11) NOT NULL DEFAULT '1' COMMENT '活动排序字段',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否存在',
+  `BeginTime` datetime NOT NULL,
+  `EndTime` datetime NOT NULL,
+  `ClassType` smallint(6) DEFAULT NULL COMMENT '分类类型（1-活动分类，2-全目标奖励）',
+  PRIMARY KEY (`ClassId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activitycondition` (
+  `ConditionId` varchar(128) NOT NULL COMMENT '条件ID',
+  `GiftPackId` varchar(36) NOT NULL COMMENT '所属礼包',
+  `ConditionType` int(11) NOT NULL COMMENT '条件类型',
+  `Value1` int(11) NOT NULL DEFAULT '0' COMMENT '条件值1',
+  `Value2` int(11) NOT NULL DEFAULT '0' COMMENT '条件值2',
+  `Value3` int(11) NOT NULL DEFAULT '0' COMMENT '条件值3',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否存在',
+  PRIMARY KEY (`ConditionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动条件模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activitygiftpack` (
+  `GiftPackId` varchar(36) NOT NULL COMMENT '活动礼包ID',
+  `ActivityId` varchar(36) NOT NULL COMMENT '所属活动ID',
+  `GiftPackName` varchar(100) DEFAULT NULL,
+  `GiftPackDesc` varchar(100) NOT NULL COMMENT '礼包描述',
+  `GiftPackOrder` varchar(5) NOT NULL COMMENT '礼包排序',
+  `ClaimNum` int(11) NOT NULL COMMENT '可领取次数',
+  `Icon` int(11) NOT NULL COMMENT '图标标示',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否存在',
+  `TypeTag` int(11) NOT NULL DEFAULT '0' COMMENT '类型标签',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`GiftPackId`),
+  KEY `ix_t_s_activitygiftpack_ActivityId` (`ActivityId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动礼包模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activityrec` (
+  `Id` varchar(36) NOT NULL DEFAULT '' COMMENT 'ID',
+  `Name` varchar(30) DEFAULT '' COMMENT '当次推荐名称',
+  `ShowType` smallint(6) DEFAULT '0' COMMENT '展示类型:0不展示;1横向;2纵向',
+  `IconImgUrl` varchar(100) DEFAULT NULL COMMENT '活动推荐图标URL',
+  `TitleImgUrl` varchar(100) DEFAULT '' COMMENT '推荐头图片',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动推荐';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activityrecelem` (
+  `ActivityRecId` varchar(36) DEFAULT '' COMMENT '关联推荐Id',
+  `Index` smallint(6) DEFAULT '0' COMMENT '索引',
+  `ImgUrl` varchar(100) DEFAULT '' COMMENT '图片URL',
+  `ActivityId` varchar(36) DEFAULT '' COMMENT '跳转到的活动Id',
+  `BeginTime` datetime NOT NULL COMMENT '开始时间',
+  `EndTime` datetime NOT NULL COMMENT '结束时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动推荐内容';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_activityreward` (
+  `RewardId` varchar(36) NOT NULL COMMENT '奖励ID',
+  `GiftPackId` varchar(36) NOT NULL COMMENT '所属礼包ID',
+  `TemplateType` int(11) NOT NULL COMMENT '奖励物品的模板类型',
+  `TemplateId` int(11) NOT NULL COMMENT '奖励物品的模板ID',
+  `Count` int(11) NOT NULL COMMENT '物品数量',
+  `IsBind` tinyint(1) NOT NULL COMMENT '是否绑定',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否存在',
+  PRIMARY KEY (`RewardId`),
+  KEY `ix_t_s_activityreward_GiftPackId` (`GiftPackId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动奖励模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_alchemypot` (
+  `TemplateId` int(11) NOT NULL,
+  `Name` varchar(50) NOT NULL COMMENT '炼金炉名称',
+  `NeedBuildingLevel` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT '炼金炉解锁等级',
+  `NeedTime` int(11) NOT NULL DEFAULT '0' COMMENT '炼金炉炼制时间，单位秒',
+  `DropId` int(11) NOT NULL COMMENT '掉落ID',
+  `Desc` varchar(512) DEFAULT NULL COMMENT '文本',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='炼金模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_battlepos` (
+  `BattleSceneId` int(11) DEFAULT '0' COMMENT '战斗场景Id',
+  `PosId` int(11) DEFAULT '0' COMMENT '位置Id',
+  `X` int(11) DEFAULT '0' COMMENT 'X坐标',
+  `Y` int(11) DEFAULT '0' COMMENT 'Y坐标'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='战斗站位';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_battlescene` (
+  `Id` int(11) NOT NULL DEFAULT '0' COMMENT '战斗场景Id',
+  `Name` varchar(50) DEFAULT NULL COMMENT '战斗场景名称',
+  `Res` varchar(200) DEFAULT NULL COMMENT '战斗场景路径',
+  `BGM` varchar(50) DEFAULT NULL COMMENT '背景音乐',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='战斗场景';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_battlescenelayer` (
+  `LayerId` int(11) NOT NULL AUTO_INCREMENT COMMENT '层Id',
+  `BattleSceneId` int(11) DEFAULT '0' COMMENT '战斗背景Id',
+  `ZOrder` int(11) DEFAULT '0' COMMENT 'z轴',
+  `BgPath` varchar(100) DEFAULT '' COMMENT '背景图',
+  `ImgWidth` int(11) DEFAULT '0' COMMENT '图片宽',
+  `ImgHeight` int(11) DEFAULT '0' COMMENT '图片高',
+  `OffX` int(11) DEFAULT '0' COMMENT 'X偏移',
+  `OffY` int(11) DEFAULT '0' COMMENT 'Y偏移',
+  `Speed` int(11) DEFAULT '0' COMMENT '速度',
+  PRIMARY KEY (`LayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='战斗背景层';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_bill` (
+  `TemplateId` varchar(50) NOT NULL COMMENT '模板Id',
+  `ChannelId` int(11) NOT NULL COMMENT '渠道Id',
+  `ChannelGoodsId` varchar(100) NOT NULL COMMENT '渠道货物Id',
+  `GoodsType` int(11) DEFAULT NULL COMMENT '货物类型，区分限购或充值',
+  `GoodsId` varchar(100) DEFAULT NULL COMMENT '货物Id',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='渠道订单关联表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_buffer` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(100) DEFAULT '' COMMENT '名称',
+  `Desc` varchar(100) DEFAULT '' COMMENT '描述',
+  `ListType` int(11) DEFAULT '0' COMMENT 'buffer列表类型,0:被动buffer,1:主动buffer',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `AddTime` int(11) DEFAULT '0' COMMENT '添加时机',
+  `ExecTime` int(11) DEFAULT '0' COMMENT '执行次数',
+  `IsHarmful` int(11) DEFAULT '0' COMMENT '是否有害',
+  `Rate` int(11) DEFAULT '0' COMMENT '触发概率',
+  `RoundType` int(11) DEFAULT '0' COMMENT '单体回合',
+  `Round` int(11) DEFAULT '0' COMMENT '全局出手次数',
+  `TargetType` int(11) DEFAULT '0' COMMENT '目标类型',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  `EffectName` varchar(50) DEFAULT '' COMMENT '名称',
+  `BuffName` varchar(50) DEFAULT NULL COMMENT 'Buff名字',
+  `Param1` int(11) DEFAULT NULL COMMENT '参数',
+  `Param2` int(11) DEFAULT '0' COMMENT '参数',
+  `Param3` int(11) DEFAULT NULL COMMENT '参数',
+  `Param4` int(11) DEFAULT NULL COMMENT '参数',
+  `Param5` int(11) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='buffer表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_building` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板ID',
+  `Name` varchar(20) NOT NULL COMMENT '建筑名称',
+  `Type` smallint(4) NOT NULL COMMENT '建筑类型',
+  `NextTempId` int(11) DEFAULT '0' COMMENT '下级模板ID',
+  `Level` smallint(4) NOT NULL COMMENT '建筑等级',
+  `PreTempId` varchar(50) DEFAULT NULL COMMENT '前置模板ID',
+  `NeedPlayerLevel` smallint(4) DEFAULT NULL COMMENT '所需玩家等级',
+  `NeedGold` int(11) DEFAULT '0' COMMENT '所需黄金',
+  `NeedWater` int(11) DEFAULT '0' COMMENT '所需圣水',
+  `CoolDown` int(11) DEFAULT '0' COMMENT '冷却时间',
+  `CanUpgrade` tinyint(1) DEFAULT '0' COMMENT '是否可升级',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '属性1',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '属性2',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '属性3',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '属性4',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '属性5',
+  `Param6` varchar(50) DEFAULT NULL COMMENT '属性6',
+  `Desc` varchar(255) DEFAULT NULL COMMENT '建筑描述',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='建筑模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_camp` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT '' COMMENT '姓名',
+  `Type` int(11) DEFAULT NULL COMMENT '类型',
+  `GroupId` int(11) DEFAULT '0' COMMENT '分组Id',
+  `DifficultyLevel` int(11) DEFAULT NULL COMMENT '难度等级',
+  `NeedLevel` int(11) DEFAULT NULL COMMENT '玩家所需等级',
+  `NeedStrength` int(11) DEFAULT NULL COMMENT '体力值',
+  `PreCampaignId` int(11) DEFAULT NULL COMMENT '前置副本ID',
+  `ShowProducts` varchar(100) DEFAULT NULL COMMENT '展示掉落物品',
+  `ShowMonster` varchar(200) DEFAULT '' COMMENT '展示怪物',
+  `ShowFirstDrops` varchar(100) DEFAULT '' COMMENT '首次掉落展示',
+  `DropId` int(11) DEFAULT NULL COMMENT '掉落ID',
+  `FirstPassDropId` int(11) DEFAULT NULL COMMENT '首次通关掉落ID',
+  `PassStar` int(11) DEFAULT NULL COMMENT '通过奖励星',
+  `PassTime` int(11) DEFAULT NULL COMMENT '通关限时',
+  `EndMode` smallint(6) DEFAULT '0' COMMENT '结算模式',
+  `StartTime` varchar(20) DEFAULT NULL COMMENT '开始时间',
+  `EndTime` varchar(20) DEFAULT NULL COMMENT '结束时间',
+  `ReliveTimes` int(11) DEFAULT NULL COMMENT '重生次数',
+  `IsChangeEquipment` tinyint(1) DEFAULT NULL COMMENT '是否可更换装备',
+  `SoldiersLimit` int(11) DEFAULT NULL COMMENT '士兵数量限制',
+  `LimitCount` smallint(6) DEFAULT '0' COMMENT '每日限制次数',
+  `MapIds` varchar(50) DEFAULT NULL COMMENT '地图ID',
+  `WinDesc` varchar(50) DEFAULT NULL COMMENT '胜利描述',
+  `Desc` varchar(100) DEFAULT NULL COMMENT '描述',
+  `AheadTips` varchar(30) DEFAULT NULL COMMENT '副本的开启内容',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param6` varchar(100) DEFAULT NULL COMMENT '目标id',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_campmap` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(30) DEFAULT '' COMMENT '地图名称',
+  `Width` int(11) DEFAULT '0' COMMENT '地图宽',
+  `Height` int(11) DEFAULT '0' COMMENT '地图高',
+  `Resource` varchar(20) DEFAULT '' COMMENT '资源',
+  `BgName` varchar(20) DEFAULT NULL COMMENT '战斗背景',
+  `BossBgName` varchar(20) DEFAULT NULL COMMENT 'Boss战斗背景',
+  `BGM` varchar(50) DEFAULT NULL COMMENT '背景音乐',
+  `ResWidth` int(11) DEFAULT '0' COMMENT '图片宽',
+  `ResHeight` int(11) DEFAULT '0' COMMENT '图片高',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本地图表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_campmaplayer` (
+  `LayerId` int(11) NOT NULL DEFAULT '0' COMMENT '层唯一Id',
+  `MapId` int(11) DEFAULT '0' COMMENT '地图Id',
+  `ZOrder` int(11) DEFAULT '0' COMMENT '层排序',
+  `BgPath` varchar(100) DEFAULT '' COMMENT '背景路径',
+  `ImgWidth` int(11) DEFAULT '0' COMMENT '背景宽',
+  `ImgHeight` int(11) DEFAULT '0' COMMENT '背景高',
+  `OffX` int(11) DEFAULT '0' COMMENT 'X偏移',
+  `OffY` int(11) DEFAULT '0' COMMENT 'Y偏移',
+  `Speed` int(11) DEFAULT '0' COMMENT '速度',
+  PRIMARY KEY (`LayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本地图层模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_campnode` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '模板名称',
+  `Type` int(11) DEFAULT '0' COMMENT '节点类型',
+  `ShowType` int(11) DEFAULT '0' COMMENT '显示类型',
+  `IsAuto` tinyint(1) DEFAULT '0' COMMENT '是否自动',
+  `BirthSide` int(11) DEFAULT '0' COMMENT '出生点朝向',
+  `CellHCount` int(11) DEFAULT '0' COMMENT '横向格子数',
+  `CellVCount` int(11) DEFAULT '0' COMMENT '纵向格子数',
+  `Cells` varchar(1000) DEFAULT '' COMMENT '节点触发格子',
+  `RandomNodes` varchar(200) DEFAULT '' COMMENT '随机节点,触发概率',
+  `AiIds` varchar(200) DEFAULT '' COMMENT 'Ais',
+  `ShowLivingId` int(11) DEFAULT '0' COMMENT '展示用livingId',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param6` varchar(50) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本节点表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_campnodeai` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT '0' COMMENT '模板名称',
+  `Type` int(11) DEFAULT '0' COMMENT 'AI类型',
+  `Param1` varchar(200) DEFAULT NULL COMMENT '鍙傛暟',
+  `Param2` varchar(200) DEFAULT NULL COMMENT '鍙傛暟',
+  `Param3` varchar(200) DEFAULT NULL COMMENT '鍙傛暟',
+  `Param4` varchar(200) DEFAULT NULL COMMENT '鍙傛暟',
+  `Param5` varchar(200) DEFAULT NULL COMMENT '鍙傛暟',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本节点AI表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_campnodepos` (
+  `MapId` int(11) DEFAULT '0' COMMENT '地图Id',
+  `PosId` int(11) DEFAULT '0' COMMENT '位置Id',
+  `Type` int(11) DEFAULT '0' COMMENT '位置类型',
+  `CellX` int(11) DEFAULT '0' COMMENT '格子X',
+  `CellY` int(11) DEFAULT '0' COMMENT '格子Y',
+  `NodeId` int(11) DEFAULT '0' COMMENT '节点Id',
+  `NextPosId` int(11) DEFAULT '0' COMMENT '下一位置Id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本节点关联表，存储节点位置信息等';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_camptarget` (
+  `TemplateId` int(50) NOT NULL COMMENT '副本目标id',
+  `Desc` varchar(100) NOT NULL COMMENT '目标描述',
+  `Type` int(20) DEFAULT '0' COMMENT '类型',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '其他',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_centerconfig` (
+  `Key` varchar(50) NOT NULL DEFAULT '' COMMENT '中控配置键值',
+  `Value` varchar(200) NOT NULL COMMENT '中控配置值',
+  `IsExist` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否生效',
+  PRIMARY KEY (`Key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_centernotice` (
+  `Id` varchar(50) NOT NULL COMMENT '消息ID',
+  `Type` int(11) DEFAULT NULL COMMENT '消息类型',
+  `Notice` varchar(500) DEFAULT NULL COMMENT '消息内容',
+  `NoticeTime` datetime NOT NULL COMMENT '发送时间',
+  `isSend` tinyint(1) DEFAULT NULL COMMENT '是否已发送',
+  `isPeriod` tinyint(1) DEFAULT NULL COMMENT '是否固定周期',
+  `Delay` bigint(20) DEFAULT '0' COMMENT '发送间隔(ms)',
+  `RepeatTimes` smallint(6) DEFAULT '0' COMMENT '重复次数',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '额外参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '额外参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '额外参数',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='中控文本';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_chapter` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT '' COMMENT '章节名称',
+  `Type` int(11) DEFAULT '0' COMMENT '章节类型',
+  `LastTempId` int(11) DEFAULT '0' COMMENT '前置上街ID',
+  `GroupIds` varchar(100) DEFAULT '' COMMENT '分组ID',
+  `Desc` varchar(50) DEFAULT '' COMMENT '描述',
+  `BgImage` varchar(50) DEFAULT '' COMMENT '背景图片',
+  `Width` int(11) DEFAULT '0' COMMENT '宽度',
+  `Height` int(11) DEFAULT '0' COMMENT '高度',
+  `X` int(11) DEFAULT '0' COMMENT 'X',
+  `Y` int(11) DEFAULT '0' COMMENT 'Y',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本章节配置';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_chapterbox` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '章节宝箱模板id',
+  `Chapter` int(11) DEFAULT '0' COMMENT '章节Id',
+  `NeedStar` int(11) DEFAULT '0' COMMENT '所需星星',
+  `ProductIds` varchar(100) DEFAULT '' COMMENT '产品Id列表',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='章节宝箱模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_charge` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '充值项模板ID',
+  `ProductId` varchar(50) DEFAULT NULL COMMENT '产品ID',
+  `ChargeType` smallint(6) NOT NULL DEFAULT '0' COMMENT '充值渠道分类',
+  `Channel` varchar(50) DEFAULT NULL COMMENT '渠道ID',
+  `Name` varchar(50) NOT NULL COMMENT '充值项名称',
+  `Desc` varchar(50) NOT NULL COMMENT '充值项描述',
+  `Currency` varchar(20) NOT NULL COMMENT '币种',
+  `Price` varchar(20) NOT NULL COMMENT '价格',
+  `Point` int(11) NOT NULL COMMENT '充值钻石数',
+  `FirstReward` int(11) NOT NULL COMMENT '首次购买该项目赠送',
+  `ShowOrder` int(11) NOT NULL COMMENT '充值项排序',
+  `Icon` varchar(30) NOT NULL COMMENT '充值项图标',
+  PRIMARY KEY (`TemplateId`),
+  UNIQUE KEY `ix_ProductId` (`ProductId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商城充值项模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_dbamultilanguage` (
+  `Name` varchar(100) NOT NULL,
+  `Language_zh` text COMMENT '中文',
+  `Language_en` text COMMENT '英文',
+  PRIMARY KEY (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='dba 多语言对应表 而外添加2016.10.26by jiang.han';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_drop` (
+  `DropId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落ID',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Param1` varchar(100) DEFAULT '' COMMENT '参数1',
+  `Param2` varchar(100) DEFAULT '' COMMENT '参数2',
+  PRIMARY KEY (`DropId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='掉落表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_dropelement` (
+  `GroupId` int(11) DEFAULT '0' COMMENT '组ID',
+  `ElementType` int(11) NOT NULL DEFAULT '0' COMMENT '掉落成员类型:1产品2掉落组',
+  `ElementId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落成员Id',
+  `Time` int(11) DEFAULT '1' COMMENT '掉落次数',
+  `Rate` int(11) DEFAULT '0' COMMENT '掉落比率'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='掉落物品表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_dropgroup` (
+  `GroupId` int(11) NOT NULL DEFAULT '0' COMMENT '组ID',
+  `DropId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落ID',
+  `Type` int(11) DEFAULT '0' COMMENT '掉落类型',
+  `Param1` int(11) DEFAULT '0' COMMENT '属性1',
+  `Param2` int(11) DEFAULT '0' COMMENT '属性2',
+  `Param3` int(11) DEFAULT '0' COMMENT '属性3',
+  PRIMARY KEY (`GroupId`,`DropId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='掉落分组表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_drug` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '药剂模板Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '药剂名称',
+  `Quality` smallint(6) DEFAULT '0' COMMENT '品质',
+  `Type` smallint(6) DEFAULT '0' COMMENT '药剂类型',
+  `SkillTempId` int(11) DEFAULT '0' COMMENT '关联技能模版ID',
+  `CarryCount` smallint(6) DEFAULT '0' COMMENT '携带数量',
+  `MaxCount` smallint(6) DEFAULT '0' COMMENT '最大购买数量',
+  `NeedBuildingLevel` smallint(6) DEFAULT '0' COMMENT '所需建筑等级',
+  `NeedPlayerLevel` smallint(6) DEFAULT '0' COMMENT '所需玩家等级',
+  `NeedGold` int(11) DEFAULT '0' COMMENT '所需黄金',
+  `NeedPoint` int(11) DEFAULT '0' COMMENT '所需钻石',
+  `Desc` varchar(100) DEFAULT '' COMMENT '描述',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='炼金工坊药店表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_effect` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(30) DEFAULT '' COMMENT '效果名称',
+  `Desc` varchar(100) DEFAULT '' COMMENT '效果描述',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `MasterType` smallint(6) DEFAULT '0' COMMENT '主类型',
+  `EffectType` smallint(6) DEFAULT '0' COMMENT '效果类型',
+  `PropType` smallint(6) DEFAULT '0' COMMENT '属性类型',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  `Param1` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param2` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param3` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param4` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param5` varchar(50) DEFAULT '' COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='效果表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_elitecamp` (
+  `TemplateId` int(11) NOT NULL COMMENT '精英关卡id',
+  `Name` varchar(100) DEFAULT NULL,
+  `Coordinate` varchar(30) DEFAULT NULL COMMENT '精英关卡x,y坐标',
+  `Strength` varchar(20) DEFAULT NULL COMMENT '关卡所需体力',
+  `CheckPointsIcon` varchar(40) DEFAULT NULL COMMENT '关卡图标URL',
+  `MainCampId` int(11) DEFAULT NULL COMMENT '主线副本序号id',
+  `DropInfo` varchar(150) DEFAULT NULL COMMENT '掉落显示信息',
+  `ShowMonster` varchar(100) DEFAULT NULL,
+  `MonsterProp` int(11) DEFAULT NULL COMMENT '怪物属性',
+  `Desc` varchar(255) DEFAULT NULL COMMENT '战斗塔描述',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_elitecampnode` (
+  `TemplateId` int(11) NOT NULL COMMENT '精英副本ID',
+  `Level` int(11) NOT NULL COMMENT '精英副本层数',
+  `BattleCall` varchar(64) DEFAULT NULL COMMENT '怪物信息',
+  `DropTemplateId` int(11) DEFAULT NULL COMMENT '掉落ID',
+  PRIMARY KEY (`TemplateId`,`Level`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_functionshow` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Desc` varchar(1000) DEFAULT '' COMMENT '描述',
+  `Param1` int(11) DEFAULT '0' COMMENT '参数',
+  `Param2` varchar(1000) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(1000) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(1000) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(1000) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='功能展示';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_gameconfig` (
+  `Key` varchar(30) NOT NULL DEFAULT '' COMMENT '变量名',
+  `Value` varchar(900) DEFAULT '' COMMENT '变量值',
+  `Desc` varchar(50) DEFAULT '' COMMENT '描述',
+  PRIMARY KEY (`Key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='游戏变量配置';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_gameid` (
+  `GameZoneId` int(11) NOT NULL COMMENT '游戏区ID',
+  `SiteId` varchar(20) NOT NULL COMMENT '游戏区标识',
+  `GameName` varchar(100) NOT NULL COMMENT '游戏区名称',
+  `InsertTime` datetime NOT NULL COMMENT '记录插入时间',
+  `CombineTime` datetime DEFAULT NULL COMMENT '合区时间',
+  `GameStatus` tinyint(4) NOT NULL COMMENT '游戏区状态（1：正常，0：合区）',
+  PRIMARY KEY (`GameZoneId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全局唯一ID服务';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_gemcall` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Level` smallint(6) DEFAULT '0' COMMENT '召唤等级',
+  `GoldSuccRate` int(11) DEFAULT '0' COMMENT '金币成功概率',
+  `GoldFaildType` int(11) DEFAULT '0' COMMENT '金币失败类型(0,降级;1,无损)',
+  `NeedGold` int(11) DEFAULT '0' COMMENT '所需金币',
+  `PointSuccRate` int(11) DEFAULT '0' COMMENT '钻石成功率',
+  `NeedPoint` int(11) DEFAULT '0' COMMENT '所需钻石',
+  `CritRate` int(11) DEFAULT '0' COMMENT '暴击率',
+  `DropId` int(11) DEFAULT '0' COMMENT '掉落Id',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='宝石符阵配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_globaldrop` (
+  `DropId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落ID',
+  `Desc` varchar(100) DEFAULT '' COMMENT '掉落说明',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Param1` varchar(100) DEFAULT '' COMMENT '参数1',
+  `Param2` varchar(100) DEFAULT '' COMMENT '参数2',
+  PRIMARY KEY (`DropId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全局掉落表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_globaldropelement` (
+  `GroupId` int(11) DEFAULT '0' COMMENT '组ID',
+  `ElementType` int(11) NOT NULL DEFAULT '0' COMMENT '掉落成员类型:1产品2掉落组',
+  `ElementId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落成员Id',
+  `Time` int(11) DEFAULT '1' COMMENT '掉落次数',
+  `Rate` int(11) DEFAULT '0' COMMENT '掉落比率'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全局掉落物品表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_globaldropgroup` (
+  `GroupId` int(11) NOT NULL DEFAULT '0' COMMENT '组ID',
+  `DropId` int(11) NOT NULL DEFAULT '0' COMMENT '掉落ID',
+  `Type` int(11) DEFAULT '0' COMMENT '掉落类型',
+  `Param1` int(11) DEFAULT '0' COMMENT '属性1',
+  `Param2` int(11) DEFAULT '0' COMMENT '属性2',
+  `Param3` int(11) DEFAULT '0' COMMENT '属性3',
+  PRIMARY KEY (`GroupId`,`DropId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全局掉落分组表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_globalproduct` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板Id',
+  `Type` smallint(11) DEFAULT NULL COMMENT '产出类型',
+  `ObjectId` int(11) DEFAULT NULL COMMENT '对象Id',
+  `Count` int(11) DEFAULT NULL COMMENT '数量',
+  `IsBind` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `IsTip` tinyint(1) DEFAULT NULL COMMENT '是否广播',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数1',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数2',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数3',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全局产出配置表，对于客户端主要用于有掉落地方的奖励预览，数据库本身不会向客户端暴露掉落表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_group` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Type` smallint(6) DEFAULT '1' COMMENT '1普通副本2通道副本',
+  `Width` int(11) DEFAULT '0' COMMENT '宽',
+  `Height` int(11) DEFAULT '0' COMMENT '高',
+  `X` int(11) DEFAULT '0' COMMENT 'X',
+  `Y` int(11) DEFAULT '0' COMMENT 'Y',
+  `Image` varchar(50) DEFAULT NULL COMMENT '图片',
+  `Name` varchar(50) DEFAULT NULL COMMENT '名称',
+  `CampType` int(11) DEFAULT '0' COMMENT 'Boss副本标记',
+  `SkeletonId` int(11) DEFAULT NULL COMMENT '副本选择界面的地图',
+  `PreGroup` int(11) DEFAULT NULL COMMENT '前置ID',
+  `NextGroup` int(11) DEFAULT NULL COMMENT '下一个ID',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本信息配置表，三种不同难度副本的集合';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_guildaid` (
+  `TemplateId` int(11) DEFAULT NULL COMMENT '援助数据ID',
+  `ObjectId` int(11) DEFAULT NULL COMMENT '物品类型',
+  `Type` int(11) DEFAULT NULL COMMENT '物品模板ID',
+  `Worth` int(11) DEFAULT NULL COMMENT '援助一次花费的价值',
+  `Contribute` int(11) DEFAULT NULL COMMENT '援助1个物品获得的贡献',
+  `Perlimit` int(11) DEFAULT NULL COMMENT '单个玩家能够对一个求援援助多少次',
+  `Count` int(11) DEFAULT NULL COMMENT '援助他人一次多少个',
+  `NeedPoint` int(11) NOT NULL DEFAULT '0' COMMENT '公会援助所需的钻石',
+  `TotalCount` int(11) DEFAULT NULL COMMENT '申请一次求援获得总数量'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_guildlevel` (
+  `Level` int(11) NOT NULL COMMENT '公会等级',
+  `Type` int(11) NOT NULL COMMENT '类型, 0为公会, 1为魔法商店, 2为科技',
+  `NeedMoney` int(11) DEFAULT NULL COMMENT '升级所需的资产',
+  `CoolDown` int(11) DEFAULT NULL COMMENT '冷却时间',
+  `Param1` char(64) DEFAULT NULL COMMENT '参数1: 公会成员上限',
+  `Param2` char(64) DEFAULT NULL COMMENT '参数2: 公会后备成员上限',
+  `Param3` char(64) DEFAULT NULL COMMENT '参数3: 开放建筑类型',
+  `Param4` char(64) DEFAULT NULL COMMENT '参数4',
+  `Param5` char(64) DEFAULT NULL COMMENT '参数5',
+  PRIMARY KEY (`Level`,`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_guildmemberauthority` (
+  `Type` int(11) NOT NULL COMMENT '公会成员权力类型',
+  `IdentityIds` text COMMENT '拥有这个权限的成员身份',
+  PRIMARY KEY (`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_hero` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `TemplateName` varchar(50) DEFAULT '' COMMENT '模板名称',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Quality` int(11) DEFAULT '0' COMMENT '品质',
+  `DefaultSkillId` int(11) DEFAULT '0' COMMENT '普攻',
+  `SkillScript` varchar(100) DEFAULT '' COMMENT '技能',
+  `PropTempId` int(11) DEFAULT '0' COMMENT '属性模板ID',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='英雄模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_heroprop` (
+  `TempId` int(11) NOT NULL COMMENT '属性ID',
+  `Level` smallint(6) DEFAULT NULL COMMENT '属性等级',
+  `PropType` smallint(6) DEFAULT NULL COMMENT '属性类型',
+  `PropTempId` int(11) DEFAULT NULL COMMENT '属性模板ID',
+  `Items` varchar(100) DEFAULT NULL COMMENT '精炼消耗（id,count|id,count...）',
+  `Desc` varchar(50) DEFAULT NULL COMMENT '属性描述',
+  PRIMARY KEY (`TempId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_item` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(20) DEFAULT '' COMMENT '模板名称',
+  `MasterType` int(11) DEFAULT '0' COMMENT '主类型',
+  `SonType` int(11) DEFAULT '0' COMMENT '子类型',
+  `SuitId` int(11) DEFAULT '0' COMMENT '套装ID',
+  `Level` int(11) DEFAULT NULL COMMENT '物品等级',
+  `MaxCount` int(11) DEFAULT '1' COMMENT '最大叠加个数，大于1则可叠加',
+  `PropTempId` int(11) DEFAULT '0' COMMENT '属性模板ID',
+  `Job` int(11) DEFAULT '0' COMMENT '职业限定，0为全职业',
+  `NeedPlayerLevel` int(11) DEFAULT '0' COMMENT '等级限定，0为不限定',
+  `Price` int(11) DEFAULT '0' COMMENT '单价，0为不可出售',
+  `ChipPrice` int(11) DEFAULT '0' COMMENT '碎片价格',
+  `ChipDesc` varchar(100) DEFAULT '0' COMMENT '碎片描述',
+  `ChipCount` int(11) DEFAULT '0' COMMENT '碎片数量',
+  `MallPrice` int(11) DEFAULT '0' COMMENT '起拍价',
+  `Quality` int(11) DEFAULT '0' COMMENT '品质',
+  `Desc` varchar(100) DEFAULT '' COMMENT '描述',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  `Param1` varchar(50) DEFAULT '0' COMMENT '属性1',
+  `Param2` varchar(50) DEFAULT '0' COMMENT '属性2',
+  `Param3` varchar(50) DEFAULT '0' COMMENT '属性3',
+  `Param4` varchar(50) DEFAULT '0' COMMENT '属性4',
+  `Param5` varchar(50) DEFAULT '0' COMMENT '属性5',
+  `Param6` varchar(50) DEFAULT '0' COMMENT '属性6',
+  `Param7` varchar(50) DEFAULT '0' COMMENT '属性7',
+  `Param8` varchar(50) DEFAULT '0' COMMENT '属性8',
+  `Param9` varchar(50) DEFAULT '0' COMMENT '属性9',
+  `Param10` varchar(50) DEFAULT '0' COMMENT '属性10',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='物品模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_living` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(20) DEFAULT '' COMMENT '模板名称',
+  `Desc` varchar(200) DEFAULT NULL COMMENT '描述',
+  `MasterType` int(11) DEFAULT '0' COMMENT '主类型',
+  `SonType` int(11) DEFAULT '0' COMMENT '子类型',
+  `Quality` int(11) DEFAULT '0' COMMENT '品质',
+  `Job` int(11) DEFAULT '0' COMMENT '职业',
+  `ElementType` smallint(6) DEFAULT '0' COMMENT '元素类型',
+  `AttackType` smallint(6) DEFAULT '0' COMMENT '攻击类型',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `PropTempId` int(11) DEFAULT '0' COMMENT '属性模板ID',
+  `CommSkillId` int(11) DEFAULT '0' COMMENT '默认技能ID(普攻)',
+  `InitSkillIds` varchar(100) DEFAULT '' COMMENT '初始技能',
+  `TransSkillId` int(11) DEFAULT '0' COMMENT '变身技能',
+  `SkillAiIds` varchar(50) DEFAULT '' COMMENT '技能AI',
+  `ReplyHp` varchar(100) DEFAULT NULL COMMENT '回复血量列表',
+  `HpCount` int(11) DEFAULT '0' COMMENT '血条数量',
+  `Resource` varchar(100) DEFAULT '' COMMENT '资源',
+  `Icon` varchar(100) DEFAULT '' COMMENT '图标',
+  `AwakeSkillDesc` varchar(100) DEFAULT NULL COMMENT '魔灵觉醒技能描述',
+  `Param1` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param2` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param3` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param4` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param5` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param6` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param7` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param8` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param9` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param10` varchar(100) DEFAULT '' COMMENT '参数',
+  `StarSignId` int(11) DEFAULT NULL COMMENT '星盘模板ID',
+  `StoryShow` varchar(200) DEFAULT NULL COMMENT '故事背景',
+  `SacristyId` int(11) DEFAULT NULL COMMENT '初始神器ID',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='英雄模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_loadingtips` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板ID',
+  `Type` int(11) DEFAULT NULL COMMENT '类型',
+  `Desc` varchar(255) DEFAULT NULL COMMENT '说明',
+  PRIMARY KEY (`TemplateId`),
+  KEY `t_s_loadingtips_Type` (`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户端提示文本';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_losetips` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板ID',
+  `Name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `Priority` int(11) DEFAULT NULL COMMENT '优先级',
+  `StarCount` int(11) DEFAULT NULL COMMENT '星数',
+  `Desc` varchar(255) DEFAULT NULL COMMENT '文本',
+  `NeedCall` int(11) DEFAULT NULL COMMENT '是否需要召唤',
+  `OpenLevel` int(11) DEFAULT NULL COMMENT '打开等级',
+  `GoBackId` int(11) DEFAULT NULL COMMENT '返回ID',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户端失败文本提示';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manor` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `ManorIndex` tinyint(4) DEFAULT '0' COMMENT '层号',
+  `ResType` tinyint(4) DEFAULT '0' COMMENT '资源类型(0gold,1water)',
+  `MaxResValue` int(11) DEFAULT '0' COMMENT '最大资源数量',
+  `BufferId` int(11) DEFAULT '0' COMMENT 'bufferId',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地资源模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorbuffer` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(100) DEFAULT '' COMMENT '名称',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Desc` varchar(100) DEFAULT '' COMMENT '描述',
+  `IsHarmful` int(11) DEFAULT '0' COMMENT '是否有害',
+  `Rate` int(11) DEFAULT '0' COMMENT '触发概率',
+  `TargetType` int(11) DEFAULT '0' COMMENT '目标类型',
+  `Round` int(11) DEFAULT '0' COMMENT '持续回合数',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  `Param1` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param2` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param3` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param4` varchar(50) DEFAULT '' COMMENT '参数',
+  `Param5` varchar(100) DEFAULT '' COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地战斗buffer表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorliving` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模版ID',
+  `SkillIds` varchar(100) DEFAULT '' COMMENT '技能列表',
+  `Param1` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param2` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param3` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param4` varchar(100) DEFAULT '' COMMENT '参数',
+  `Param5` varchar(100) DEFAULT '' COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地战斗魔灵模版表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manormine` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '矿点名称',
+  `Type` tinyint(4) DEFAULT '0' COMMENT '资源类型',
+  `NeedLevel` smallint(6) DEFAULT '0' COMMENT '开启所需玩家等级',
+  `Capacity` int(11) DEFAULT '0' COMMENT '矿点容量',
+  `MineIndex` tinyint(4) DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地矿点模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorrandomnode` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `MapId` int(11) DEFAULT '0' COMMENT '地图Id',
+  `Nodes` varchar(100) DEFAULT '' COMMENT '节点',
+  `CoolDown` int(11) DEFAULT '0' COMMENT '冷却时间(分钟)',
+  `InitNodeId` int(11) DEFAULT '0' COMMENT '初始节点id',
+  `InitNodePos` int(11) DEFAULT '0' COMMENT '初始节点位置',
+  `NodeIndex` int(11) NOT NULL DEFAULT '0' COMMENT '本组节点序号',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地随机点配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorrank` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Type` int(11) NOT NULL DEFAULT '0' COMMENT '类型',
+  `Name` varchar(50) DEFAULT '' COMMENT '名称',
+  `MinScore` int(11) DEFAULT '0' COMMENT '积分下限',
+  `MaxScore` int(11) DEFAULT '0' COMMENT '积分上限',
+  `WeightScore` int(11) DEFAULT '0' COMMENT '加权分',
+  `Icon` varchar(50) DEFAULT '0' COMMENT '图标',
+  `MaxResource` smallint(6) DEFAULT '0' COMMENT '损失金库资源百分比',
+  `RemainResource` smallint(6) DEFAULT '0' COMMENT '损失未收取资源百分比',
+  `SwitchGold` int(11) DEFAULT '0' COMMENT '搜索扣除金币',
+  `BaseGold` int(11) DEFAULT '0' COMMENT '掠夺基础奖励黄金',
+  `BaseWater` int(11) DEFAULT '0' COMMENT '掠夺基础奖励光晶',
+  `WeekRewards` varchar(50) DEFAULT '' COMMENT '周奖励',
+  `FristWeekRewards` varchar(50) DEFAULT '' COMMENT '王者第一周奖励',
+  `SecondWeekRewards` varchar(50) DEFAULT '' COMMENT '王者第二周奖励',
+  `ThirdWeekRewards` varchar(50) DEFAULT '' COMMENT '王者第三周奖励',
+  `MonthRewards` varchar(50) DEFAULT '' COMMENT '赛季奖励',
+  `FristMonthRewards` varchar(50) DEFAULT '' COMMENT '王者第一赛季奖励',
+  `SecondMonthRewards` varchar(50) DEFAULT '' COMMENT '王者第二赛季奖励',
+  `ThirdMonthRewards` varchar(50) DEFAULT '' COMMENT '王者第三赛季奖励',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地排名模版表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorskill` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT NULL COMMENT '模板名称',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Desc` varchar(100) DEFAULT NULL COMMENT '描述',
+  `UseWay` smallint(6) DEFAULT '0' COMMENT '技能类型物理/魔法/治疗',
+  `Condition` smallint(6) DEFAULT '0' COMMENT '释放条件',
+  `TargetType` smallint(6) DEFAULT '0' COMMENT '目标选择类型',
+  `Factor` int(11) DEFAULT '0' COMMENT '伤害/治疗系数',
+  `Element` int(11) DEFAULT '0' COMMENT '元素属性',
+  `LifeSteal` int(11) DEFAULT '0' COMMENT '生命偷取比例',
+  `AttackTimes` int(11) DEFAULT '0' COMMENT '攻击次数',
+  `AnimationId` int(11) DEFAULT '0' COMMENT '技能表现类型',
+  `BufferIds` varchar(50) DEFAULT NULL COMMENT 'ManorBuffer模版ID表',
+  `Icon` varchar(100) DEFAULT '0' COMMENT '图标',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT '' COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地战斗技能模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_manorskin` (
+  `GroupId` int(11) NOT NULL COMMENT '皮肤分组Id',
+  `EffectIds` varchar(50) DEFAULT '' COMMENT '效果Ids',
+  PRIMARY KEY (`GroupId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地皮肤效果模版表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_matchreward` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `RankMin` int(11) DEFAULT '0' COMMENT '排名下限',
+  `RankMax` int(11) DEFAULT '0' COMMENT '排名上限',
+  `Gold` int(11) DEFAULT '0' COMMENT '金币',
+  `Medal` int(11) DEFAULT '0' COMMENT '勋章',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='竞技场奖励品表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_maze` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '迷宫ID',
+  `FloorId` int(11) DEFAULT '0' COMMENT '层ID',
+  `Name` varchar(255) DEFAULT '' COMMENT '名称',
+  `NeedStrength` smallint(6) DEFAULT '0' COMMENT '所需体力',
+  `Desc` varchar(255) DEFAULT '' COMMENT '描述',
+  `CampId` int(11) DEFAULT '0' COMMENT '副本ID',
+  `RandCount` smallint(6) DEFAULT '0' COMMENT '增援次数',
+  `SkinID` int(11) DEFAULT '0' COMMENT '皮肤ID',
+  `ProductIds` varchar(255) DEFAULT '' COMMENT '每层首通奖励',
+  `BgName` int(11) DEFAULT NULL COMMENT '战斗背景',
+  `LimitCount` int(11) DEFAULT '0',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_mazeai` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT 'ID',
+  `Type` smallint(6) DEFAULT '0' COMMENT '掉落类型1.宝箱2.怪物',
+  `Name` varchar(255) DEFAULT '' COMMENT '名称',
+  `Param1` varchar(255) DEFAULT '' COMMENT '参数1',
+  `Param2` varchar(255) DEFAULT '' COMMENT '参数2',
+  `Param3` varchar(255) DEFAULT '' COMMENT '参数3',
+  `Param4` varchar(255) DEFAULT '' COMMENT '参数4',
+  `Param5` varchar(255) DEFAULT '' COMMENT '参数5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫AI表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_mazelivings` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `MazeTempId` int(11) DEFAULT '0' COMMENT '迷宫模板Id',
+  `AiIds` varchar(255) DEFAULT '' COMMENT 'ai列表',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫随机增援战表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_mazemode` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `DifficultLevel` smallint(6) DEFAULT '0' COMMENT '难度等级',
+  `MazeTempId` int(11) DEFAULT '0' COMMENT '迷宫模板Id',
+  `FightCapacity` int(11) DEFAULT '0' COMMENT '推荐战力',
+  `Rewards` varchar(50) DEFAULT '0' COMMENT '展示奖励',
+  `BgName` varchar(20) DEFAULT '' COMMENT '战斗背景名称',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫模式配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_mazenode` (
+  `MazeTempId` int(11) NOT NULL DEFAULT '0' COMMENT '迷宫ID',
+  `NodeId` int(11) DEFAULT '0' COMMENT '节点ID',
+  `ShowLivingId` int(11) DEFAULT '0' COMMENT '显示怪物',
+  `AiIds` varchar(255) DEFAULT '' COMMENT 'ai列表',
+  `Param1` varchar(255) DEFAULT NULL COMMENT '参数1',
+  `Param2` varchar(255) DEFAULT NULL COMMENT '参数2',
+  `Param3` varchar(255) DEFAULT NULL COMMENT '参数3',
+  `Param4` varchar(255) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(255) DEFAULT NULL COMMENT '参数5'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫路径表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_messageconfig` (
+  `TemplateId` int(11) NOT NULL,
+  `Type` int(255) DEFAULT NULL,
+  `Param1` text,
+  `Param2` text,
+  `Value` text,
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_modelconfig` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Desc` varchar(100) DEFAULT NULL COMMENT '文字描述',
+  `Resource` varchar(100) DEFAULT NULL COMMENT '对应的模型资源',
+  `AttackPos` varchar(100) DEFAULT NULL COMMENT '被攻击时攻击方相对自己的位置',
+  `HitPos` varchar(100) DEFAULT NULL COMMENT '受击点，受击特效位置',
+  `Height` int(11) DEFAULT '0' COMMENT '模型高度，用于判断头定位置',
+  `ShadowDiameter` int(11) DEFAULT '0' COMMENT '脚下阴影大小',
+  `Width` int(11) DEFAULT '0' COMMENT '宽度',
+  `HitSound` varchar(100) DEFAULT NULL COMMENT '受击时的声音',
+  `DieSound` varchar(100) DEFAULT NULL COMMENT '死亡时的声音',
+  `CanQuake` int(11) DEFAULT NULL COMMENT '被攻击时是否能够被震屏',
+  `BossMarkSize` int(11) DEFAULT '0' COMMENT '作为boss时的标记大小',
+  `BossMarkEffect` varchar(100) DEFAULT NULL COMMENT '作为boss时的标记特效名称',
+  `Scale` varchar(20) DEFAULT NULL COMMENT '缩放',
+  `Color` varchar(100) DEFAULT NULL COMMENT '颜色',
+  `Canfly` varchar(20) DEFAULT '' COMMENT '是否飞行',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='模型数据配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_moneymanual` (
+  `TemplateId` int(11) NOT NULL,
+  `MoneyTypeId` int(11) DEFAULT NULL,
+  `Type` varchar(50) DEFAULT NULL,
+  `Desc` varchar(200) DEFAULT NULL,
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_multilanguage` (
+  `Name` varchar(100) NOT NULL,
+  `Language_zh` text COMMENT '中文',
+  `Language_en` text COMMENT '英文',
+  PRIMARY KEY (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='多语言对应表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_npc` (
+  `NpcId` int(11) DEFAULT NULL COMMENT '随机任务小人ID',
+  `Path` varchar(100) DEFAULT NULL COMMENT '小人路径种类',
+  `AcceptQuestIds` varchar(500) DEFAULT NULL COMMENT '小人可接取随机任务ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内城小人随机任务分配表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_petmanual` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `MasterType` int(11) DEFAULT NULL COMMENT '主类型',
+  `ID` int(11) DEFAULT NULL COMMENT 'LivingID',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Desc` varchar(1024) DEFAULT '' COMMENT '描述',
+  `Param1` varchar(50) DEFAULT '0' COMMENT '属性1',
+  `Param2` varchar(50) DEFAULT '0' COMMENT '属性2',
+  `Param3` varchar(50) DEFAULT '0' COMMENT '属性3',
+  `Param4` varchar(50) DEFAULT '0' COMMENT '属性4',
+  `Param5` varchar(50) DEFAULT '0' COMMENT '属性5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='魔灵图鉴表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_product` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板Id',
+  `Type` smallint(11) DEFAULT NULL COMMENT '产出类型',
+  `ObjectId` int(11) DEFAULT NULL COMMENT '对象Id',
+  `Count` int(11) DEFAULT NULL COMMENT '数量',
+  `IsBind` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `IsTip` tinyint(1) DEFAULT NULL COMMENT '是否广播',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数1',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数2',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数3',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产出配置表，对于客户端主要用于有掉落地方的奖励预览，数据库本身不会向客户端暴露掉落表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_property` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `Hp` int(11) DEFAULT '0' COMMENT '生命',
+  `Attack` int(11) DEFAULT '0' COMMENT '攻击',
+  `PhysicDefence` int(11) DEFAULT '0' COMMENT '物防',
+  `MagicDefence` int(11) DEFAULT '0' COMMENT '魔防',
+  `CritValue` int(11) DEFAULT '0' COMMENT '暴击值',
+  `CritPer` int(11) DEFAULT '0' COMMENT '暴击率',
+  `CritDamage` int(11) DEFAULT '0' COMMENT '暴击伤害',
+  `Resilience` int(11) DEFAULT '0' COMMENT '韧性',
+  `BlockValue` int(11) DEFAULT '0' COMMENT '格挡值',
+  `BlockPer` int(11) DEFAULT '0' COMMENT '格挡率',
+  `BlockAntiPer` int(11) DEFAULT '0' COMMENT '格挡减伤率',
+  `Penetration` int(11) DEFAULT '0' COMMENT '穿透',
+  `Dodge` int(11) DEFAULT '0' COMMENT '闪避',
+  `HpRenewValue` int(11) DEFAULT '0' COMMENT '血量回复值',
+  `HpRenewPer` int(11) DEFAULT '0' COMMENT '血量回复百分比',
+  `WindResistance` int(11) DEFAULT '0' COMMENT '风抗',
+  `DustResistance` int(11) DEFAULT '0' COMMENT '土抗',
+  `WaterResistance` int(11) DEFAULT '0' COMMENT '水抗',
+  `FireResistance` int(11) DEFAULT '0' COMMENT '火抗',
+  `LightResistance` int(11) DEFAULT '0' COMMENT '光抗',
+  `ShadowResistance` int(11) DEFAULT '0' COMMENT '暗抗',
+  `WindAnti` int(11) DEFAULT '0' COMMENT '风系减免',
+  `DustAnti` int(11) DEFAULT '0' COMMENT '土系减免',
+  `WaterAnti` int(11) DEFAULT '0' COMMENT '水系减免',
+  `FireAnti` int(11) DEFAULT '0' COMMENT '火系减免',
+  `LightAnti` int(11) DEFAULT '0' COMMENT '光系减免',
+  `ShadowAnti` int(11) DEFAULT '0' COMMENT '暗系减免',
+  `DamageExtra` int(11) DEFAULT '0' COMMENT '伤害加成',
+  `DamageAnti` int(11) DEFAULT '0' COMMENT '伤害减免',
+  `DamageExtraValue` int(11) DEFAULT '0' COMMENT '伤害增加固定值',
+  `DamageAntiValue` int(11) DEFAULT '0' COMMENT '伤害减免固定值',
+  `PhyDefignore` int(11) DEFAULT '0' COMMENT '无视物理防御',
+  `MgDefignore` int(11) DEFAULT '0' COMMENT '无视魔法防御',
+  `PhyEnhanced` int(11) DEFAULT '0' COMMENT '物理减伤率',
+  `MgEnhanced` int(11) DEFAULT '0' COMMENT '魔法减伤率',
+  `WaterEnhanced` int(11) DEFAULT '0' COMMENT 'WaterEnhanced',
+  `FireEnhanced` int(11) DEFAULT '0' COMMENT 'FireEnhanced',
+  `WindEnhanced` int(11) DEFAULT '0' COMMENT 'WindEnhanced',
+  `DustEnhanced` int(11) DEFAULT '0' COMMENT 'DustEnhanced',
+  `LightEnhanced` int(11) DEFAULT '0' COMMENT 'LightEnhanced',
+  `ShadowEnhanced` int(11) DEFAULT '0' COMMENT 'ShadowEnhanced',
+  `BuffResistance` int(11) DEFAULT '0' COMMENT 'BuffResistance',
+  `BuffHit` int(11) DEFAULT '0' COMMENT 'buff命中率',
+  `ResistIgnore` int(11) DEFAULT '0' COMMENT '无视抗性百分比',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='属性模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_qteai` (
+  `TemplateId` int(11) NOT NULL COMMENT '模版ID',
+  `CanExecTimes` smallint(6) DEFAULT '0' COMMENT '触发次数限定',
+  `SucSkillIds` varchar(50) DEFAULT '' COMMENT 'Qte成功时释放技能',
+  `FailSkillIds` varchar(50) DEFAULT '' COMMENT 'Qte失败时释放技能',
+  `DefEnergyCount` smallint(6) DEFAULT '0' COMMENT '释放要求类型',
+  `ButtonCount` varchar(100) DEFAULT NULL COMMENT 'QTE按钮的位置',
+  `Skin` smallint(6) DEFAULT '0' COMMENT 'boss护盾的颜色 红黄蓝绿紫',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '预留字段1',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '预留字段2',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '预留字段3',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '预留字段4',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '预留字段5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='QTEAI模版表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_quest` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT '' COMMENT '任务名称',
+  `Type` int(11) DEFAULT '0' COMMENT '任务类型',
+  `ConditionRelationType` smallint(6) DEFAULT '0' COMMENT '条件关系类型',
+  `PreTempId` int(11) DEFAULT '0' COMMENT '前置任务Id',
+  `NeedLevel` int(11) DEFAULT '0' COMMENT '所需玩家等级',
+  `Desc` varchar(100) DEFAULT '' COMMENT '任务描述',
+  `ProductIds` varchar(100) DEFAULT '' COMMENT '产出Id',
+  `IsAutoComplete` tinyint(1) DEFAULT '0' COMMENT '是否自动完成',
+  `IsTeam` tinyint(1) DEFAULT '0' COMMENT '是否组队任务',
+  `IsTip` tinyint(1) DEFAULT '0' COMMENT '是否提示',
+  `Icon` varchar(50) DEFAULT '' COMMENT '图标',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_questcondition` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '条件Id',
+  `Name` varchar(20) DEFAULT '' COMMENT '条件标题',
+  `QuestTempId` int(11) DEFAULT '0' COMMENT '任务模板Id',
+  `Type` int(11) DEFAULT '0' COMMENT '条件类型',
+  `Param1` varchar(50) DEFAULT '' COMMENT '参数1',
+  `Param2` varchar(50) DEFAULT '' COMMENT '参数2',
+  `Param3` varchar(50) DEFAULT '' COMMENT '参数3',
+  `Param4` varchar(50) DEFAULT '' COMMENT '参数4',
+  `Param5` varchar(50) DEFAULT '' COMMENT '参数5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务条件表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_randomcamp` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板ID',
+  `Type` int(11) DEFAULT NULL COMMENT '怪物类型',
+  `SonType` int(11) DEFAULT NULL COMMENT '等级子类型',
+  `Name` varchar(50) DEFAULT NULL COMMENT '显示名称',
+  `NeedStrength` int(11) DEFAULT NULL COMMENT '所需体力',
+  `BattleMonster` varchar(150) DEFAULT NULL COMMENT '战斗怪物',
+  `DropId` int(11) DEFAULT NULL COMMENT '掉落ID',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='悬赏战斗怪物表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_randomname` (
+  `TemplateId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `FirstName` varchar(50) DEFAULT NULL COMMENT '首名字',
+  `SecondName` varchar(100) DEFAULT NULL COMMENT '第二昵称',
+  `ThirdName` varchar(100) DEFAULT NULL COMMENT '第三昵称',
+  `FourthName` varchar(100) DEFAULT NULL COMMENT '第四昵称',
+  `FifthName` varchar(100) DEFAULT NULL COMMENT '第五昵称',
+  `SixthName` varchar(100) DEFAULT NULL COMMENT '第六昵称',
+  `SeventhName` varchar(100) DEFAULT NULL COMMENT '第七昵称',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_resmovenode` (
+  `OwnType` int(11) DEFAULT '0' COMMENT '资源所属类型',
+  `OwnId` int(11) DEFAULT '0' COMMENT '资源拥有者Id',
+  `Id` int(11) DEFAULT '0' COMMENT '资源Id',
+  `PosId` int(11) DEFAULT '0' COMMENT '位置Id',
+  `NextPosId` int(11) DEFAULT '0' COMMENT '下一位置Id',
+  `X` int(11) DEFAULT '0' COMMENT '坐标X',
+  `Y` int(11) DEFAULT '0' COMMENT '坐标Y',
+  `RunMill` int(11) DEFAULT NULL COMMENT '移动到下一位置所需时间',
+  `StdMill` int(11) DEFAULT NULL COMMENT '当前位置停留时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源移动路径';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_resource` (
+  `OwnType` int(11) DEFAULT '0' COMMENT '所属类型',
+  `OwnId` int(11) DEFAULT '0' COMMENT '所属Id',
+  `Id` int(11) DEFAULT '0' COMMENT '资源Id',
+  `ZOrder` int(11) DEFAULT '0' COMMENT 'Z轴',
+  `Type` int(11) DEFAULT '0' COMMENT '资源类型',
+  `X` int(11) DEFAULT '0' COMMENT '横向偏移',
+  `Y` int(11) DEFAULT '0' COMMENT '纵向偏移',
+  `Rotate` int(11) DEFAULT '0' COMMENT '旋转角度',
+  `Res` varchar(50) DEFAULT '0' COMMENT '资源名称',
+  `ScaleX` int(11) DEFAULT '100' COMMENT '缩放',
+  `ScaleY` int(11) DEFAULT '100' COMMENT '缩放',
+  `Alpha` int(11) DEFAULT '255' COMMENT '设置Alpha',
+  `BlendFunc1` int(11) DEFAULT '770' COMMENT '混合模式参数1',
+  `BlendFunc2` int(11) DEFAULT '771' COMMENT '混合模式参数2',
+  `Prop1` varchar(200) DEFAULT '' COMMENT '属性',
+  `Prop2` varchar(200) DEFAULT '' COMMENT '属性',
+  `Prop3` varchar(200) DEFAULT '' COMMENT '属性',
+  `Prop4` varchar(200) DEFAULT '' COMMENT '属性',
+  `Prop5` varchar(200) DEFAULT '' COMMENT '属性',
+  `Prop6` varchar(200) DEFAULT '' COMMENT '属性',
+  `ShaderType` int(11) DEFAULT '0' COMMENT '渲染类型',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param6` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param7` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param8` varchar(50) DEFAULT NULL COMMENT '参数'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本地图的显示原件配置表，包括图片、特效、人形原件等';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_resrecovery` (
+  `Level` int(11) NOT NULL COMMENT '等级',
+  `Type` int(11) NOT NULL COMMENT '追回资源类型',
+  `ResType` int(11) NOT NULL COMMENT '资源类型',
+  `ResId` int(11) NOT NULL COMMENT '资源Id',
+  `ResTotal` int(11) NOT NULL COMMENT '一天追回资源总量',
+  PRIMARY KEY (`Level`,`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源追回活动配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_robot` (
+  `RobotId` int(11) NOT NULL DEFAULT '0' COMMENT '模版ID',
+  `Name` varchar(50) DEFAULT '' COMMENT '队伍名称',
+  `Icon` varchar(100) DEFAULT '' COMMENT '图标',
+  `Job` int(11) DEFAULT '0' COMMENT '职业',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `MasterType` int(11) DEFAULT '0' COMMENT '职业',
+  `SonIndex` int(11) DEFAULT '0' COMMENT '职业',
+  `Role` varchar(50) DEFAULT '' COMMENT '角色模版ID,位置',
+  `Heros` varchar(50) DEFAULT '' COMMENT '英雄模版ID1,英雄模版ID2',
+  `Pets` varchar(50) DEFAULT '' COMMENT '魔灵模版ID1,位置|魔灵模版ID2,位置',
+  `RankScore` int(11) DEFAULT '0' COMMENT '积分',
+  `Gold` int(11) DEFAULT '0' COMMENT '黄金储量',
+  `Water` int(11) DEFAULT '0' COMMENT '圣水储量',
+  `GoldPool` int(11) DEFAULT '0' COMMENT '黄金池储量',
+  `WaterPool` int(11) DEFAULT '0' COMMENT '圣水池储量',
+  `ManorMine` varchar(100) DEFAULT '' COMMENT '矿点index,资源量,魔灵Id|xx',
+  `TowerLivingId` int(11) DEFAULT '0' COMMENT '防御塔模板Id',
+  PRIMARY KEY (`RobotId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='战斗机器人队伍模版表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_sacristy` (
+  `TemplateId` int(11) NOT NULL COMMENT '神器模板ID',
+  `GroupId` int(11) DEFAULT NULL COMMENT '神器分组ID',
+  `Name` varchar(50) DEFAULT NULL COMMENT '神器名称',
+  `BasePropId` int(11) DEFAULT NULL COMMENT '基本属性模板ID',
+  `GrowPropId` int(11) DEFAULT NULL COMMENT '属性成长模板ID(每级增长)',
+  `SkillIds` varchar(200) DEFAULT NULL COMMENT '属性技能(skillId,needLv|skillId,needLv|skillId,needLv)',
+  `AwakeTimes` int(11) DEFAULT NULL COMMENT '觉醒等级',
+  `AwakeSkillIds` varchar(200) DEFAULT NULL COMMENT '觉醒属性技能(skillId,skillId,skillId)',
+  `AwakeNeedItems` varchar(200) DEFAULT NULL COMMENT '觉醒消耗(itemId,count|itemId,count|itemId,count)',
+  `AwakeNeedLevel` int(11) DEFAULT NULL COMMENT '觉醒所需等级',
+  `Param1` varchar(200) DEFAULT NULL COMMENT '参数1',
+  `Param2` varchar(200) DEFAULT NULL COMMENT '参数2',
+  `Param3` varchar(200) DEFAULT NULL COMMENT '参数3',
+  `Param4` varchar(200) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(200) DEFAULT NULL COMMENT '参数5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='神器模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_serverconfig` (
+  `Key` varchar(50) NOT NULL COMMENT '变量名',
+  `Value` varchar(100) DEFAULT NULL COMMENT '变量值',
+  `Desc` varchar(100) DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`Key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='服务器变量配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_shopitem` (
+  `TemplateId` int(11) NOT NULL COMMENT 'ID',
+  `Type` smallint(6) NOT NULL COMMENT '类型',
+  `ProductTempId` int(11) NOT NULL COMMENT '产品模版ID',
+  `LimitCount` int(11) NOT NULL DEFAULT '0' COMMENT '限购次数',
+  `IsResetByDay` smallint(6) DEFAULT '0' COMMENT '是否是每日重置的商品',
+  `Param1` varchar(50) DEFAULT '0' COMMENT '属性1',
+  `Param2` varchar(50) DEFAULT '0' COMMENT '属性2',
+  `Param3` varchar(50) DEFAULT '0' COMMENT '属性3',
+  `Param4` varchar(50) DEFAULT '0' COMMENT '属性4',
+  `Param5` varchar(50) DEFAULT '0' COMMENT '属性5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_sign` (
+  `SignId` int(11) NOT NULL AUTO_INCREMENT COMMENT '签到模板ID',
+  `Year` smallint(6) NOT NULL COMMENT '年',
+  `Month` tinyint(4) NOT NULL COMMENT '月',
+  `Day` tinyint(4) NOT NULL COMMENT '日',
+  `ProductId` int(11) NOT NULL COMMENT '该日签到奖励产出ID',
+  `DoubleLevel` smallint(6) DEFAULT '0' COMMENT '翻倍所需VIP等级， 0不翻倍',
+  PRIMARY KEY (`SignId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='每日签到奖励表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_skill` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(50) DEFAULT NULL COMMENT '模板名称',
+  `Job` int(11) DEFAULT '0' COMMENT '职业',
+  `Level` int(11) DEFAULT '0' COMMENT '技能等级',
+  `NeedLevel` int(11) DEFAULT '0' COMMENT '需要玩家等级',
+  `NeedGold` int(11) DEFAULT NULL,
+  `NeedPetLevel` int(11) DEFAULT NULL COMMENT '随从技能升级所需的魔灵等级',
+  `NeedAwakeLevel` int(11) DEFAULT NULL COMMENT '随从技能升级所需的魔灵突破星级',
+  `PreTempIds` varchar(50) DEFAULT NULL COMMENT '前置模板ID',
+  `NextTempIds` int(11) DEFAULT '0' COMMENT '下级模板ID',
+  `Pos` int(11) DEFAULT '0' COMMENT '位置',
+  `Desc` varchar(150) DEFAULT NULL COMMENT '技能描述',
+  `NextLevelDesc` varchar(150) DEFAULT NULL COMMENT '技能描述',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `DamageCalcType` int(11) DEFAULT '0' COMMENT '伤害计算类型',
+  `Element` int(11) DEFAULT '0' COMMENT '元素属性',
+  `TargetType` smallint(6) DEFAULT '0' COMMENT '目标选择类型',
+  `Range` smallint(6) DEFAULT '0' COMMENT '移屏效果区分',
+  `UseWay` smallint(6) DEFAULT '0' COMMENT '主动/被动',
+  `UseType` smallint(6) DEFAULT '0' COMMENT '使用类型',
+  `PerformanceType` int(11) DEFAULT NULL COMMENT '表现类型',
+  `EarthQuake` int(11) DEFAULT '0' COMMENT '屏幕震动配置项',
+  `PositionQuake` int(11) DEFAULT '0' COMMENT '模型震动配置项',
+  `ShadowRelease` int(11) DEFAULT '0' COMMENT '残影配置项',
+  `LightsCover` int(11) DEFAULT '0' COMMENT '光影变化配置项',
+  `ScreenFocus` int(11) DEFAULT '0' COMMENT '视角聚焦配置项',
+  `PriorityValue` smallint(6) DEFAULT '0' COMMENT '优先级类型',
+  `AttackTimes` int(11) DEFAULT '0' COMMENT '攻击次数',
+  `CostSp` int(11) DEFAULT '0' COMMENT '消耗怒气',
+  `CostMp` int(11) DEFAULT '0' COMMENT '消耗符能',
+  `CostTargetSp` int(11) DEFAULT '0' COMMENT '消耗目标对象的SP',
+  `CastTime` int(11) DEFAULT '0' COMMENT '消耗时间',
+  `CostTime` int(11) DEFAULT '0' COMMENT '施法时间',
+  `ExtraTime` int(11) DEFAULT '0' COMMENT '技能释放额外时间(放慢动作)',
+  `CoolDown` int(11) DEFAULT '0' COMMENT '冷却时间',
+  `ExtraDamageFactor` int(11) DEFAULT '0' COMMENT '额外伤害加成系数',
+  `ExtraDamageAdd` int(11) DEFAULT '0' COMMENT '额外伤害加成数',
+  `ExtraDefDamage` int(11) DEFAULT '0' COMMENT '防御伤害',
+  `ExtraMaxHpDamage` int(11) DEFAULT '0' COMMENT '防御伤害',
+  `BufferIds` varchar(50) DEFAULT NULL COMMENT 'Buffer模版ID表',
+  `Disperse` varchar(50) DEFAULT NULL COMMENT '驱散',
+  `AnimationId` int(11) DEFAULT '0' COMMENT '动画ID',
+  `Icon` varchar(100) DEFAULT '0' COMMENT '图标',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能模板';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_skillai` (
+  `TemplateId` int(11) NOT NULL COMMENT '技能释放模板Ai表',
+  `DemandType` int(11) DEFAULT NULL COMMENT '释放要求类型',
+  `DemandParam` int(11) DEFAULT NULL COMMENT '释放要求参数',
+  `ExecutorType` int(11) DEFAULT NULL COMMENT '执行类型',
+  `IsLoop` int(11) DEFAULT NULL COMMENT '释放循环执行',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '预留字段1',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '预留字段2',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '预留字段3',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '预留字段4',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '预留字段5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能释放AI表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_skillanimation` (
+  `AnimationId` int(11) DEFAULT NULL COMMENT '技能模板ID',
+  `Target` varchar(11) DEFAULT NULL COMMENT 'self代表英雄 target代表目标 其他代表动画名称',
+  `Action` varchar(50) DEFAULT NULL COMMENT '动作名字',
+  `StartFrame` int(11) DEFAULT NULL COMMENT '动作播放起始位置',
+  `EndFrame` int(11) DEFAULT NULL COMMENT '动作长度',
+  `Lenght` int(11) DEFAULT NULL COMMENT '持续时间',
+  `ZOrder` varchar(25) DEFAULT NULL COMMENT '渲染层级',
+  `Parent` int(11) DEFAULT NULL COMMENT '父节点',
+  `X` float DEFAULT NULL COMMENT '目标的水平位置',
+  `Y` float DEFAULT NULL COMMENT '目标的垂直位置',
+  `Type` int(11) DEFAULT NULL COMMENT '1 代表动画 2代表声音 3代表特效 4代表英雄 5代表移动',
+  `Locus` varchar(25) DEFAULT NULL COMMENT '轨迹类型',
+  `EaseType` varchar(25) DEFAULT '' COMMENT '缓动类型',
+  `EasePoint` varchar(100) DEFAULT NULL COMMENT '轨迹运动需要经过的点',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '参数'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能展现数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_skillease` (
+  `TemplateId` varchar(64) DEFAULT NULL COMMENT '模板ID',
+  `StartFrame` int(11) DEFAULT NULL COMMENT '开始帧',
+  `EndFrame` int(11) DEFAULT NULL COMMENT '结束帧',
+  `Type` int(11) DEFAULT NULL COMMENT '类型',
+  `EaseType` int(11) DEFAULT NULL COMMENT '减速类型',
+  `Param1` varchar(255) DEFAULT NULL COMMENT '参数1',
+  `Param2` varchar(255) DEFAULT NULL COMMENT '参数2',
+  `Param3` varchar(255) DEFAULT NULL COMMENT '参数3',
+  `Param4` varchar(255) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(255) DEFAULT NULL COMMENT '参数5'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户端技能减速表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_sound` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `PlayType` int(11) DEFAULT '0' COMMENT '播放类型',
+  `Files` varchar(200) DEFAULT '' COMMENT '文件列表',
+  `Interval` int(11) DEFAULT '0' COMMENT '周期',
+  `Volume` int(11) DEFAULT '100' COMMENT '音量',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='游戏音乐配置表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_starsign` (
+  `TemplateId` int(11) NOT NULL COMMENT '星盘ID',
+  `Quality` int(11) DEFAULT NULL COMMENT '星盘品质 白~橙 1~5',
+  `PageList` varchar(100) DEFAULT NULL COMMENT '包含的星盘页列表（id,id,id...）',
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_starsignmap` (
+  `QualityLevel` smallint(6) NOT NULL COMMENT '星盘页等级：一共分为17个品级，对应 1~17，分别是：白，绿，蓝，蓝+1，蓝+2，紫，紫+1，紫+2，紫+3，紫+4，橙，橙+1，橙+2，橙+3，橙+4，橙+5，橙+6',
+  `Quality` smallint(6) DEFAULT NULL COMMENT '对应品质',
+  `Desc` varchar(20) DEFAULT NULL COMMENT '等级描述',
+  `NeedLevel` int(11) DEFAULT NULL COMMENT '突破所需等级',
+  `Items` varchar(100) DEFAULT NULL COMMENT '突破所需资源消耗(id,count|id,count...)',
+  `PropertyId` int(11) DEFAULT NULL COMMENT '属性百分比加成模板',
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`QualityLevel`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_starsignnode` (
+  `TemplateId` int(11) NOT NULL COMMENT '星盘节点模板ID',
+  `Properties` varchar(50) DEFAULT NULL COMMENT '加成属性(id,id...)',
+  `Items` varchar(50) DEFAULT NULL COMMENT '激活所需物品和数目(id,count|id,count...)',
+  `Img` varchar(50) DEFAULT NULL,
+  `Border` smallint(6) DEFAULT NULL COMMENT '星盘节点边框',
+  `Name` varchar(50) DEFAULT NULL COMMENT '节点名称',
+  `NeedLevel` int(11) DEFAULT '0' COMMENT '激活所需等级',
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_starsignpage` (
+  `TemplateId` int(11) NOT NULL COMMENT '星盘页模板ID',
+  `Nodes` varchar(100) DEFAULT NULL COMMENT '星盘页包含的星盘节点（id,index|id,index...）',
+  `Img` varchar(100) DEFAULT NULL COMMENT '背景图',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '保留字段',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '保留字段',
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_stone` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Name` varchar(1024) DEFAULT NULL COMMENT '名称',
+  `Desc` varchar(1024) DEFAULT NULL COMMENT '描述',
+  `Type` int(11) DEFAULT '0' COMMENT '类型',
+  `NeedPlayerLevel` int(11) DEFAULT '0' COMMENT '角色需要等级',
+  `NeedGold` int(11) DEFAULT '0' COMMENT '需要黄金',
+  `DropId` int(11) DEFAULT '0' COMMENT '掉落ID',
+  `Param1` varchar(255) DEFAULT NULL COMMENT '参数1(概率)',
+  `Param2` varchar(255) DEFAULT NULL COMMENT '参数2(下一级模板)',
+  `Param3` varchar(255) DEFAULT NULL COMMENT '参数3(获取积分)',
+  `Param4` varchar(255) DEFAULT NULL COMMENT '参数4',
+  `Param5` varchar(255) DEFAULT NULL COMMENT '参数5'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='符文石表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_story` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `GroupId` int(11) DEFAULT '0' COMMENT '分组Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '剧情名称',
+  `TriggerType` int(11) DEFAULT '0' COMMENT '触发类型',
+  `ConditionIds` varchar(100) DEFAULT '' COMMENT '条件Id列表',
+  `ShowIds` varchar(1000) DEFAULT '' COMMENT '展示Id',
+  `SynType` smallint(6) DEFAULT '0' COMMENT 'Syn类型',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='剧情表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_storycamp` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `HeroId` int(11) DEFAULT '0' COMMENT '英雄模板Id',
+  `MoneyCount` varchar(50) DEFAULT '' COMMENT '货币数量',
+  `PetList` varchar(100) DEFAULT '' COMMENT '魔灵模板Id',
+  `ProList` varchar(100) DEFAULT '' COMMENT '道具Id列表',
+  `ItemList` varchar(100) DEFAULT '' COMMENT '物品模板Id',
+  `CostCount` varchar(20) DEFAULT '0' COMMENT '消耗星数量',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='剧情副本';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_storycondition` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '条件名',
+  `EventType` smallint(6) DEFAULT '0' COMMENT '事件类型',
+  `Param1` varchar(50) DEFAULT '0' COMMENT '参数',
+  `Param2` varchar(50) DEFAULT '0' COMMENT '参数',
+  `Param3` varchar(50) DEFAULT '0' COMMENT '参数',
+  `Param4` varchar(50) DEFAULT '0' COMMENT '参数',
+  `Param5` varchar(50) DEFAULT '0' COMMENT '参数',
+  `Param6` varchar(50) DEFAULT '0' COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='剧情条件表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_storyshow` (
+  `TemplateId` int(11) NOT NULL COMMENT '模板Id',
+  `Name` varchar(50) DEFAULT NULL COMMENT '名称',
+  `ShowType` smallint(6) DEFAULT NULL COMMENT '展示类型',
+  `SkipType` int(11) DEFAULT NULL COMMENT '跳过类型',
+  `Sound` int(11) DEFAULT '0' COMMENT '声音',
+  `Param1` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param2` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param3` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param5` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param6` varchar(100) DEFAULT NULL COMMENT '参数',
+  `Param7` varchar(100) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='剧情展示表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_suit` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '套装ID',
+  `Name` varchar(255) DEFAULT '' COMMENT '名称',
+  `Count` int(11) DEFAULT '0' COMMENT '套装数量',
+  `Property1` int(11) DEFAULT '0' COMMENT '2件套装属性',
+  `Property2` int(11) DEFAULT '0' COMMENT '3件套装属性',
+  `Property3` int(11) DEFAULT '0' COMMENT '4件套装属性',
+  `Property4` int(11) DEFAULT '0' COMMENT '5件套装属性',
+  `Property5` int(11) DEFAULT '0' COMMENT '6件套装属性',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='套装模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_switch` (
+  `key` int(10) NOT NULL COMMENT '开关类型',
+  `value` varchar(300) NOT NULL COMMENT '开关时间点',
+  `isOpen` int(1) NOT NULL COMMENT '开启或关闭',
+  `desc` varchar(50) DEFAULT NULL COMMENT '描述',
+  `isPeriodic` int(1) NOT NULL COMMENT '是否是周期性的',
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_timegift` (
+  `TimeGiftId` varchar(32) NOT NULL DEFAULT '' COMMENT '限时抢购Id',
+  `Name` varchar(50) DEFAULT '' COMMENT '抢购名称',
+  `ImgUrl` varchar(200) DEFAULT '' COMMENT '图像URL',
+  `BeginTime` datetime NOT NULL COMMENT '开始时间',
+  `EndTime` datetime NOT NULL COMMENT '结束时间',
+  PRIMARY KEY (`TimeGiftId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='限时抢购';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_timegiftelem` (
+  `TimeGiftElemId` varchar(32) NOT NULL DEFAULT '' COMMENT '礼包Id',
+  `TimeGiftId` varchar(32) DEFAULT '' COMMENT '限时抢购Id',
+  `Index` int(11) DEFAULT '0' COMMENT '排序Id',
+  `Title` varchar(50) DEFAULT '' COMMENT '标题',
+  `Content` varchar(200) DEFAULT '' COMMENT '内容',
+  `ImgUrl` varchar(200) DEFAULT '' COMMENT '图片链接',
+  `Currency` varchar(10) DEFAULT '' COMMENT '币种',
+  `Price` varchar(20) NOT NULL COMMENT '价格',
+  `MaxBuyCount` int(11) DEFAULT '0' COMMENT '最高购买上限',
+  `Products` varchar(200) DEFAULT '' COMMENT '礼包物品(类型,ID,数量|)',
+  PRIMARY KEY (`TimeGiftElemId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='限时抢购礼包';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_upgrade` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '模板ID',
+  `Type` int(11) DEFAULT '0' COMMENT '模板类型',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '升至当前等级所需经验',
+  `NeedGold` int(11) DEFAULT '0' COMMENT '需要金币',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '属性1',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '属性2',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '属性3',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '属性4',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '属性5',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='升级';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_version` (
+  `TemplateId` int(11) NOT NULL DEFAULT '0' COMMENT '版本ID',
+  `MaxCount` int(11) DEFAULT '0' COMMENT '最大数量',
+  `Rewards` varchar(255) DEFAULT NULL COMMENT '奖励',
+  `CreateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '创建时间',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='版本模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_vip` (
+  `Level` smallint(6) NOT NULL COMMENT 'VIP等级',
+  `NeedPoint` int(11) DEFAULT NULL COMMENT '升级所需VIP点数',
+  `Desc` varchar(1000) DEFAULT NULL COMMENT 'VIP描述',
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Level`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_vipbonus` (
+  `TempId` int(11) NOT NULL COMMENT 'Vip模板ID',
+  `Level` smallint(6) DEFAULT NULL COMMENT 'Vip等级',
+  `BonusType` smallint(6) DEFAULT NULL COMMENT 'Vipt特权类型',
+  `Desc` varchar(200) DEFAULT NULL COMMENT 'Vip特权描述',
+  `BonusValueType` smallint(6) DEFAULT NULL COMMENT '加成类型：1-数值加成，2-百分比加成',
+  `Param1` varchar(50) DEFAULT NULL,
+  `Param2` varchar(50) DEFAULT NULL,
+  `Param3` varchar(50) DEFAULT NULL,
+  `Param4` varchar(50) DEFAULT NULL,
+  `Param5` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`TempId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_vipexchange` (
+  `CurrencyType` varchar(40) NOT NULL COMMENT '货币类型',
+  `Value` double NOT NULL COMMENT '货币与VIP点数兑换比',
+  PRIMARY KEY (`CurrencyType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_s_xinge` (
+  `TemplateId` int(100) NOT NULL COMMENT '模板ID',
+  `Title` varchar(100) DEFAULT NULL COMMENT '推送标题',
+  `Content` varchar(500) DEFAULT NULL COMMENT '推送内容',
+  `Desc` varchar(255) DEFAULT NULL COMMENT '推送描述',
+  PRIMARY KEY (`TemplateId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='信鸽消息推送内容模板表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_activitycondition` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `ConditionId` varchar(128) NOT NULL COMMENT '礼包条件Id',
+  `NowValue1` int(11) NOT NULL DEFAULT '0' COMMENT '当前条件值1',
+  `NowValue2` int(11) NOT NULL DEFAULT '0' COMMENT '当前条件值2',
+  `OtherValue` varchar(50) DEFAULT NULL COMMENT '其他条件值',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_activitycondition_PlayerId` (`PlayerId`),
+  KEY `ix_t_u_activitycondition_ConditionId` (`ConditionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家活动条件';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_activitygiftpack` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `GiftPackId` varchar(36) NOT NULL COMMENT '礼包ID',
+  `ClaimedNum` int(11) NOT NULL COMMENT '已领取次数',
+  `ClaimedTime` datetime NOT NULL COMMENT '领取时间',
+  `Param1` varchar(50) DEFAULT NULL COMMENT '额外参数',
+  `Param2` varchar(50) DEFAULT NULL COMMENT '额外参数',
+  `Param3` varchar(50) DEFAULT NULL COMMENT '额外参数',
+  `Param4` varchar(50) DEFAULT NULL COMMENT '额外参数',
+  `Param5` varchar(50) DEFAULT NULL COMMENT '额外参数',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_activitygiftpack_PlayerId` (`PlayerId`),
+  KEY `ix_t_u_activitygiftpack_GiftPackId` (`GiftPackId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家活动礼包';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_alchemypot` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '用户ID',
+  `AlchemypotId` int(11) DEFAULT '0' COMMENT '炼金炉ID',
+  `EndTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '炼金结束时间',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='炼金模块基本信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_bill` (
+  `BillId` varchar(50) NOT NULL COMMENT '订单编号',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家Id',
+  `ChannelId` int(11) NOT NULL COMMENT '渠道Id',
+  `GoodsType` smallint(6) NOT NULL COMMENT '货物类型',
+  `GoodsId` varchar(50) NOT NULL COMMENT '货物Id',
+  `GoodsName` varchar(100) DEFAULT NULL,
+  `ChannelGoodsId` varchar(100) DEFAULT NULL COMMENT '渠道货物Id',
+  `Currency` varchar(20) NOT NULL COMMENT '币种',
+  `Price` varchar(20) NOT NULL COMMENT '价格',
+  `Products` varchar(200) NOT NULL COMMENT '发货物品(Type,Id,Count)',
+  `CreateTime` datetime NOT NULL COMMENT '订单创建时间',
+  `FinishTime` datetime DEFAULT NULL COMMENT '订单完成时间',
+  `SerialNumber` varchar(50) DEFAULT NULL COMMENT 'SDK中间件流水号',
+  `ChannelBillNo` varchar(128) DEFAULT NULL COMMENT '渠道订单ID',
+  `PayChannel` varchar(50) DEFAULT NULL COMMENT '支付渠道',
+  PRIMARY KEY (`BillId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='充值订单';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_billoverseas` (
+  `BillId` varchar(50) NOT NULL COMMENT '订单ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `ChannelId` int(11) NOT NULL COMMENT '渠道ID',
+  `GameZoneId` int(11) NOT NULL COMMENT '区服ID',
+  `ProductName` varchar(50) DEFAULT NULL COMMENT '物品名称',
+  `ProductSum` int(11) DEFAULT NULL COMMENT '物品数量',
+  `Amount` varchar(20) DEFAULT NULL COMMENT '金额',
+  `Currency` varchar(20) DEFAULT NULL COMMENT '货币类型',
+  `Products` varchar(200) DEFAULT NULL COMMENT '发货物品',
+  `CreateTime` datetime NOT NULL COMMENT '订单创建时间',
+  `FinishTime` datetime DEFAULT NULL COMMENT '订单完成时间',
+  `TransactionId` varchar(128) DEFAULT NULL COMMENT '平台交易ID',
+  PRIMARY KEY (`BillId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='海外订单支付表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_building` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '用户ID',
+  `Type` smallint(4) NOT NULL COMMENT '类型',
+  `BuildingTempId` int(11) NOT NULL COMMENT '建筑模板ID',
+  `State` smallint(4) DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`PlayerId`,`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家建筑';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_campaign` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `Stars` smallint(6) DEFAULT '0' COMMENT '副本星数',
+  `ManorGroupId` int(11) DEFAULT '0' COMMENT '领地组Id',
+  `MaxManorIndex` tinyint(4) DEFAULT '1' COMMENT '领地最高进度',
+  `ManorSkinGroupIds` varchar(200) DEFAULT '' COMMENT '玩家当前拥有领地皮肤（领地组ID）',
+  `StoryCampOpen` varchar(100) DEFAULT NULL COMMENT '开启的副本剧情副本',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本模块基本数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_campaigndata` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'ID',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家ID',
+  `CampaignId` int(11) DEFAULT '0' COMMENT '副本ID',
+  `EnterCount` smallint(6) DEFAULT '0' COMMENT '今日进行次数',
+  `ResetCount` int(11) DEFAULT '0' COMMENT '副本今日重置次数',
+  `CampTargetIds` varchar(50) DEFAULT NULL COMMENT '完成的目标ids',
+  PRIMARY KEY (`Id`),
+  KEY `PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='副本记录';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_castle` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '用户ID',
+  `GoldPool` int(11) DEFAULT '0' COMMENT '金币池(未被玩家收取)',
+  `GoldUpdateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '最近金币收获时间',
+  `GoldAccelExpiredTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '加速过期时间',
+  `WaterPool` int(11) DEFAULT '0' COMMENT '圣水池',
+  `WaterUpdateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '最近圣水收货时间',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内城模块基本信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_cdorder` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '用户ID',
+  `Type` smallint(4) NOT NULL COMMENT '队列类型',
+  `OrderId` smallint(4) NOT NULL COMMENT '队列ID',
+  `ReadyTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '冷却技术时间',
+  PRIMARY KEY (`PlayerId`,`Type`,`OrderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='冷却队列';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_chapterbox` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '唯一Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `ChapterBoxTempId` int(11) DEFAULT '0' COMMENT '章节宝箱模板Id',
+  PRIMARY KEY (`Id`),
+  KEY `ix_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='章节宝箱领取用户表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_charge` (
+  `Id` bigint(20) NOT NULL COMMENT 'Id',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家Id',
+  `TemplateId` varchar(64) NOT NULL COMMENT '充值项模板Id',
+  `Count` int(11) NOT NULL COMMENT '该充值项的历史充值次数',
+  PRIMARY KEY (`Id`),
+  KEY `ix_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家充值表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_chip` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `Type` smallint(6) DEFAULT '0' COMMENT '类型',
+  `TempId` int(11) DEFAULT '0' COMMENT '对应模版ID',
+  `Count` smallint(6) DEFAULT '0' COMMENT '碎片数量',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_petchip_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='魔灵碎片表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_drug` (
+  `DrugId` bigint(20) NOT NULL DEFAULT '0' COMMENT '药剂Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `DrugTempId` int(11) DEFAULT '0' COMMENT '药剂模板Id',
+  `Count` int(11) DEFAULT '0' COMMENT '药剂数量',
+  PRIMARY KEY (`DrugId`),
+  KEY `ix_t_u_drug_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='药剂信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_elitecampdata` (
+  `id` bigint(30) NOT NULL COMMENT '主键id',
+  `playerid` bigint(30) NOT NULL COMMENT '玩家id',
+  `campaignid` int(11) NOT NULL COMMENT '精英关卡id',
+  `entercount` int(11) NOT NULL COMMENT '玩家进入次数',
+  `ResetCount` int(20) DEFAULT '0' COMMENT '重置次数',
+  PRIMARY KEY (`id`),
+  KEY `ix_PlayerId` (`playerid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_floweraccept` (
+  `AcceptId` bigint(50) NOT NULL COMMENT '主键ID',
+  `PlayerId` bigint(50) DEFAULT NULL COMMENT '玩家ID',
+  `FriendId` bigint(50) DEFAULT NULL COMMENT '送花的好友ID',
+  `FlowerType` smallint(2) DEFAULT NULL COMMENT '所送的鲜花类型',
+  `FriendName` varchar(50) DEFAULT NULL COMMENT '好友姓名',
+  `Count` int(30) DEFAULT '0' COMMENT '类型鲜花个数',
+  `AcceptTime` datetime DEFAULT NULL COMMENT '所送鲜花的时间点',
+  PRIMARY KEY (`AcceptId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_friend` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId1` bigint(20) DEFAULT '0' COMMENT '玩家1',
+  `PlayerId2` bigint(20) DEFAULT '0' COMMENT '玩家2',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '经验值',
+  `State` smallint(6) DEFAULT '0' COMMENT '关系状态,-1:不存在,0普通,1:1请求2,2:2请求1',
+  `DestroyTime` datetime DEFAULT NULL COMMENT '删除好友日期',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_friend_PlayerId1` (`PlayerId1`),
+  KEY `ix_t_u_friend_PlayerId2` (`PlayerId2`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='好友关系';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_gemcall` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `Level` smallint(6) DEFAULT '0' COMMENT '宝石符阵等级',
+  `ExpireTime` datetime DEFAULT NULL COMMENT '最近充能时间',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='宝石符阵';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guild` (
+  `GuildId` bigint(11) NOT NULL COMMENT '公会ID',
+  `Name` varchar(255) NOT NULL COMMENT '公会名称',
+  `Level` int(11) NOT NULL COMMENT '公会等级',
+  `Money` int(11) NOT NULL COMMENT '公会资产',
+  `Notice` varchar(255) NOT NULL COMMENT '公会公告',
+  `UpgradeTime` int(11) NOT NULL COMMENT '升级时间',
+  `CreateTime` datetime NOT NULL COMMENT '创建时间',
+  `TechIds` text NOT NULL COMMENT '公会科技列表',
+  `IsExist` int(255) NOT NULL COMMENT '是否存在',
+  `AutoPass` tinyint(4) NOT NULL DEFAULT '0' COMMENT '自动通过加入申请',
+  `BattleApply` tinyint(4) NOT NULL DEFAULT '0' COMMENT '公会战是否报名',
+  `BattleScore` int(11) NOT NULL COMMENT '公会战积分',
+  `WeekContributes` int(11) DEFAULT '0' COMMENT '公会周贡献',
+  `BattleWin` int(11) DEFAULT NULL COMMENT '公会战胜利次数(第一名次数)',
+  `WarNotice` varchar(255) DEFAULT NULL COMMENT '战场公告',
+  `GeneralIds` varchar(128) DEFAULT NULL COMMENT '守将ID',
+  PRIMARY KEY (`GuildId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildbattle` (
+  `BattleId` bigint(20) NOT NULL COMMENT '战斗ID, 每场公会战都有一个新的ID',
+  `GuildId` bigint(20) NOT NULL COMMENT '公会ID',
+  `Name` varchar(255) NOT NULL COMMENT '公会名称',
+  `IsExist` tinyint(4) NOT NULL COMMENT '是否有效',
+  `Score` int(11) NOT NULL COMMENT '分数(公会战资源)',
+  `BlessBuffs` varchar(255) NOT NULL COMMENT '祝福加成, 用,分割.',
+  `Others` text NOT NULL COMMENT '其他公会json信息',
+  `Armys` text NOT NULL COMMENT '公会玩家镜像',
+  `MainServerId` int(11) NOT NULL COMMENT '主导区服Id',
+  `MainGuildId` bigint(20) NOT NULL COMMENT '主导公会Id',
+  `CreateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '角色创建时间',
+  `ArmyInfos` text COMMENT '镜像状态数据',
+  PRIMARY KEY (`BattleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公会战数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildbattlemember` (
+  `BattleId` bigint(20) NOT NULL COMMENT '公会战ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `IsExist` tinyint(4) NOT NULL COMMENT '是否有效',
+  `Name` varchar(30) NOT NULL COMMENT '玩家名称',
+  `Level` int(11) NOT NULL COMMENT '玩家等级',
+  `FightingCapacity` int(11) NOT NULL COMMENT '玩家战斗力',
+  `Livings` varchar(8192) DEFAULT NULL COMMENT '阵型数据',
+  PRIMARY KEY (`BattleId`,`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公会战成员镜像';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildbuilding` (
+  `GuildId` bigint(11) NOT NULL COMMENT '公会ID',
+  `Type` int(11) NOT NULL COMMENT '建筑类型',
+  `Level` int(11) NOT NULL COMMENT '建筑等级',
+  `IsExist` int(11) NOT NULL COMMENT '是否存在',
+  `Param1` int(11) NOT NULL COMMENT '参数1',
+  `Param2` int(11) NOT NULL COMMENT '参数2',
+  `Param3` int(11) NOT NULL COMMENT '参数3',
+  `UpgradeTime` int(11) NOT NULL,
+  PRIMARY KEY (`GuildId`,`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildmember` (
+  `GuildMemberId` bigint(20) NOT NULL COMMENT '公会成员ID',
+  `GuildId` bigint(11) NOT NULL COMMENT '公会ID',
+  `PlayerId` bigint(11) NOT NULL COMMENT '成员玩家ID',
+  `Identity` int(11) NOT NULL COMMENT '成员身份',
+  `ContributeGoldCount` int(11) NOT NULL COMMENT '每日捐献剩余数量',
+  `WeekContribute` int(11) DEFAULT '0' COMMENT '个人周贡献',
+  `ContributeMoneyCount` int(11) NOT NULL COMMENT '每日捐献钻石剩余数',
+  `CreateTime` datetime NOT NULL COMMENT '加入公会时间',
+  `TotalContribute` int(11) NOT NULL COMMENT '历史贡献值',
+  `AidTime` int(11) NOT NULL COMMENT '上次援助时间',
+  `ToAidWotch` int(11) NOT NULL COMMENT '已援助价值',
+  `ToAidQualityCounts` varchar(255) NOT NULL COMMENT '援助他人各个品质的数量',
+  `ToAidTime` int(11) NOT NULL COMMENT '上次援助他人时间(用于计算重置)',
+  `IsExist` int(11) NOT NULL COMMENT '是否存在',
+  `BattleBuyCount` int(11) NOT NULL COMMENT '公会战行动力购买次数',
+  `BattleStrength` int(11) NOT NULL DEFAULT '0' COMMENT '公会战行动力',
+  `BattleStrengthUpdataTime` int(11) NOT NULL DEFAULT '0' COMMENT '公会战体力上次更新时间',
+  `BattleUseStrength` int(11) NOT NULL DEFAULT '0' COMMENT '公会战消耗行动力',
+  `BattleIdentity` int(11) NOT NULL DEFAULT '0' COMMENT '公会战身份(守备大将身份)',
+  PRIMARY KEY (`GuildMemberId`),
+  KEY `PlayerId` (`PlayerId`),
+  KEY `GuildId` (`GuildId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildmessage` (
+  `Id` bigint(20) NOT NULL COMMENT '公会消息Id',
+  `GuildId` bigint(20) DEFAULT NULL,
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `Type` int(11) DEFAULT NULL COMMENT '消息类型',
+  `CreateTime` int(11) DEFAULT NULL COMMENT '消息创建时间',
+  `CloseTime` int(11) DEFAULT NULL COMMENT '消息结束时间',
+  `Params` text COMMENT '额外参数',
+  `Records` text COMMENT '记录(求援记录)',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公会消息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_guildtech` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `TechIds` varchar(500) NOT NULL DEFAULT '' COMMENT '公会技能ID列表',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_hero` (
+  `HeroId` bigint(20) NOT NULL DEFAULT '0' COMMENT '英雄ID',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家ID',
+  `HeroTempId` int(11) DEFAULT '0' COMMENT '英雄模板ID',
+  `IsFight` tinyint(1) DEFAULT '0' COMMENT '是否出战',
+  `SubProp` varchar(50) DEFAULT NULL COMMENT '副属性ID列表：(id,id,id)',
+  `NewSubProp` varchar(50) DEFAULT NULL COMMENT '洗炼完未保存的副属性ID列表：(id,id,id)',
+  `Exp` varchar(50) DEFAULT NULL COMMENT '当前精炼经验（type|exp1,type|exp2,type|exp3）',
+  `Exps` varchar(50) DEFAULT NULL COMMENT '当前精炼经验（type|exp1,type|exp2,type|exp3）',
+  PRIMARY KEY (`HeroId`),
+  KEY `PlayerId_Key` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家英雄';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_hero_bak` (
+  `HeroId` bigint(20) NOT NULL DEFAULT '0' COMMENT '英雄ID',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家ID',
+  `HeroTempId` int(11) DEFAULT '0' COMMENT '英雄模板ID',
+  `IsFight` tinyint(1) DEFAULT '0' COMMENT '是否出战',
+  `Proficiency` int(11) DEFAULT '0' COMMENT '熟练度'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_item` (
+  `ItemId` bigint(20) NOT NULL COMMENT '物品唯一ID',
+  `TemplateId` int(11) DEFAULT NULL COMMENT '模板ID',
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `BagType` smallint(6) DEFAULT NULL COMMENT '物品类型',
+  `Count` int(6) DEFAULT NULL COMMENT '叠加数量',
+  `isBind` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `isExist` tinyint(1) DEFAULT NULL COMMENT '是否存在',
+  `Param1` int(11) DEFAULT '0' COMMENT '参数',
+  `Param2` int(11) DEFAULT '0' COMMENT '参数',
+  `Param3` int(11) DEFAULT '0' COMMENT '参数',
+  `Param4` varchar(100) DEFAULT NULL COMMENT '参数',
+  PRIMARY KEY (`ItemId`),
+  KEY `PlayerId_Key` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='物品';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_mail` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '邮件Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `FromType` smallint(6) DEFAULT '0' COMMENT '来源类型',
+  `SendTime` datetime DEFAULT NULL COMMENT '发送日期',
+  `ReadTime` datetime DEFAULT NULL COMMENT '阅读日期',
+  `Title` varchar(200) DEFAULT '' COMMENT '邮件标题',
+  `SubTitle` varchar(200) DEFAULT '' COMMENT '邮件副标题',
+  `Message` varchar(600) DEFAULT '' COMMENT '消息',
+  `AttachType1` smallint(6) DEFAULT '0' COMMENT '附件类型1',
+  `AttachId1` int(11) DEFAULT '0' COMMENT '附件Id1',
+  `Count1` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind1` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `AttachType2` smallint(6) DEFAULT '0' COMMENT '附件类型2',
+  `AttachId2` int(11) DEFAULT '0' COMMENT '附件Id2',
+  `Count2` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind2` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `AttachType3` smallint(6) DEFAULT '0' COMMENT '附件类型3',
+  `AttachId3` int(11) DEFAULT '0' COMMENT '附件Id3',
+  `Count3` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind3` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `IsExist` tinyint(1) DEFAULT '0' COMMENT '是否存在',
+  `AllId` bigint(20) DEFAULT '0' COMMENT '全员邮件ID',
+  `SourceType` smallint(6) DEFAULT '0' COMMENT '详细源类型，用于日志记录',
+  PRIMARY KEY (`Id`),
+  KEY `Key_PlayerId` (`PlayerId`),
+  KEY `ix_t_u_mail_SendTime` (`SendTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='邮件';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_mailall` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '邮件Id',
+  `SendTime` datetime DEFAULT NULL COMMENT '发送日期',
+  `Title` varchar(200) DEFAULT '' COMMENT '邮件标题',
+  `SubTitle` varchar(200) DEFAULT '' COMMENT '邮件副标题',
+  `Message` varchar(600) DEFAULT '' COMMENT '消息',
+  `AttachType1` smallint(6) DEFAULT '0' COMMENT '附件类型1',
+  `AttachId1` int(11) DEFAULT '0' COMMENT '附件Id1',
+  `Count1` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind1` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `AttachType2` smallint(6) DEFAULT '0' COMMENT '附件类型2',
+  `AttachId2` int(11) DEFAULT '0' COMMENT '附件Id2',
+  `Count2` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind2` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `AttachType3` smallint(6) DEFAULT '0' COMMENT '附件类型3',
+  `AttachId3` int(11) DEFAULT '0' COMMENT '附件Id3',
+  `Count3` int(11) DEFAULT '0' COMMENT '附件数量',
+  `IsBind3` tinyint(1) DEFAULT NULL COMMENT '是否绑定',
+  `IsExist` tinyint(1) DEFAULT '0' COMMENT '是否存在',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_mailall_SendTime` (`SendTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全员邮件';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_mallitem` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `SellerId` bigint(20) DEFAULT '0' COMMENT '卖家Id',
+  `BuyerId` bigint(20) DEFAULT '0' COMMENT '买家Id',
+  `ItemId` bigint(20) DEFAULT '0' COMMENT '物品Id',
+  `ExpireTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '过期时间',
+  `Price` int(11) DEFAULT '0' COMMENT '价格',
+  `IsExist` tinyint(1) DEFAULT '1' COMMENT '是否存在',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_mallitem_BuyerId` (`BuyerId`),
+  KEY `ix_t_u_mallitem_SellerId` (`SellerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='拍卖行';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manor` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `AttackCount` smallint(6) DEFAULT '0' COMMENT '领地攻击次数',
+  `AttackCountUpdateTime` datetime DEFAULT NULL COMMENT '攻击次数刷新时间',
+  `ProtectedExpireTime` datetime DEFAULT NULL COMMENT '领地护盾过期时间',
+  `RankScore` smallint(6) DEFAULT NULL COMMENT '领地争夺积分',
+  `AttackBuyCount` smallint(6) DEFAULT '0' COMMENT '领地攻击每日购买次数',
+  `RankScoreUpdateTime` datetime DEFAULT NULL COMMENT '领地积分刷新时间',
+  `ActivedCampIds` varchar(200) DEFAULT '6000' COMMENT '激活的皮肤ID列表',
+  `CurCampId` int(11) DEFAULT '6000' COMMENT '当前使用的皮肤ID',
+  PRIMARY KEY (`PlayerId`),
+  KEY `ix_ProtectedExpireTime` (`ProtectedExpireTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地争夺用户表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manormine` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '唯一Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `Index` tinyint(4) DEFAULT '0' COMMENT '索引',
+  `ResValue` int(11) DEFAULT '0' COMMENT '当前资源量',
+  `ResUpdateTime` datetime DEFAULT NULL COMMENT '上次更新资源时间',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_manormine_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家矿点数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manornode` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `ManorTempId` int(11) DEFAULT '0' COMMENT '领地模板Id',
+  `RandomQueueId` int(11) DEFAULT '0' COMMENT '随机队列模板Id',
+  `PosNodeId` int(11) DEFAULT '0' COMMENT '位置节点Id',
+  `RandomNodeId` int(11) DEFAULT '0' COMMENT '随机节点Id',
+  `DestroyTime` timestamp NULL DEFAULT NULL COMMENT '摧毁时间',
+  `IsExist` tinyint(1) DEFAULT '1' COMMENT '是否存在',
+  PRIMARY KEY (`Id`),
+  KEY `PLAYER_ID` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地节点';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manorranking` (
+  `ManorRankingId` int(11) NOT NULL AUTO_INCREMENT COMMENT '领地自增Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `NickName` varchar(50) DEFAULT NULL COMMENT '玩家昵称',
+  `RankScore` smallint(6) DEFAULT '0' COMMENT '分数',
+  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`ManorRankingId`),
+  KEY `CreateTime` (`CreateTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地排行榜';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manorreport` (
+  `ReportId` bigint(20) NOT NULL DEFAULT '0' COMMENT '战报Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `MatchPlayerId` bigint(20) DEFAULT '0' COMMENT '匹配玩家Id',
+  `MatchPlayerLevel` smallint(6) DEFAULT '0' COMMENT '匹配玩家等级',
+  `AttackType` tinyint(4) DEFAULT '0' COMMENT '攻击类型,0,打人,1,被打',
+  `MatchName` varchar(100) DEFAULT NULL COMMENT '匹配玩家名',
+  `RankChange` smallint(6) DEFAULT '0' COMMENT '积分变化',
+  `GoldChange` int(11) DEFAULT '0' COMMENT '金币变化',
+  `WaterChange` int(11) DEFAULT '0' COMMENT '圣水变化',
+  `AttackTime` datetime DEFAULT NULL COMMENT '攻击时间',
+  `GameZoneId` int(11) DEFAULT '0' COMMENT '对方所在服务器ID',
+  `IsRevenge` tinyint(1) DEFAULT NULL COMMENT '是否为复仇战',
+  PRIMARY KEY (`ReportId`),
+  KEY `ix_t_u_manorreport_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='领地战报表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_manorseasonrank` (
+  `Id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `rank` smallint(6) DEFAULT '0' COMMENT '排名',
+  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='领地赛季排行表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_match` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家id',
+  `TemplateId` int(11) DEFAULT NULL COMMENT '角色模板id',
+  `NickName` varchar(20) DEFAULT NULL COMMENT '角色昵称',
+  `FightingCapacity` int(11) DEFAULT NULL COMMENT '战斗力',
+  `Rank` int(11) NOT NULL COMMENT '当前排名',
+  `HistoryRank` int(11) NOT NULL COMMENT '历史最高排名',
+  `TotalCount` smallint(6) DEFAULT NULL COMMENT '当天已挑战总次数',
+  `CurrentCount` smallint(6) DEFAULT NULL COMMENT '当前已挑战次数',
+  `LastResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次重置时间',
+  `RecoverCountTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '恢复挑战次数时间',
+  `BuyMatchBattleCount` int(11) NOT NULL DEFAULT '0' COMMENT '竞技场挑战次数购买',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='竞技场';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_matchranking` (
+  `RankingId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'rankingId',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家id',
+  `TemplateId` int(11) NOT NULL COMMENT '角色模板id',
+  `NickName` varchar(50) NOT NULL COMMENT '角色名称',
+  `Rank` int(11) NOT NULL COMMENT '当前排名',
+  `Date` datetime NOT NULL COMMENT '排名时间',
+  `ManorRank` int(11) DEFAULT '0' COMMENT '领地积分',
+  PRIMARY KEY (`RankingId`),
+  KEY `ix_t_u_matchranking_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='竞技场排行';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_matchrecord` (
+  `MatchRecordId` int(11) NOT NULL AUTO_INCREMENT COMMENT '挑战记录唯一id',
+  `SourceId` bigint(20) NOT NULL COMMENT '挑战者角色id',
+  `SourceTempId` int(11) NOT NULL COMMENT '挑战者模板id',
+  `SourceName` varchar(20) NOT NULL COMMENT '挑战者昵称',
+  `SoruceRank` int(11) NOT NULL COMMENT '挑战者当时排名',
+  `TargetId` bigint(20) NOT NULL COMMENT '被挑战者角色id',
+  `TargetTempId` int(11) NOT NULL COMMENT '被挑战者模板id',
+  `TargetName` varchar(50) NOT NULL COMMENT '被挑战者昵称',
+  `TargetRank` int(11) NOT NULL COMMENT '被挑战者排名',
+  `Result` smallint(6) NOT NULL COMMENT '挑战结果 1:胜利，0失败',
+  `Date` datetime NOT NULL COMMENT '被挑时间',
+  PRIMARY KEY (`MatchRecordId`),
+  KEY `ix_t_u_matchrecord_SourceId` (`SourceId`),
+  KEY `ix_t_u_matchrecord_TargetId` (`TargetId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='竞技场记录';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_maze` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `TopFloor` int(11) DEFAULT '0' COMMENT '最高层',
+  `TopFloorNode` int(11) DEFAULT '0' COMMENT '最高层进度（打了几个节点）',
+  `Floor` int(11) DEFAULT '0' COMMENT '层',
+  `MazeTempId` int(11) DEFAULT '0' COMMENT '迷宫副本模板Id',
+  `NodeIds` varchar(255) DEFAULT '' COMMENT '当前层节点进度',
+  `DrugInfo` varchar(255) DEFAULT '' COMMENT '药剂信息（模板,数量）',
+  `PlayerInfo` varchar(255) DEFAULT '' COMMENT '玩家信息（hp,sp,mp）',
+  `PetInfo` varchar(5000) DEFAULT NULL COMMENT '魔灵信息（id,hp,sp,mp,battlePos,maxHp）',
+  `MonInfo` varchar(255) DEFAULT '' COMMENT '怪物血量',
+  `LivingInfo` varchar(255) DEFAULT '' COMMENT '增援节点信息',
+  `RewardInfo` varchar(1024) DEFAULT '' COMMENT '节点奖励领取信息(nodeId,AiId,status)',
+  `ChallengeCount` int(11) NOT NULL DEFAULT '0' COMMENT '挑战次数',
+  `BuyChallengeCount` int(11) NOT NULL DEFAULT '0' COMMENT '购买挑战次数',
+  `PetReviveCount` int(11) NOT NULL DEFAULT '0' COMMENT '魔灵复活次数',
+  `ProductIds` varchar(1024) DEFAULT '' COMMENT '累计获得物品',
+  `FirstStageStatus` int(11) DEFAULT '0' COMMENT '首次通关状态',
+  `HistoryCount` int(11) DEFAULT '0' COMMENT '累计迷宫挑战次数',
+  `ChallengeCounts` varchar(255) DEFAULT NULL COMMENT '挑战次数列表',
+  `BuyChallengeCounts` varchar(255) DEFAULT NULL COMMENT '购买挑战次数列表',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='迷宫';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_pet` (
+  `PetId` bigint(20) NOT NULL DEFAULT '0' COMMENT '唯一Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `TempId` int(11) DEFAULT '0' COMMENT '模板Id',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '当前等级经验',
+  `SkillScript` varchar(200) DEFAULT NULL COMMENT '技能',
+  `AttendantQuality` smallint(6) DEFAULT '3' COMMENT '随从品质',
+  `AttendantTargetId` bigint(20) DEFAULT '0' COMMENT '跟随者Id',
+  `StoneScript` varchar(1024) DEFAULT '' COMMENT '符文石配置',
+  `CampPos` smallint(6) DEFAULT '0' COMMENT '位置',
+  `MatchPos` smallint(6) DEFAULT '0' COMMENT '竞技场位置',
+  `IsExist` tinyint(1) DEFAULT '1' COMMENT '是否存在',
+  `ManorMineIndex` tinyint(4) DEFAULT '0' COMMENT '矿点索引',
+  `IsLock` tinyint(2) DEFAULT '0' COMMENT '是否锁定',
+  PRIMARY KEY (`PetId`),
+  KEY `PLAYER_ID` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='魔灵';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_petcall` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `PurpleCounter` smallint(6) DEFAULT '0' COMMENT '必出紫色计数器',
+  `NonePurpleCounter` smallint(6) DEFAULT '0' COMMENT '不出紫色计数器',
+  `NoneOrangeCounter` smallint(6) DEFAULT '0' COMMENT '不出橙色计数器',
+  `ActivityPurpleCount` int(11) NOT NULL DEFAULT '0' COMMENT '限时魔灵必出紫色计数器',
+  `FreePetCallCount` int(11) NOT NULL DEFAULT '0' COMMENT '限时魔灵免费抽取的次数',
+  `NonePurpleCounterActive` int(11) NOT NULL DEFAULT '0' COMMENT '限时魔灵不出紫色计数器',
+  `NoneOrangeCounterActive` int(11) NOT NULL DEFAULT '0' COMMENT '限时魔灵不出橙色计数器',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='魔灵召唤计数器';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_pettalent` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `TalentIds` varchar(200) DEFAULT NULL COMMENT '天赋Ids',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='魔灵天赋';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_player` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '角色ID',
+  `UserId` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `NickName` varchar(30) NOT NULL COMMENT '昵称',
+  `OnlineState` smallint(6) DEFAULT '0' COMMENT '在线状态',
+  `Job` smallint(6) DEFAULT '0' COMMENT '职业',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '当前等级经验',
+  `Point` int(11) DEFAULT '0' COMMENT '钻石',
+  `BindPoint` int(11) DEFAULT '0' COMMENT '绑定钻石',
+  `GrowthFund` int(100) DEFAULT '0' COMMENT '成长基金',
+  `Gold` int(11) DEFAULT '0' COMMENT '金币',
+  `Water` int(11) DEFAULT '0' COMMENT '圣水',
+  `Soul` int(11) DEFAULT '0' COMMENT '魂晶',
+  `AustrianDust` int(11) DEFAULT '0' COMMENT '奥术之尘',
+  `Strength` smallint(6) DEFAULT '0' COMMENT '体力',
+  `LastLoginTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次登录时间',
+  `LastLogoutTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '下次登录时间',
+  `Medal` int(11) DEFAULT '0' COMMENT '勋章',
+  `PetDust` int(11) DEFAULT '0' COMMENT '晶尘',
+  `Heraldry` int(11) DEFAULT '0' COMMENT '深渊纹章',
+  `NewbieId` int(11) DEFAULT '0' COMMENT '新手Id',
+  `CreateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '角色创建时间',
+  `LastLoginIP` varchar(50) DEFAULT '' COMMENT '最后登录IP',
+  `PlayerType` int(20) DEFAULT '0' COMMENT '玩家类型',
+  `LastLoginCity` varchar(50) DEFAULT '' COMMENT '最后登录城市',
+  `stoneIntegral` int(11) DEFAULT '0' COMMENT '符文石积分',
+  `LoginDay` smallint(6) DEFAULT '0' COMMENT '累积登陆天数',
+  `FollowLoginDay` smallint(6) DEFAULT '0' COMMENT '连续登陆天数',
+  `TeamPower` int(11) DEFAULT '0' COMMENT '玩家队伍最强战斗力',
+  `VIPType` smallint(11) DEFAULT '0' COMMENT '贵宾类型',
+  PRIMARY KEY (`PlayerId`),
+  UNIQUE KEY `NICKNAME_UNIQUE` (`NickName`),
+  KEY `ix_t_u_player_UserId` (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_player_backup` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '角色ID',
+  `UserId` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `NickName` varchar(30) NOT NULL COMMENT '昵称',
+  `OnlineState` smallint(6) DEFAULT '0' COMMENT '在线状态',
+  `Job` smallint(6) DEFAULT '0' COMMENT '职业',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '当前等级经验',
+  `Point` int(11) DEFAULT '0' COMMENT '钻石',
+  `BindPoint` int(11) DEFAULT '0' COMMENT '绑定钻石',
+  `Gold` int(11) DEFAULT '0' COMMENT '金币',
+  `Water` int(11) DEFAULT '0' COMMENT '圣水',
+  `Soul` int(11) DEFAULT '0' COMMENT '魂晶',
+  `AustrianDust` int(11) DEFAULT '0' COMMENT '奥术之尘',
+  `Strength` smallint(6) DEFAULT '0' COMMENT '体力',
+  `LastLoginTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次登录时间',
+  `LastLogoutTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '下次登录时间',
+  `PetBagCount` smallint(6) DEFAULT '0' COMMENT '魔灵背包容量',
+  `Medal` int(11) DEFAULT '0' COMMENT '勋章',
+  `PetDust` int(11) DEFAULT '0' COMMENT '晶尘',
+  `Heraldry` int(11) DEFAULT '0' COMMENT '深渊纹章',
+  `NewbieId` int(11) DEFAULT '0' COMMENT '新手Id',
+  `FirstRecord` int(11) DEFAULT '0' COMMENT '首次XX记录,按位',
+  `CreateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '角色创建时间',
+  `LastResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次重置时间',
+  `LastWeekResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上周重置时间',
+  `StrengthUpdateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '体力更新时间',
+  `GolblinShopSpaceCount` smallint(6) NOT NULL DEFAULT '4' COMMENT '哥布林商店空间',
+  `BuyStrengthCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日体力购买次数',
+  `BuyGoldCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日金币购买次数',
+  `BuyWaterCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日光晶购买次数',
+  `MysteriousStoneCount` int(11) DEFAULT NULL COMMENT '今日神秘炼金次数',
+  `NextFreePetCallTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '下次免费魔灵召唤时间点',
+  `LastLoginIP` varchar(50) DEFAULT '' COMMENT '最后登录IP',
+  `LastLoginCity` varchar(50) DEFAULT '' COMMENT '最后登录城市',
+  `stonePos` int(11) DEFAULT '0' COMMENT '符文石炼金位置',
+  `stoneIntegral` int(11) DEFAULT '0' COMMENT '符文石积分',
+  `MultiHelpCount` smallint(6) DEFAULT '0' COMMENT '多人本增员次数',
+  `MultiRewardCount` smallint(6) DEFAULT '0' COMMENT '多人本收益次数',
+  `LoginDay` smallint(6) DEFAULT '0' COMMENT '累积登陆天数',
+  `FollowLoginDay` smallint(6) DEFAULT '0' COMMENT '连续登陆天数'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_playerextend` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '角色ID',
+  `PetBagCount` smallint(6) DEFAULT '0' COMMENT '魔灵背包容量',
+  `FirstRecord` int(11) DEFAULT '0' COMMENT '首次XX记录,按位',
+  `LastResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次重置时间',
+  `LastWeekResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上周重置时间',
+  `StrengthUpdateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '体力更新时间',
+  `GolblinShopSpaceCount` smallint(6) NOT NULL DEFAULT '4' COMMENT '哥布林商店空间',
+  `BuyStrengthCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日体力购买次数',
+  `BuyGoldCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日金币购买次数',
+  `BuyWaterCount` int(11) NOT NULL DEFAULT '0' COMMENT '当日光晶购买次数',
+  `BuyMatchBattleCount` int(11) NOT NULL DEFAULT '0' COMMENT '竞技场挑战次数购买',
+  `SingleCampResetCount` int(11) NOT NULL DEFAULT '0' COMMENT '单人副本重置次数',
+  `MysteriousStoneCount` int(11) NOT NULL DEFAULT '0' COMMENT '神秘炼金术次数',
+  `NextFreePetCallTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '下次免费魔灵召唤时间点',
+  `StonePos` int(11) DEFAULT '0' COMMENT '符文石炼金位置',
+  `MultiHelpCount` smallint(6) DEFAULT '0' COMMENT '多人本增员次数',
+  `MultiRewardCount` smallint(6) DEFAULT '0' COMMENT '多人本收益次数',
+  `PhoneNumber` varchar(20) DEFAULT '',
+  `OnlineTime` int(11) NOT NULL COMMENT '累计在线时间(ms), 每日重置.',
+  `MothCardTime` date DEFAULT NULL COMMENT '上次购买月卡的时间',
+  `IsBuyPermanentCard` int(11) DEFAULT '0' COMMENT '是否购买永久卡了',
+  `ActiveIntegral` int(11) DEFAULT '0' COMMENT '玩家活跃度积分',
+  `GuildContribute` int(11) DEFAULT NULL COMMENT '公会贡献值',
+  `ChatEnergy` int(100) DEFAULT '0' COMMENT '聊天活力值',
+  `LimitActivityPoint` int(11) NOT NULL DEFAULT '0' COMMENT '限时魔灵活动积分',
+  `LimitActivityUpdateTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '限时魔灵活动积分更新时间',
+  `ActiveFreeCallTime` date DEFAULT NULL COMMENT '限时魔灵活动下次领取时间',
+  `ResRecoveryDay` int(11) NOT NULL COMMENT '可资源追回天数',
+  `GuildBattleMoney` int(11) DEFAULT '0' COMMENT '公会战货币',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_playernoextend` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '角色ID',
+  `UserId` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `NickName` varchar(30) NOT NULL COMMENT '昵称',
+  `OnlineState` smallint(6) DEFAULT '0' COMMENT '在线状态',
+  `Job` smallint(6) DEFAULT '0' COMMENT '职业',
+  `Level` smallint(6) DEFAULT '0' COMMENT '等级',
+  `Exp` int(11) DEFAULT '0' COMMENT '当前等级经验',
+  `Point` int(11) DEFAULT '0' COMMENT '钻石',
+  `BindPoint` int(11) DEFAULT '0' COMMENT '绑定钻石',
+  `Gold` int(11) DEFAULT '0' COMMENT '金币',
+  `Water` int(11) DEFAULT '0' COMMENT '圣水',
+  `Soul` int(11) DEFAULT '0' COMMENT '魂晶',
+  `AustrianDust` int(11) DEFAULT '0' COMMENT '奥术之尘',
+  `Strength` smallint(6) DEFAULT '0' COMMENT '体力',
+  `LastLoginTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次登录时间',
+  `LastLogoutTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '下次登录时间',
+  `Medal` int(11) DEFAULT '0' COMMENT '勋章',
+  `PetDust` int(11) DEFAULT '0' COMMENT '晶尘',
+  `Heraldry` int(11) DEFAULT '0' COMMENT '深渊纹章',
+  `NewbieId` int(11) DEFAULT '0' COMMENT '新手Id',
+  `CreateTime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '角色创建时间',
+  `LastLoginIP` varchar(50) DEFAULT '' COMMENT '最后登录IP',
+  `LastLoginCity` varchar(50) DEFAULT '' COMMENT '最后登录城市',
+  `stoneIntegral` int(11) DEFAULT '0' COMMENT '符文石积分',
+  `LoginDay` smallint(6) DEFAULT '0' COMMENT '累积登陆天数',
+  `FollowLoginDay` smallint(6) DEFAULT '0' COMMENT '连续登陆天数'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_pokedex` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `Type` smallint(6) DEFAULT '0' COMMENT '类型',
+  `SonType` int(11) DEFAULT '0' COMMENT '子类型',
+  `Count` smallint(6) DEFAULT '0' COMMENT '碎片数量',
+  PRIMARY KEY (`Id`),
+  KEY `ip_t_u_pokedex_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图鉴表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_quest` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `TempId` int(11) DEFAULT '0' COMMENT '任务模板Id',
+  `AddDate` datetime DEFAULT NULL COMMENT '领取任务时间',
+  `CompleteDate` datetime DEFAULT NULL COMMENT '完成任务时间',
+  `IsExist` tinyint(1) DEFAULT '0' COMMENT '是否存在',
+  `State` smallint(6) DEFAULT '0' COMMENT '状态0可接受1已接受',
+  `Level` smallint(6) DEFAULT '0' COMMENT '玩家等级',
+  `Condition1` int(11) DEFAULT '0' COMMENT '条件1',
+  `Condition2` int(11) DEFAULT '0' COMMENT '条件2',
+  `Condition3` int(11) DEFAULT '0' COMMENT '条件3',
+  PRIMARY KEY (`Id`),
+  KEY `PLAYER_ID` (`PlayerId`),
+  KEY `ix_t_u_quest_AddDate` (`AddDate`),
+  KEY `ix_t_u_quest_CompleteDate` (`CompleteDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_questdata` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `QuestProcess` varchar(1024) DEFAULT NULL COMMENT '任务进度',
+  `NewbieQuestProcess` varchar(200) DEFAULT NULL COMMENT '新手特训进度',
+  `DayActiveProcess` varchar(50) DEFAULT NULL COMMENT '日常活跃度礼包领取进程',
+  `AddRateTimes` smallint(6) DEFAULT '0' COMMENT '单任务完成几率增幅次数',
+  `TodayFinCount` smallint(6) DEFAULT '0' COMMENT '今日已完成随机任务数量',
+  `UpdateTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '刷新任务时间',
+  `RewardState` smallint(6) DEFAULT '0' COMMENT '状态0可接受1已接受',
+  `UpdateCount` smallint(6) DEFAULT '0' COMMENT '付费刷新次数',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务基础信息表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_randomname` (
+  `Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='已经使用的昵称';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_rank` (
+  `Id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `RankType` smallint(6) DEFAULT NULL COMMENT '排行榜类型:1-等级排行，2-战力排行',
+  `GamezoneId` int(11) DEFAULT NULL COMMENT '区服ID',
+  `ServerName` varchar(40) DEFAULT NULL COMMENT '区服名称',
+  `Playerid` bigint(20) DEFAULT NULL COMMENT '玩家昵称',
+  `NickName` varchar(20) DEFAULT NULL COMMENT '玩家昵称',
+  `Job` smallint(6) DEFAULT NULL COMMENT '玩家职业',
+  `VipLevel` smallint(6) DEFAULT NULL COMMENT '玩家Vip等级',
+  `ShowValue1` int(11) DEFAULT NULL COMMENT '排名值1',
+  `ShowValue2` int(11) DEFAULT NULL COMMENT '排名值2',
+  `Rank` int(11) DEFAULT NULL COMMENT '名次',
+  `Date` datetime DEFAULT NULL COMMENT '排行时间',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_record` (
+  `Id` bigint(20) NOT NULL COMMENT '记录ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `Type` int(11) NOT NULL COMMENT '类型',
+  `Key` varchar(255) NOT NULL COMMENT 'key',
+  `Count` int(11) NOT NULL COMMENT '记录数量',
+  PRIMARY KEY (`Id`),
+  KEY `idx_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家计数器记录';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_resrecovery` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `Type` int(11) NOT NULL COMMENT '资源追回类型',
+  `Enable` tinyint(4) NOT NULL COMMENT '追回是否有效',
+  `Level` int(11) NOT NULL COMMENT '记录等级',
+  PRIMARY KEY (`PlayerId`,`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家资源追回数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_rewardquest` (
+  `Id` bigint(20) NOT NULL COMMENT '悬赏任务ID',
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `QuestId` int(11) DEFAULT NULL COMMENT '任务模板ID',
+  `CreateTime` int(11) DEFAULT NULL COMMENT '悬赏任务发布时间',
+  `IsExist` tinyint(1) DEFAULT '0' COMMENT '是否存在',
+  `Progress` int(11) DEFAULT NULL COMMENT '进度',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='悬赏任务列表(全局)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_rewardquestdate` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `Score` int(11) DEFAULT NULL COMMENT '悬赏任务积分',
+  `PublishCount` int(11) DEFAULT NULL COMMENT '发布次数',
+  `ReceiveCount` int(11) DEFAULT NULL COMMENT '接取任务次数',
+  `PublishBuyCount` int(11) DEFAULT NULL COMMENT '发布可购买次数',
+  `ReceiveBuyCount` int(11) DEFAULT NULL COMMENT '接取购买次数',
+  `QuestReceiveCount` varchar(255) DEFAULT '' COMMENT '发布任务被接取次数(数组, 0白银, 1黄金)',
+  `QuestIds` text COMMENT '玩家接取的玩家ID',
+  `ScoreRewards` varchar(10) DEFAULT NULL COMMENT '积分奖励宝箱领取状态',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家悬赏任务数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_rewardquestrecord` (
+  `Id` bigint(20) NOT NULL COMMENT '记录ID',
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `QuestId` bigint(20) DEFAULT NULL COMMENT '悬赏任务Id',
+  `QuestTempInfoId` int(11) DEFAULT NULL COMMENT '悬赏任务模板',
+  `TargetId` bigint(20) DEFAULT NULL COMMENT '目标ID',
+  `OpType` int(11) DEFAULT NULL COMMENT '操作Id',
+  `CreateTime` int(11) DEFAULT NULL COMMENT '创建时间',
+  `AddScore` int(11) DEFAULT NULL COMMENT '增加的积分',
+  PRIMARY KEY (`Id`),
+  KEY `idx_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家悬赏任务';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_robottree` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家ID',
+  `HasCharge` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否已经充能',
+  `Quality0` smallint(6) NOT NULL DEFAULT '0' COMMENT '0号精华品质',
+  `Quality1` smallint(6) NOT NULL DEFAULT '0' COMMENT '1号精华品质',
+  `Quality2` smallint(6) NOT NULL DEFAULT '0' COMMENT '2号精华品质',
+  `Quality3` smallint(6) NOT NULL DEFAULT '0' COMMENT '3号精华品质',
+  `Quality4` smallint(6) NOT NULL DEFAULT '0' COMMENT '4号精华品质',
+  `HasSteal0` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0号精华是否偷过',
+  `HasSteal1` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1号精华是否偷过',
+  `HasSteal2` tinyint(1) NOT NULL DEFAULT '0' COMMENT '2号精华是否偷过',
+  `HasSteal3` tinyint(1) NOT NULL DEFAULT '0' COMMENT '3号精华是否偷过',
+  `HasSteal4` tinyint(1) NOT NULL DEFAULT '0' COMMENT '4号精华是否偷过',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家机器人圣树信息表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_role` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '角色ID',
+  `TemplateId` int(11) DEFAULT '0' COMMENT '模板ID',
+  `SkillScript` varchar(320) DEFAULT NULL COMMENT '技能脚本',
+  `AttendantQuality` smallint(6) DEFAULT '3' COMMENT '随从品质',
+  `AttendantTargetId` bigint(20) DEFAULT '0' COMMENT '跟随者Id',
+  `SkillActiveTypes` varchar(50) DEFAULT '' COMMENT '携带技能类型',
+  `StoneScript` varchar(1024) DEFAULT '' COMMENT '符文石配置',
+  `CampPos` smallint(6) DEFAULT '0' COMMENT '副本战斗位置',
+  `MatchPos` smallint(6) DEFAULT '0' COMMENT '竞技场位置',
+  `CarryDrug` int(11) DEFAULT '0' COMMENT '携带药剂模版ID',
+  `FightingCapacity` int(11) DEFAULT '0' COMMENT '战斗力',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_sacristy` (
+  `Id` bigint(20) NOT NULL COMMENT 'ID',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `LivingId` bigint(20) NOT NULL COMMENT '玩家的魔灵ID或角色Id',
+  `MasterType` smallint(6) NOT NULL COMMENT 'Living的类型(角色或魔灵)',
+  `SacristyId` int(11) NOT NULL COMMENT '当前神器ID',
+  `Level` int(11) NOT NULL DEFAULT '0' COMMENT '神器等级',
+  `Exp` int(11) NOT NULL DEFAULT '0' COMMENT '神器当前经验',
+  `IsExist` tinyint(1) NOT NULL COMMENT '是否存在',
+  PRIMARY KEY (`Id`),
+  KEY `idx_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='神器数据表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_shop` (
+  `ShopId` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Id',
+  `PlayerId` bigint(20) DEFAULT '0' COMMENT '玩家Id',
+  `Type` smallint(6) DEFAULT '0' COMMENT '商店类型',
+  `ProductIds` varchar(200) DEFAULT '' COMMENT '产品Id',
+  `UpdateTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `RefreshCount` smallint(6) DEFAULT '0' COMMENT '够买次数',
+  PRIMARY KEY (`ShopId`),
+  KEY `ix_t_u_shop_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商店';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_shoplimit` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `LimitIds` varchar(1024) DEFAULT '' COMMENT '限购信息',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商店限购信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_sign` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `SignNum` tinyint(4) NOT NULL DEFAULT '0' COMMENT '本月签到天数',
+  `RetroactiveCount` int(20) DEFAULT '0' COMMENT '当月补签次数',
+  `LastSignTime` datetime NOT NULL COMMENT '最后一次签到时间',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家签到表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_skillpool` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `PassiveSkills` varchar(1024) DEFAULT '' COMMENT '被动技能',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能池';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_social` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `FriendCount` smallint(6) DEFAULT '0' COMMENT '当前好友数量',
+  `FlowerCount` int(50) DEFAULT '0' COMMENT '总鲜花数量',
+  `Flowers` varchar(100) DEFAULT NULL COMMENT '鲜花类型|鲜花数量',
+  `DayDelCount` smallint(6) DEFAULT '0' COMMENT '删除玩家数',
+  `GagExpireTime` datetime DEFAULT NULL COMMENT '禁言过期时间',
+  `DayTreeStrenghReward` smallint(6) DEFAULT '0' COMMENT '今日圣树充能体力获取',
+  `DayTreeCreamStealCount` smallint(6) DEFAULT '0' COMMENT '每日偷取圣树精华次数',
+  `LastResetTime` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '上次重置时间',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='社交模块基本信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_starsign` (
+  `TemplateId` bigint(20) NOT NULL,
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家ID',
+  `PetId` bigint(20) DEFAULT NULL COMMENT '魔灵的PetID或英雄的TemplateId',
+  `MasterType` int(11) DEFAULT NULL COMMENT '类型：1-role,4-魔灵',
+  `StarSignPages` varchar(100) DEFAULT NULL COMMENT '已突破的星盘页ID列表(id,id,id...)',
+  `CurrentPageId` int(11) DEFAULT NULL COMMENT '当前星盘页ID',
+  `ActiveNodes` varchar(100) DEFAULT NULL COMMENT '只记录当前星盘页已激活节点索引（index|index|index..）',
+  `StarSignQuality` smallint(6) DEFAULT NULL COMMENT '当前突破品质 1~17',
+  `IsExist` tinyint(1) NOT NULL DEFAULT '0' COMMENT '魔灵是否存在',
+  `StarSignId` int(11) DEFAULT NULL COMMENT '星盘ID(参考用)',
+  PRIMARY KEY (`TemplateId`),
+  KEY `ix_PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_tech` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `TechIds` varchar(500) DEFAULT '' COMMENT '科技Ids',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='科技';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_timerjob` (
+  `TimerId` int(11) NOT NULL DEFAULT '0' COMMENT '定时任务Id',
+  `UpdateTime` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`TimerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='定时任务';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_tree` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `Progress` smallint(6) DEFAULT '0' COMMENT '充能进度',
+  `TreeHarvestTime` datetime DEFAULT NULL COMMENT '收获时间',
+  `Level` smallint(6) DEFAULT '0' COMMENT '玩家圣树等级',
+  `Exp` smallint(6) DEFAULT '0' COMMENT '玩家圣树经验',
+  `ChargPlayers` text COMMENT '给此树充能过的玩家',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='圣树';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_treecream` (
+  `Id` bigint(20) NOT NULL DEFAULT '0' COMMENT '唯一ID',
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家ID',
+  `Index` smallint(6) DEFAULT '0' COMMENT '圣树精华序号,从0开始',
+  `Quality` smallint(6) DEFAULT '0' COMMENT '精华品质',
+  `StealCount` smallint(6) DEFAULT '0' COMMENT '被偷取次数',
+  `UpdateCount` smallint(6) DEFAULT '0' COMMENT '圣树精华刷新次数',
+  `CreamUpdateTime` datetime DEFAULT NULL COMMENT '圣树精华更新时间',
+  `StealPlayers` text COMMENT '偷取过改精华的玩家',
+  PRIMARY KEY (`Id`),
+  KEY `ix_t_u_treecream_playerid` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家圣树精华表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_uniqueid` (
+  `IdType` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Id类型',
+  `CurrentId` bigint(20) DEFAULT '0' COMMENT '当前最大Id',
+  PRIMARY KEY (`IdType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='唯一Id';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_user` (
+  `UserId` bigint(20) NOT NULL COMMENT '用户ID',
+  `UserName` varchar(50) NOT NULL COMMENT '用户名',
+  `GameZoneId` int(11) NOT NULL DEFAULT '0' COMMENT '游戏区服ID',
+  `PassWord` varchar(50) DEFAULT NULL COMMENT '密码',
+  `BanExpireTime` datetime DEFAULT NULL COMMENT '封停过期时间',
+  `LastLoginTime` timestamp NULL DEFAULT NULL COMMENT '上次登录时间',
+  `LastLogoutTime` timestamp NULL DEFAULT NULL COMMENT '上次登出时间',
+  PRIMARY KEY (`UserName`,`GameZoneId`),
+  UNIQUE KEY `UserId` (`UserId`),
+  UNIQUE KEY `UserId_2` (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_version` (
+  `PlayerId` bigint(20) NOT NULL DEFAULT '0' COMMENT '玩家Id',
+  `VersionId` int(11) NOT NULL DEFAULT '0' COMMENT '版本ID',
+  `Count` int(11) NOT NULL DEFAULT '0' COMMENT '次数',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='版本信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_vip` (
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家ID',
+  `VipLevel` smallint(11) NOT NULL DEFAULT '0' COMMENT 'VIP等级',
+  `VipPoint` int(11) NOT NULL DEFAULT '0' COMMENT 'VIP点数',
+  `VipGift` int(11) NOT NULL DEFAULT '0' COMMENT '使用二进制表示对应等级礼包是否已购买',
+  `VipActivetime` datetime DEFAULT NULL COMMENT 'VIP升到当前等级的日期',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_wish` (
+  `PlayerId` bigint(11) NOT NULL COMMENT 'PlayerId',
+  `RewardStr` varchar(200) DEFAULT NULL COMMENT '当前获取的奖励列表',
+  `LastWishDate` datetime NOT NULL COMMENT '最后一次许愿时间',
+  `WishCount` smallint(6) unsigned zerofill NOT NULL COMMENT '当天许愿了几次',
+  `CanWishState` smallint(6) unsigned zerofill NOT NULL COMMENT '当前是否可以许愿(用来判断玩家是否在下线之前就可以许愿)',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家许愿表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_u_xinge` (
+  `Token` varchar(100) NOT NULL COMMENT '玩家token',
+  `PlayerId` bigint(20) DEFAULT NULL COMMENT '玩家id',
+  `Device` smallint(6) DEFAULT '0' COMMENT '玩家设备类型',
+  `IsSend` tinyint(4) DEFAULT '0' COMMENT '是否推送',
+  PRIMARY KEY (`Token`),
+  KEY `PlayerId` (`PlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='玩家TOKEN信息';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
+
+
+
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+
+DELIMITER ;;
+CREATE PROCEDURE `getFirstBillPlayerid`()
+BEGIN
+CREATE TABLE if not exists `dba_getFirstBillPlayerid_0816` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `BillId` varchar(50) NOT NULL COMMENT '订单编号',
+  `PlayerId` bigint(20) NOT NULL COMMENT '玩家Id',
+  `GoodsId` varchar(50) NOT NULL COMMENT '货物Id',
+  `ChannelGoodsId` varchar(100) DEFAULT NULL COMMENT '渠道货物Id',
+  `Price` varchar(20) NOT NULL COMMENT '价格',
+  `FinishTime` datetime DEFAULT NULL COMMENT '订单完成时间',
+  PRIMARY KEY (`BillId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='getFirstBillPlayerid充值订单' ;
+delete from dba_getFirstBillPlayerid_0816 ;
+insert into dba_getFirstBillPlayerid_0816
+ SELECT zz, billid, PlayerId, GoodsId, ChannelGoodsId, price, FinishTime FROM (select i as zz, billid, PlayerId, GoodsId, ChannelGoodsId, price, FinishTime from ( SELECT @i := IF ( @playerid = playerid AND @GoodsId = GoodsId ,@i + 1, 1 ) AS i, @playerid := playerid ,@GoodsId := GoodsId, PlayerId, GoodsId, price, billid, ChannelGoodsId, FinishTime FROM t_u_bill WHERE FinishTime IS NOT NULL ORDER BY PlayerId, GoodsId, FinishTime ) AS aa ,(select @i := 0) as bb ) as a WHERE a.finishtime >= '2016-08-12 17:00:00' AND a.finishtime < '2016-08-15 21:05:00' AND a.zz = 1;
+END ;;
+DELIMITER ;
+
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+
+DELIMITER ;;
+CREATE PROCEDURE `get_global_unique_id`(IN id_type SMALLINT,IN id_default_value BIGINT,IN add_value INT)
+BEGIN
+DECLARE current_id BIGINT;
+START TRANSACTION; 
+SELECT `CurrentId` INTO current_id FROM `t_u_uniqueid` WHERE `IdType`=id_type FOR UPDATE;
+IF current_id IS NULL THEN
+SET current_id=id_default_value;
+INSERT INTO `t_u_uniqueid` VALUES(id_type,current_id);
+END IF;
+IF current_id<id_default_value THEN
+SET current_id=id_default_value;
+END IF;
+UPDATE `t_u_uniqueid` SET `CurrentId`=current_id+add_value WHERE `IdType`=id_type;
+COMMIT;
+SELECT current_id;
+END ;;
+DELIMITER ;
+
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+
+DELIMITER ;;
+CREATE PROCEDURE `update_bill_finish_time`(IN i_billId VARCHAR(50),IN i_finishTime DATETIME,IN i_serial_number VARCHAR(50),IN i_channel_bill_no VARCHAR(128),IN i_paychannel VARCHAR(50))
+BEGIN
+        DECLARE v_oldFinishTime DATETIME;
+        DECLARE v_result INT;
+        SET v_result = 0;
+        START TRANSACTION; 
+        SELECT `FinishTime` INTO v_oldFinishTime FROM `t_u_bill` WHERE `BillId`=i_billId FOR UPDATE;
+        IF v_oldFinishTime IS NULL THEN
+            UPDATE `t_u_bill` SET `FinishTime`=i_finishTime,`SerialNumber`=i_serial_number,`ChannelBillNo`=i_channel_bill_no,`PayChannel`= i_paychannel WHERE `BillId`=i_billId;
+            SET v_result = 1;
+        END IF;
+        COMMIT;
+        SELECT v_result;   
+END ;;
+DELIMITER ;
+
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+CREATE SERVER 	CRC32_t_s_alchemypot	57e580a0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_battlepos	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_battlescene	14e04f4e	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_battlescenelayer	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_bill	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_buffer	81c09b63	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_building	12a026b	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_camp	b239181c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_campmap	b77abf3d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_campmaplayer	1a119c33	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_campnode	11141e26	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_campnodeai	61e37512	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_campnodepos	a5ab427b	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_camptarget	5947acae	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_centernotice	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_chapter	b4ee91c0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_chapterbox	717f3b60	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_charge	a6cd4e0f	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_dbamultilanguage	27ae258	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_drop	c3f46d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_dropelement	4e4672bb	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_dropgroup	8cd4a481	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_drug	8b7a096c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_effect	53365e8e	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_elitecamp	f439bb47	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_elitecampnode	da3051ca	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_functionshow	7f644cdc	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_gameconfig	c6aac90b	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_gemcall	8782064a	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_group	c866889f	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_guildaid	b11a722d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_guildlevel	10aba09	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_guildmemberauthority	644cddd5	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_hero	22301e4c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_heroprop	1407e32c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_item	a08c6c55	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_living	129fa22b	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_loadingtips	305324c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_losetips	739cc1df	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manor	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorbuffer	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorliving	f90cf267	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manormine	c1e8c7ab	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorrandomnode	f957a1b0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorrank	cbde1221	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorskill	58fcf6c9	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_manorskin	6df7f5a9	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_matchreward	27bb2034	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_maze	ab7c8616	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_mazeai	9d4419d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_mazelivings	934a0f90	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_mazemode	c5d0b8ad	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_mazenode	6efc5aad	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_messageconfig	633a9241	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_modelconfig	a0ab5358	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_moneymanual	265ecf43	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_multilanguage	72e13e41	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_npc	deda44ef	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_petmanual	e3956069	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_product	2a199992	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_property	fadc38e7	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_qteai	119c6ff9	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_quest	3b18b672	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_questcondition	3df43623	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_randomcamp	c9044849	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_randomname	4bd6f449	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_resmovenode	a595bf0d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_resource	27ba2999	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_resrecovery	67d86703	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_robot	a7891cc9	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_sacristy	9fa2eb27	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_serverconfig	87bf0b54	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_shopitem	d1d29e07	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_sign	b50b1b2e	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_skill	bdadafdb	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_skillai	279ad1d4	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_skillanimation	20760b0d	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_skillease	49774aa1	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_sound	bdd01e1a	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_starsign	5fc8a185	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_starsignmap	ca81ae43	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_starsignnode	f194422c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_starsignpage	764ebd80	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_stone	81d97fec	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_story	3947c998	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_storycamp	c92a96b7	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_storycondition	300fc6ee	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_storyshow	41679468	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_suit	6299d625	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_timegift	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_timegiftelem	0	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_upgrade	f90a527c	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_version	b3d9fc47	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_vip	89eca7f4	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_vipbonus	4b8ab1ee	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_vipexchange	4983870e	dts模版的校验信息 by ace.han ;
+CREATE SERVER 	CRC32_t_s_xinge	dcad8ceb	dts模版的校验信息 by ace.han ;

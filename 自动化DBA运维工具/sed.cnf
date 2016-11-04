@@ -1,0 +1,8 @@
+s/AUTO_INCREMENT *= *[0-9]*//g
+s/.*Dumping events for database.*//g
+s/db_(\\w{2,6})_\\w{2,7}_\\w{4}/db_\\1_xxxx_9999/g
+s/Dump completed on .{10} .{8}/Dump completed on xxxx-xx-xx xx:xx:xx/g
+s/DEFINER.*PROCEDURE/PROCEDURE/g
+s/^--.*//g
+s#DEFINER=`.*`@`.*`\\*#\\*#g
+s/.*SET sql_mode              =.*//g
