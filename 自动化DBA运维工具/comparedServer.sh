@@ -285,7 +285,7 @@ function compareDB(){
 }
 
 function getDB2Ip(){
-    cat /data/iplist/rh_iplist_china.txt | grep DB2Server | awk '{print $3,"    16333   root    fj6xElEFoe@7road "}' | sort |uniq > server.ip
+    cat /data/iplist/rh_iplist_china.txt | grep DB2Server | awk '{print $3,"    16333   root    xxxxx "}' | sort |uniq > server.ip
 
 }
 
