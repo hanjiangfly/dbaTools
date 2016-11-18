@@ -1,0 +1,17 @@
+$def with (content)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <title>跳板机日志安全审计系统 $content.title</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+<div class="top"><span class="span">$session.username 欢迎使用Linux跳板机日志安全审计系统：</span><span class="span"><a href='../logs'>列表</a><span class="span"><a href='../search'>查询</a></span><span class="span"><a href='../logout'>退出</a></span><span style="float:right;">Author:0x001 2013-02-08</span></div>
+<div class="content">
+$:content
+</div>
+</body>
+</html>
+

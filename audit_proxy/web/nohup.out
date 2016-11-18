@@ -1,0 +1,2579 @@
+10.10.9.56:58407 - - [24/Jan/2014 10:07:32] "HTTP/1.1 GET /" - 200 OK
+10.10.9.56:58407 - - [24/Jan/2014 10:07:32] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.9.56:58407 - - [24/Jan/2014 10:07:32] "HTTP/1.1 GET /static/favicon.ico" - 200 
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 55, in POST
+    password = CalcMD5(i.get('password', ''))
+TypeError: CalcMD5() takes exactly 2 arguments (1 given)
+
+10.10.9.56:58407 - - [24/Jan/2014 10:07:36] "HTTP/1.1 POST /login" - 500 Internal Server Error
+10.10.9.56:58407 - - [24/Jan/2014 10:07:37] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 55, in POST
+    password = CalcMD5(i.get('password', ''))
+TypeError: CalcMD5() takes exactly 2 arguments (1 given)
+
+10.10.9.56:58407 - - [24/Jan/2014 10:07:43] "HTTP/1.1 POST /login" - 500 Internal Server Error
+10.10.9.56:58430 - - [24/Jan/2014 10:08:52] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.9.56:58430 - - [24/Jan/2014 10:08:55] "HTTP/1.1 GET /" - 200 OK
+10.10.9.56:58646 - - [24/Jan/2014 10:23:39] "HTTP/1.1 POST /login" - 303 See Other
+10.10.9.56:58646 - - [24/Jan/2014 10:23:39] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58646 - - [24/Jan/2014 10:23:39] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.9.56:58646 - - [24/Jan/2014 10:23:39] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.9.56:58646 - - [24/Jan/2014 10:23:41] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.56:58646 - - [24/Jan/2014 10:23:43] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58650 - - [24/Jan/2014 10:23:53] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58650 - - [24/Jan/2014 10:23:55] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58650 - - [24/Jan/2014 10:23:57] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58653 - - [24/Jan/2014 10:24:14] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58653 - - [24/Jan/2014 10:24:18] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58653 - - [24/Jan/2014 10:24:18] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.9.56:58655 - - [24/Jan/2014 10:24:18] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 10.10.9.56:58654 - - [24/Jan/2014 10:24:18] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+
+10.10.9.56:58655 - - [24/Jan/2014 10:24:18] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.9.56:58655 - - [24/Jan/2014 10:24:26] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.56:58655 - - [24/Jan/2014 10:24:36] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.56:58655 - - [24/Jan/2014 10:24:38] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58655 - - [24/Jan/2014 10:24:40] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58673 - - [24/Jan/2014 10:26:12] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:58673 - - [24/Jan/2014 10:26:15] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58673 - - [24/Jan/2014 10:26:16] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58673 - - [24/Jan/2014 10:26:18] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.56:58673 - - [24/Jan/2014 10:26:19] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58675 - - [24/Jan/2014 10:26:38] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.56:58680 - - [24/Jan/2014 10:26:51] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.56:58680 - - [24/Jan/2014 10:26:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:65394 - - [24/Jan/2014 17:55:26] "HTTP/1.1 GET /search" - 200 OK
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 151, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 184, in findKeyword
+    return ''.join(result)
+TypeError: sequence item 15: expected string, list found
+
+10.10.9.56:65394 - - [24/Jan/2014 17:55:29] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.56:65433 - - [24/Jan/2014 17:57:29] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.56:65433 - - [24/Jan/2014 17:57:33] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:65433 - - [24/Jan/2014 17:57:38] "HTTP/1.1 GET /search" - 200 OK
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 151, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 168, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 88: ordinal not in range(128)
+
+10.10.9.56:65433 - - [24/Jan/2014 17:57:45] "HTTP/1.1 POST /search" - 500 Internal Server Error
+http://0.0.0.0:16380/
+Traceback (most recent call last):
+  File "code.py", line 22, in <module>
+    app.run()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 172, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc4 in position 88: ordinal not in range(128)
+
+10.10.9.56:65505 - - [24/Jan/2014 18:03:38] "HTTP/1.1 POST /search" - 500 Internal Server Error
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 172, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc4 in position 88: ordinal not in range(128)
+
+10.10.9.56:65505 - - [24/Jan/2014 18:03:45] "HTTP/1.1 POST /search" - 500 Internal Server Error
+http://0.0.0.0:16380/
+[2014-01-23 09:01:22] 119.147.247.240 -> cd /home/chengjun/update_new/
+
+[2014-01-23 09:01:27] 119.147.247.240 -> cd /data/tools/upload/
+
+[2014-01-23 09:01:28] 119.147.247.240 -> ll
+
+[2014-01-23 09:01:33] 119.147.247.240 -> md5sum 2014012201_ww.zip 
+
+[2014-01-23 09:02:03] 119.147.247.240 -> cd -
+
+[2014-01-23 09:02:04] 119.147.247.240 -> ll
+
+[2014-01-23 09:14:23] 119.147.247.240 -> date
+
+[2014-01-23 09:16:54] 119.147.247.240 -> date
+
+[2014-01-23 09:17:44] 119.147.247.240 -> date
+
+[2014-01-23 09:18:18] 119.147.247.240 -> date
+
+[2014-01-23 09:18:23] 119.147.247.240 -> date
+
+[2014-01-23 09:18:51] 119.147.247.240 -> date
+
+[2014-01-23 09:18:57] 119.147.247.240 -> date
+
+[2014-01-23 09:18:59] 119.147.247.240 -> date
+
+[2014-01-23 09:19:06] 119.147.247.240 -> date
+
+[2014-01-23 09:19:08] 119.147.247.240 -> date
+
+[2014-01-23 09:19:12] 119.147.247.240 -> date
+
+[2014-01-23 09:19:16] 119.147.247.240 -> sh 2_check_gs.sh all
+
+[2014-01-23 09:19:27] 119.147.247.240 -> date
+
+[2014-01-23 09:19:30] 119.147.247.240 -> date
+
+[2014-01-23 09:19:32] 119.147.247.240 -> date
+
+[2014-01-23 09:19:36] 119.147.247.240 -> sh 1_stop_gs.sh all
+
+[2014-01-23 09:20:10] 119.147.247.240 -> hs_to 360_0001
+
+[2014-01-23 09:20:14] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+[2014-01-23 09:20:14] 119.147.247.240 -> ll
+
+[2014-01-23 09:20:18] 119.147.247.240 -> tail -f nohup.out 
+
+[2014-01-23 09:20:36] 119.147.247.240 -> exit
+
+[2014-01-23 09:20:40] 119.147.247.240 -> hs_to 37wan_0001
+
+[2014-01-23 09:20:45] 119.147.247.240 -> cd /data/seawar/gamesvr1/
+
+[2014-01-23 09:20:48] 119.147.247.240 -> tail -f nohup.out 
+
+[2014-01-23 09:29:31] 119.147.247.240 -> date
+
+[2014-01-23 09:29:50] 119.147.247.240 -> sh 2_check_gs.sh all
+
+[2014-01-23 09:30:08] 119.147.247.240 -> sh 3_update_gs.sh all
+
+[2014-01-23 09:30:09] 119.147.247.240 -> yes
+
+[2014-01-23 09:30:27] 119.147.247.240 -> service nagios stop
+
+[2014-01-23 09:30:35] 119.147.247.240 -> sh 4_update_web.sh 
+
+[2014-01-23 09:30:36] 119.147.247.240 -> yes
+
+[2014-01-23 09:30:52] 119.147.247.240 -> sh update_spanserver.sh 
+
+[2014-01-23 09:31:16] 119.147.247.240 -> cd test_update/
+
+[2014-01-23 09:31:17] 119.147.247.240 -> ll
+
+[2014-01-23 09:31:22] 119.147.247.240 -> more ip_site_list.txt 
+
+[2014-01-23 09:31:29] 119.147.247.240 -> sh 4_update_web.sh 
+
+[2014-01-23 09:31:31] 119.147.247.240 -> yes
+
+[2014-01-23 09:31:49] 119.147.247.240 -> sh 7_version_check.sh 
+
+[2014-01-23 09:32:21] 119.147.247.240 -> sh 7_version_check.sh 
+
+[2014-01-23 09:32:48] 119.147.247.240 -> cd ..
+
+[2014-01-23 09:32:50] 119.147.247.240 -> ll
+
+[2014-01-23 09:33:04] 119.147.247.240 -> more gamesvr1/conf/version.properties 
+
+[2014-01-23 09:44:34] 119.147.247.240 -> sh 5_start_gs.sh all
+
+[2014-01-23 09:44:48] 119.147.247.240 -> sh 2_check_gs.sh all
+
+[2014-01-23 09:45:17] 119.147.247.240 -> sh 2_check_gs.sh all
+
+[2014-01-23 09:45:28] 119.147.247.240 -> tail -f nohup.out 
+
+[2014-01-23 09:46:02] 119.147.247.240 -> service nagios start
+
+[2014-01-23 09:47:20] 119.147.247.240 -> sh 2_check_gs.sh all
+
+[2014-01-23 09:48:15] 119.147.247.240 -> history 
+
+[2014-01-23 09:55:04] 119.147.247.240 -> hs_to 8641_0001
+
+[2014-01-23 09:55:06] 119.147.247.240 -> jps
+
+[2014-01-23 09:55:10] 119.147.247.240 -> lssite 
+
+[2014-01-23 09:55:26] 119.147.247.240 -> cd /data/ccu/service1/
+
+[2014-01-23 09:55:27] 119.147.247.240 -> ll
+
+[2014-01-23 09:55:30] 119.147.247.240 -> cd logs/
+
+[2014-01-23 09:55:31] 119.147.247.240 -> ll
+
+[2014-01-23 09:55:34] 119.147.247.240 -> ls
+
+[2014-01-23 09:55:42] 119.147.247.240 -> tail -n100 error
+
+[2014-01-23 09:55:47] 119.147.247.240 -> tail -n100 log
+
+[2014-01-23 09:56:35] 119.147.247.240 -> cd /usr/local/nginx/conf/conf.d/
+
+[2014-01-23 09:56:36] 119.147.247.240 -> ll
+
+[2014-01-23 09:56:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+[2014-01-23 09:57:34] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+[2014-01-23 09:57:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+[2014-01-23 09:59:12] 119.147.247.240 -> date
+
+[2014-01-23 12:40:15] 119.147.247.240 -> ping 119.147.250.30
+
+[2014-01-23 12:40:22] 119.147.247.240 -> ping 119.147.250.28
+
+[2014-01-23 12:41:42] 119.147.247.240 -> exit
+
+[2014-01-23 12:41:45] 119.147.247.240 -> cd ../dafu/
+
+[2014-01-23 12:41:46] 119.147.247.240 -> ll
+
+[2014-01-23 12:41:49] 119.147.247.240 -> vim site_list 
+
+[2014-01-23 12:41:58] 119.147.247.240 -> dddd2:wq
+
+[2014-01-23 12:42:27] 119.147.247.240 -> cat /etc/hosts | grep 8641_0012
+
+[2014-01-23 12:42:57] 119.147.247.240 -> cat /etc/hosts | grep 250.30
+
+[2014-01-23 12:43:03] 119.147.247.240 -> vim site_list 
+
+[2014-01-23 12:43:11] 119.147.247.240 -> yy03:wq
+
+[2014-01-23 12:45:09] 119.147.247.240 -> more config_start_check.sh 
+
+[2014-01-23 12:45:42] 119.147.247.240 ->  qmore 3_start_check.sh 
+
+[2014-01-23 12:45:48] 119.147.247.240 -> ll
+
+[2014-01-23 12:45:59] 119.147.247.240 -> ping 119.147.250.30
+
+[2014-01-23 12:50:10] 119.147.247.240 -> cd /home/chengjun/
+
+[2014-01-23 12:50:11] 119.147.247.240 -> ll
+
+[2014-01-23 12:50:13] 119.147.247.240 -> cd hefu/
+
+[2014-01-23 12:50:15] 119.147.247.240 -> ll
+
+[2014-01-23 12:50:21] 119.147.247.240 -> cd ../
+
+[2014-01-23 12:50:23] 119.147.247.240 -> ll
+
+[2014-01-23 12:50:25] 119.147.247.240 -> cd dafu/
+
+[2014-01-23 12:50:26] 119.147.247.240 -> ll
+
+[2014-01-23 12:50:30] 119.147.247.240 -> cat site_list 
+
+[2014-01-23 12:52:02] 119.147.247.240 -> hs_to 37wan_0001
+
+[2014-01-23 12:52:24] 119.147.247.240 -> ping 119.147.250.30
+
+[2014-01-23 12:52:39] 119.147.247.240 -> exit
+
+[2014-01-23 12:52:42] 119.147.247.240 -> ll
+
+[2014-01-23 12:52:47] 119.147.247.240 -> cd /home/chengjun/
+
+[2014-01-23 12:52:48] 119.147.247.240 -> ll
+
+[2014-01-23 12:52:51] 119.147.247.240 -> cd dafu/
+
+[2014-01-23 12:52:52] 119.147.247.240 -> ll
+
+[2014-01-23 12:52:55] 119.147.247.240 -> cat site_list 
+
+[2014-01-23 12:53:35] 119.147.247.240 -> hs_to 8641_0003
+
+[2014-01-23 13:02:02] 119.147.247.240 -> ping 119.147.250.30
+
+[2014-01-23 13:02:07] 119.147.247.240 -> hs_to 8641_0003
+
+[2014-01-23 13:02:20] 119.147.247.240 -> ping 119.147.250.30
+
+[2014-01-23 13:17:16] 119.147.247.240 -> sh 3_start_check.sh 
+
+[2014-01-23 13:17:53] 119.147.247.240 -> hs_to 8641_0003
+
+[2014-01-23 13:17:55] 119.147.247.240 -> jps
+
+[2014-01-23 13:18:43] 119.147.247.240 -> netstat -na | grep 9000
+
+[2014-01-23 13:18:46] 119.147.247.240 -> netstat -na | grep 9001
+
+[2014-01-23 13:18:55] 119.147.247.240 -> netstat -tpln
+
+[2014-01-23 13:19:04] 119.147.247.240 -> exit
+
+[2014-01-23 15:16:34] 119.147.247.240 -> hs_to 8641_0003
+
+[2014-01-23 15:16:41] 119.147.247.240 -> netstat -na | grep 9300
+
+[2014-01-23 15:16:59] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+[2014-01-23 15:16:59] 119.147.247.240 -> ll
+
+[2014-01-23 15:17:03] 119.147.247.240 -> more nohup.out 
+
+[2014-01-23 09:36:37] dump 2
+
+[2014-01-23 09:36:44] 202.55.9.157 -> cd /dba/gameTools/serverCheck/log/
+
+[2014-01-23 09:36:44] 202.55.9.157 -> ls
+
+[2014-01-23 09:36:49] 202.55.9.157 -> cat * | grep 211.72.246.38 
+
+[2014-01-23 09:38:20] dump 2
+
+[2014-01-23 09:38:21] 202.55.9.157 -> sqlist
+
+[2014-01-23 09:38:32] 202.55.9.157 -> kimi
+
+[2014-01-23 09:38:39] 202.55.9.157 -> 2
+
+[2014-01-23 09:38:54] 202.55.9.157 -> r
+
+[2014-01-23 09:38:55] 202.55.9.157 -> 0002
+
+[2014-01-23 09:38:56] 202.55.9.157 -> 1
+
+[2014-01-23 09:39:01] 202.55.9.157 -> cd /data/server_tools/serverCheck/
+
+[2014-01-23 09:39:01] 202.55.9.157 -> ls
+
+[2014-01-23 09:39:05] 202.55.9.157 -> cat serverCheck.log 
+
+[2014-01-23 09:39:22] 202.55.9.157 -> ls
+
+[2014-01-23 09:39:25] 202.55.9.157 -> ./serverCheck db
+
+[2014-01-23 09:39:51] 202.55.9.157 -> cd /data/mysqllog
+
+[2014-01-23 09:39:51] 202.55.9.157 -> ls
+
+[2014-01-23 09:39:54] 202.55.9.157 -> ll -lh
+
+[2014-01-23 09:40:52] 202.55.9.157 -> ls
+
+[2014-01-23 09:41:14] 202.55.9.157 -> cd -
+
+[2014-01-23 09:41:15] 202.55.9.157 -> ls
+
+[2014-01-23 09:41:18] 202.55.9.157 -> ./serverCheck 
+
+[2014-01-23 09:41:29] 202.55.9.157 -> ./serverCheck db '113.107.88.124' 3 '2014-01-23'
+
+[2014-01-23 09:41:33] 202.55.9.157 -> ls
+
+[2014-01-23 09:41:34] 202.55.9.157 -> rz -y
+
+[2014-01-23 09:41:51] 202.55.9.157 -> OOsh serverCheck.sh db
+
+[2014-01-23 09:42:03] 202.55.9.157 -> vim serverCheck.sh 
+
+[2014-01-23 09:42:15] 202.55.9.157 -> uu/
+
+[2014-01-23 09:42:19] 202.55.9.157 -> 0c
+
+[2014-01-23 09:42:28] 202.55.9.157 -> 0c
+
+[2014-01-23 09:42:31] 202.55.9.157 -> set +x:wq
+
+[2014-01-23 09:42:32] 202.55.9.157 -> sh serverCheck.sh db
+
+[2014-01-23 09:45:33] 202.55.9.157 ->         }
+
+[2014-01-23 09:45:35] 202.55.9.157 -> testInit
+
+[2014-01-23 09:45:50] 202.55.9.157 ->                 done
+
+[2014-01-23 09:46:55] 202.55.9.157 -> mysqlSocket=/data/mysqldata/mysql.sock
+
+[2014-01-23 09:47:01] 202.55.9.157 -> mysqlPort=2433
+
+[2014-01-23 09:47:11] 202.55.9.157 -> setMysqlInfo 'slave' "${mysqlPort}" "${mysqlSocket}"
+
+[2014-01-23 09:47:33] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" | awk '{print $2}' | sed 's/slow-query.log//g'
+
+[2014-01-23 09:47:40] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" 
+
+[2014-01-23 09:47:55] 202.55.9.157 -> 1
+
+[2014-01-23 09:47:59] 202.55.9.157 -> cd /data/gameTools/config/
+
+[2014-01-23 09:47:59] 202.55.9.157 -> ls
+
+[2014-01-23 09:48:01] 202.55.9.157 -> cat toolsConfig.sh 
+
+[2014-01-23 09:48:08] 202.55.9.157 -> ll 
+
+[2014-01-23 09:48:59] 202.55.9.157 -> date
+
+[2014-01-23 09:49:09] 202.55.9.157 -> crontab -l
+
+[2014-01-23 09:50:06] 202.55.9.157 -> echo cccc > toolsConfig.sh
+
+[2014-01-23 09:50:08] 202.55.9.157 -> cat toolsConfig.sh 
+
+[2014-01-23 09:50:14] 202.55.9.157 -> cd /data/gameTools/dropDelDB/; ./dropDelDB DB1
+
+[2014-01-23 09:50:18] 202.55.9.157 -> ll
+
+[2014-01-23 09:50:22] 202.55.9.157 -> cd -
+
+[2014-01-23 09:50:23] 202.55.9.157 -> ls
+
+[2014-01-23 09:50:25] 202.55.9.157 -> ll -lh
+
+[2014-01-23 09:50:28] 202.55.9.157 -> cat toolsConfig.sh 
+
+[2014-01-23 11:10:24] 202.55.9.157 -> exit
+
+[2014-01-23 11:10:27] 202.55.9.157 -> exit
+
+[2014-01-23 11:10:28] dump 1
+
+[2014-01-23 11:10:30] 113.107.88.124 -> ls
+
+[2014-01-23 11:10:45] 113.107.88.124 -> cd eric
+
+[2014-01-23 11:10:45] 113.107.88.124 -> ls
+
+[2014-01-23 11:10:56] 113.107.88.124 -> cd ..
+
+[2014-01-23 11:10:57] 113.107.88.124 -> ls
+
+[2014-01-23 11:11:02] 113.107.88.124 -> cat 2.py
+
+[2014-01-23 11:11:08] 113.107.88.124 -> ls
+
+[2014-01-23 11:11:18] 113.107.88.124 -> cat 1.txt 
+
+[2014-01-23 11:13:40] 113.107.88.124 -> python 2.py ''smtp.163.com ''ujfgsa43@163.com 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+[2014-01-23 11:16:24] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+[2014-01-23 11:16:31] 113.107.88.124 -> python 2.py 
+
+[2014-01-23 11:16:42] 113.107.88.124 -> 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+[2014-01-23 11:17:27] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'dfsfgfsd34d' '4897393@qq.com' 'test by eric' 1.txt 
+
+[2014-01-23 11:18:08] 113.107.88.124 -> mv 2.py sendMail.py
+
+[2014-01-23 11:18:14] 113.107.88.124 -> sz sendMail.py 
+
+[2014-01-23 16:45:21] 202.55.9.157 -> exit
+
+[2014-01-23 16:45:22] 202.55.9.157 -> exit
+
+[2014-01-23 16:45:24] dump 1
+
+[2014-01-23 16:45:32] 113.107.88.124 -> cd /data/iplist/
+
+[2014-01-23 16:45:37] 113.107.88.124 -> grep 64.237.36.163 *
+
+[2014-01-23 16:45:38] 113.107.88.124 -> ls
+
+[2014-01-23 16:45:46] 113.107.88.124 -> cd che checkList/
+
+[2014-01-23 16:45:49] 113.107.88.124 -> grep 64.237.36.163 *
+
+[2014-01-23 09:45:39] dump 2
+
+[2014-01-23 09:45:41] 202.55.9.157 -> ddtlist 
+
+[2014-01-23 09:45:53] 202.55.9.157 -> mlty
+
+[2014-01-23 09:45:53] 202.55.9.157 -> 1
+
+[2014-01-23 09:46:01] 202.55.9.157 -> 2
+
+[2014-01-23 09:46:03] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+[2014-01-23 09:46:04] 202.55.9.157 -> GdS%@*bS38Xjshow databases;
+
+[2014-01-23 09:46:21] 202.55.9.157 -> use db_tank_mlty_0001
+
+[2014-01-23 09:46:27] 202.55.9.157 -> show tables;
+
+[2014-01-23 09:46:46] 202.55.9.157 -> select * from t_s_mission limit 10;
+
+[2014-01-23 09:46:58] dump 2
+
+[2014-01-23 09:47:00] 202.55.9.157 -> ddtlist 
+
+[2014-01-23 09:47:09] 202.55.9.157 -> 7roaddbayiyou
+
+[2014-01-23 09:47:10] 202.55.9.157 -> 1
+
+[2014-01-23 09:47:11] 202.55.9.157 -> 2
+
+[2014-01-23 09:47:13] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+[2014-01-23 09:47:13] 202.55.9.157 -> show databases;
+
+[2014-01-23 09:47:17] 202.55.9.157 -> useTraceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 173, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc4 in position 88: ordinal not in range(128)
+
+10.10.9.56:65527 - - [24/Jan/2014 18:05:22] "HTTP/1.1 POST /search" - 500 Internal Server Error
+ db_tank_yiyou_0001
+
+[2014-01-23 09:47:25] 202.55.9.157 -> select * from t_s_mission limit 5;
+
+[2014-01-23 09:47:34] 202.55.9.157 -> select * from t_s_mission limit 5;limit 1\G;
+
+[2014-01-23 09:47:45] 202.55.9.157 -> show create table t_s_mission;
+
+[2014-01-23 09:48:25] 202.55.9.157 -> elect *Id,Namefrom t_s_mission limit 1\Gwhere Name like '%%';
+
+[2014-01-23 09:48:28] 202.55.9.157 -> exit
+
+[2014-01-23 09:48:29] 202.55.9.157 -> exit
+
+[2014-01-23 09:48:30] 202.55.9.157 -> exit
+
+[2014-01-23 09:48:31] 202.55.9.157 -> r
+
+[2014-01-23 09:48:32] 202.55.9.157 -> r
+
+[2014-01-23 09:48:36] 202.55.9.157 -> mlcn
+
+[2014-01-23 09:48:37] 202.55.9.157 -> 1
+
+[2014-01-23 09:48:38] 202.55.9.157 -> 2
+
+[2014-01-23 09:48:39] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+[2014-01-23 09:48:39] 202.55.9.157 -> show databases;
+
+[2014-01-23 09:48:44] 202.55.9.157 -> use db_tank_mlcn_0001
+
+[2014-01-23 09:49:15] 202.55.9.157 -> select Id,Name from t_s_mission where Name like '%čč%'; ;
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:22] 119.147.247.240 -> cd /home/chengjun/update_new/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:27] 119.147.247.240 -> cd /data/tools/upload/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:28] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:33] 119.147.247.240 -> md5sum 2014012201_ww.zip 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:03] 119.147.247.240 -> cd -
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:04] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:14:23] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:16:54] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:17:44] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:18] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:23] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:51] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:57] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:59] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:06] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:08] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:12] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:16] 119.147.247.240 -> sh 2_check_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:27] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:30] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:32] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:36] 119.147.247.240 -> sh 1_stop_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:10] 119.147.247.240 -> hs_to 360_0001
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:18] 119.147.247.240 -> tail -f nohup.out 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:36] 119.147.247.240 -> exit
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:40] 119.147.247.240 -> hs_to 37wan_0001
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:45] 119.147.247.240 -> cd /data/seawar/gamesvr1/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:48] 119.147.247.240 -> tail -f nohup.out 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:31] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:50] 119.147.247.240 -> sh 2_check_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:08] 119.147.247.240 -> sh 3_update_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:09] 119.147.247.240 -> yes
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:27] 119.147.247.240 -> service nagios stop
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:35] 119.147.247.240 -> sh 4_update_web.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:36] 119.147.247.240 -> yes
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:52] 119.147.247.240 -> sh update_spanserver.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:16] 119.147.247.240 -> cd test_update/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:17] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:22] 119.147.247.240 -> more ip_site_list.txt 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:29] 119.147.247.240 -> sh 4_update_web.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:31] 119.147.247.240 -> yes
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:49] 119.147.247.240 -> sh 7_version_check.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:21] 119.147.247.240 -> sh 7_version_check.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:48] 119.147.247.240 -> cd ..
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:50] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:33:04] 119.147.247.240 -> more gamesvr1/conf/version.properties 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:34] 119.147.247.240 -> sh 5_start_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:48] 119.147.247.240 -> sh 2_check_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:17] 119.147.247.240 -> sh 2_check_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:28] 119.147.247.240 -> tail -f nohup.out 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:46:02] 119.147.247.240 -> service nagios start
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:47:20] 119.147.247.240 -> sh 2_check_gs.sh all
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:48:15] 119.147.247.240 -> history 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:04] 119.147.247.240 -> hs_to 8641_0001
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:06] 119.147.247.240 -> jps
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:10] 119.147.247.240 -> lssite 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:26] 119.147.247.240 -> cd /data/ccu/service1/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:27] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:30] 119.147.247.240 -> cd logs/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:31] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:34] 119.147.247.240 -> ls
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:42] 119.147.247.240 -> tail -n100 error
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:47] 119.147.247.240 -> tail -n100 log
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:35] 119.147.247.240 -> cd /usr/local/nginx/conf/conf.d/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:36] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:34] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:59:12] 119.147.247.240 -> date
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:15] 119.147.247.240 -> ping 119.147.250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:22] 119.147.247.240 -> ping 119.147.250.28
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:42] 119.147.247.240 -> exit
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:45] 119.147.247.240 -> cd ../dafu/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:46] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:49] 119.147.247.240 -> vim site_list 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:58] 119.147.247.240 -> dddd2:wq
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:27] 119.147.247.240 -> cat /etc/hosts | grep 8641_0012
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:57] 119.147.247.240 -> cat /etc/hosts | grep 250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:03] 119.147.247.240 -> vim site_list 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:11] 119.147.247.240 -> yy03:wq
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:09] 119.147.247.240 -> more config_start_check.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:42] 119.147.247.240 ->  qmore 3_start_check.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:48] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:59] 119.147.247.240 -> ping 119.147.250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:10] 119.147.247.240 -> cd /home/chengjun/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:11] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:13] 119.147.247.240 -> cd hefu/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:15] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:21] 119.147.247.240 -> cd ../
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:23] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:25] 119.147.247.240 -> cd dafu/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:26] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:30] 119.147.247.240 -> cat site_list 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:02] 119.147.247.240 -> hs_to 37wan_0001
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:24] 119.147.247.240 -> ping 119.147.250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:39] 119.147.247.240 -> exit
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:42] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:47] 119.147.247.240 -> cd /home/chengjun/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:48] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:51] 119.147.247.240 -> cd dafu/
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:52] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:55] 119.147.247.240 -> cat site_list 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:53:35] 119.147.247.240 -> hs_to 8641_0003
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:02] 119.147.247.240 -> ping 119.147.250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:07] 119.147.247.240 -> hs_to 8641_0003
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:20] 119.147.247.240 -> ping 119.147.250.30
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:16] 119.147.247.240 -> sh 3_start_check.sh 
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:53] 119.147.247.240 -> hs_to 8641_0003
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:55] 119.147.247.240 -> jps
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:43] 119.147.247.240 -> netstat -na | grep 9000
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:46] 119.147.247.240 -> netstat -na | grep 9001
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:55] 119.147.247.240 -> netstat -tpln
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:19:04] 119.147.247.240 -> exit
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:34] 119.147.247.240 -> hs_to 8641_0003
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:41] 119.147.247.240 -> netstat -na | grep 9300
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> ll
+
+2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:17:03] 119.147.247.240 -> more nohup.out 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:37] dump 2
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> cd /dba/gameTools/serverCheck/log/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:49] 202.55.9.157 -> cat * | grep 211.72.246.38 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:20] dump 2
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:21] 202.55.9.157 -> sqlist
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:32] 202.55.9.157 -> kimi
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:39] 202.55.9.157 -> 2
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:54] 202.55.9.157 -> r
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:55] 202.55.9.157 -> 0002
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:56] 202.55.9.157 -> 1
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> cd /data/server_tools/serverCheck/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:05] 202.55.9.157 -> cat serverCheck.log 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:22] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:25] 202.55.9.157 -> ./serverCheck db
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> cd /data/mysqllog
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:54] 202.55.9.157 -> ll -lh
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:40:52] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:14] 202.55.9.157 -> cd -
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:15] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:18] 202.55.9.157 -> ./serverCheck 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:29] 202.55.9.157 -> ./serverCheck db '113.107.88.124' 3 '2014-01-23'
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:33] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:34] 202.55.9.157 -> rz -y
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:51] 202.55.9.157 -> OOsh serverCheck.sh db
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:03] 202.55.9.157 -> vim serverCheck.sh 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:15] 202.55.9.157 -> uu/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:19] 202.55.9.157 -> 0c
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:28] 202.55.9.157 -> 0c
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:31] 202.55.9.157 -> set +x:wq
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:32] 202.55.9.157 -> sh serverCheck.sh db
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:33] 202.55.9.157 ->         }
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:35] 202.55.9.157 -> testInit
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:50] 202.55.9.157 ->                 done
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:46:55] 202.55.9.157 -> mysqlSocket=/data/mysqldata/mysql.sock
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:01] 202.55.9.157 -> mysqlPort=2433
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:11] 202.55.9.157 -> setMysqlInfo 'slave' "${mysqlPort}" "${mysqlSocket}"
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:33] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" | awk '{print $2}' | sed 's/slow-query.log//g'
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:40] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:55] 202.55.9.157 -> 1
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> cd /data/gameTools/config/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:01] 202.55.9.157 -> cat toolsConfig.sh 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:08] 202.55.9.157 -> ll 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:59] 202.55.9.157 -> date
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:49:09] 202.55.9.157 -> crontab -l
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:06] 202.55.9.157 -> echo cccc > toolsConfig.sh
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:08] 202.55.9.157 -> cat toolsConfig.sh 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:14] 202.55.9.157 -> cd /data/gameTools/dropDelDB/; ./dropDelDB DB1
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:18] 202.55.9.157 -> ll
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:22] 202.55.9.157 -> cd -
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:23] 202.55.9.157 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:25] 202.55.9.157 -> ll -lh
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:28] 202.55.9.157 -> cat toolsConfig.sh 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:24] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:27] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:28] dump 1
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:30] 113.107.88.124 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> cd eric
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:56] 113.107.88.124 -> cd ..
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:57] 113.107.88.124 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:02] 113.107.88.124 -> cat 2.py
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:08] 113.107.88.124 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:18] 113.107.88.124 -> cat 1.txt 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:13:40] 113.107.88.124 -> python 2.py ''smtp.163.com ''ujfgsa43@163.com 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:24] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:31] 113.107.88.124 -> python 2.py 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:42] 113.107.88.124 -> 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:17:27] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'dfsfgfsd34d' '4897393@qq.com' 'test by eric' 1.txt 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:08] 113.107.88.124 -> mv 2.py sendMail.py
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:14] 113.107.88.124 -> sz sendMail.py 
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:21] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:22] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:24] dump 1
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:32] 113.107.88.124 -> cd /data/iplist/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:37] 113.107.88.124 -> grep 64.237.36.163 *
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:38] 113.107.88.124 -> ls
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:46] 113.107.88.124 -> cd che checkList/
+
+2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:49] 113.107.88.124 -> grep 64.237.36.163 *
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:39] dump 2
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:41] 202.55.9.157 -> ddtlist 
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> mlty
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> 1
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:01] 202.55.9.157 -> 2
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:03] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:04] 202.55.9.157 -> GdS%@*bS38Xjshow databases;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:21] 202.55.9.157 -> use db_tank_mlty_0001
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:27] 202.55.9.157 -> show tables;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:46] 202.55.9.157 -> select * from t_s_mission limit 10;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:58] dump 2
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:00] 202.55.9.157 -> ddtlist 
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:09] 202.55.9.157 -> 7roaddbayiyou
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:10] 202.55.9.157 -> 1
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:11] 202.55.9.157 -> 2
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> show databases;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:17] 202.55.9.157 -> use db_tank_yiyou_0001
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:25] 202.55.9.157 -> select * from t_s_mission limit 5;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:34] 202.55.9.157 -> select * from t_s_mission limit 5;limit 1\G;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:45] 202.55.9.157 -> show create table t_s_mission;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:25] 202.55.9.157 -> elect *Id,Namefrom t_s_mission limit 1\Gwhere Name like '%%';
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:28] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:29] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:30] 202.55.9.157 -> exit
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:31] 202.55.9.157 -> r
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:32] 202.55.9.157 -> r
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:36] 202.55.9.157 -> mlcn
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:37] 202.55.9.157 -> 1
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:38] 202.55.9.157 -> 2
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:39] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:39] 202.55.9.157 -> show databases;
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:44] 202.55.9.157 -> use db_tank_mlcn_0001
+
+2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:49:15] 202.55.9.157 -> select Id,Name from t_s_missionTraceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 173, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc4 in position 88: ordinal not in range(128)
+
+10.10.9.56:1038 - - [24/Jan/2014 18:06:45] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.56:1038 - - [24/Jan/2014 18:06:53] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.56:1055 - - [24/Jan/2014 18:07:32] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:1077 - - [24/Jan/2014 18:09:10] "HTTP/1.1 GET /search" - 200 OK
+ where Name like '%čč%'; ;
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:22] 119.147.247.240 -> cd /home/chengjun/update_new/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:27] 119.147.247.240 -> cd /data/tools/upload/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:28] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:33] 119.147.247.240 -> md5sum 2014012201_ww.zip 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:03] 119.147.247.240 -> cd -
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:04] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:14:23] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:16:54] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:17:44] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:18] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:23] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:51] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:57] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:59] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:06] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:08] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:12] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:16] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:27] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:30] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:32] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:36] 119.147.247.240 -> sh 1_stop_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:10] 119.147.247.240 -> hs_to 360_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:18] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:36] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:40] 119.147.247.240 -> hs_to 37wan_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:45] 119.147.247.240 -> cd /data/seawar/gamesvr1/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:48] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:31] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:50] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:08] 119.147.247.240 -> sh 3_update_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:09] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:27] 119.147.247.240 -> service nagios stop
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:35] 119.147.247.240 -> sh 4_update_web.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:36] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:52] 119.147.247.240 -> sh update_spanserver.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:16] 119.147.247.240 -> cd test_update/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:17] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:22] 119.147.247.240 -> more ip_site_list.txt 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:29] 119.147.247.240 -> sh 4_update_web.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:31] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:49] 119.147.247.240 -> sh 7_version_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:21] 119.147.247.240 -> sh 7_version_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:48] 119.147.247.240 -> cd ..
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:50] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:33:04] 119.147.247.240 -> more gamesvr1/conf/version.properties 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:34] 119.147.247.240 -> sh 5_start_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:48] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:17] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:28] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:46:02] 119.147.247.240 -> service nagios start
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:47:20] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:48:15] 119.147.247.240 -> history 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:04] 119.147.247.240 -> hs_to 8641_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:06] 119.147.247.240 -> jps
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:10] 119.147.247.240 -> lssite 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:26] 119.147.247.240 -> cd /data/ccu/service1/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:27] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:30] 119.147.247.240 -> cd logs/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:31] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:34] 119.147.247.240 -> ls
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:42] 119.147.247.240 -> tail -n100 error
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:47] 119.147.247.240 -> tail -n100 log
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:35] 119.147.247.240 -> cd /usr/local/nginx/conf/conf.d/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:36] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:34] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:59:12] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:15] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:22] 119.147.247.240 -> ping 119.147.250.28
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:42] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:45] 119.147.247.240 -> cd ../dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:46] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:49] 119.147.247.240 -> vim site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:58] 119.147.247.240 -> dddd2:wq
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:27] 119.147.247.240 -> cat /etc/hosts | grep 8641_0012
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:57] 119.147.247.240 -> cat /etc/hosts | grep 250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:03] 119.147.247.240 -> vim site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:11] 119.147.247.240 -> yy03:wq
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:09] 119.147.247.240 -> more config_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:42] 119.147.247.240 ->  qmore 3_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:48] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:59] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:10] 119.147.247.240 -> cd /home/chengjun/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:11] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:13] 119.147.247.240 -> cd hefu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:15] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:21] 119.147.247.240 -> cd ../
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:23] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:25] 119.147.247.240 -> cd dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:26] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:30] 119.147.247.240 -> cat site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:02] 119.147.247.240 -> hs_to 37wan_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:24] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:39] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:42] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:47] 119.147.247.240 -> cd /home/chengjun/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:48] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:51] 119.147.247.240 -> cd dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:52] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:55] 119.147.247.240 -> cat site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:53:35] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:02] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:07] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:20] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:16] 119.147.247.240 -> sh 3_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:53] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:55] 119.147.247.240 -> jps
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:43] 119.147.247.240 -> netstat -na | grep 9000
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:46] 119.147.247.240 -> netstat -na | grep 9001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:55] 119.147.247.240 -> netstat -tpln
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:19:04] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:34] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:41] 119.147.247.240 -> netstat -na | grep 9300
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:17:03] 119.147.247.240 -> more nohup.out 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:37] dump 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> cd /dba/gameTools/serverCheck/log/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:49] 202.55.9.157 -> cat * | grep 211.72.246.38 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:20] dump 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:21] 202.55.9.157 -> sqlist
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:32] 202.55.9.157 -> kimi
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:39] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:54] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:55] 202.55.9.157 -> 0002
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:56] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> cd /data/server_tools/serverCheck/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:05] 202.55.9.157 -> cat serverCheck.log 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:22] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:25] 202.55.9.157 -> ./serverCheck db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> cd /data/mysqllog
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:54] 202.55.9.157 -> ll -lh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:40:52] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:14] 202.55.9.157 -> cd -
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:15] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:18] 202.55.9.157 -> ./serverCheck 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:29] 202.55.9.157 -> ./serverCheck db '113.107.88.124' 3 '2014-01-23'
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:33] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:34] 202.55.9.157 -> rz -y
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:51] 202.55.9.157 -> OOsh serverCheck.sh db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:03] 202.55.9.157 -> vim serverCheck.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:15] 202.55.9.157 -> uu/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:19] 202.55.9.157 -> 0c
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:28] 202.55.9.157 -> 0c
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:31] 202.55.9.157 -> set +x:wq
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:32] 202.55.9.157 -> sh serverCheck.sh db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:33] 202.55.9.157 ->         }
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:35] 202.55.9.157 -> testInit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:50] 202.55.9.157 ->                 done
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:46:55] 202.55.9.157 -> mysqlSocket=/data/mysqldata/mysql.sock
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:01] 202.55.9.157 -> mysqlPort=2433
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:11] 202.55.9.157 -> setMysqlInfo 'slave' "${mysqlPort}" "${mysqlSocket}"
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:33] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" | awk '{print $2}' | sed 's/slow-query.log//g'
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:40] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:55] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> cd /data/gameTools/config/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:01] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:08] 202.55.9.157 -> ll 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:59] 202.55.9.157 -> date
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:49:09] 202.55.9.157 -> crontab -l
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:06] 202.55.9.157 -> echo cccc > toolsConfig.sh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:08] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:14] 202.55.9.157 -> cd /data/gameTools/dropDelDB/; ./dropDelDB DB1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:18] 202.55.9.157 -> ll
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:22] 202.55.9.157 -> cd -
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:23] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:25] 202.55.9.157 -> ll -lh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:28] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:24] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:27] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:28] dump 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:30] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> cd eric
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:56] 113.107.88.124 -> cd ..
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:57] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:02] 113.107.88.124 -> cat 2.py
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:08] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:18] 113.107.88.124 -> cat 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:13:40] 113.107.88.124 -> python 2.py ''smtp.163.com ''ujfgsa43@163.com 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:24] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:31] 113.107.88.124 -> python 2.py 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:42] 113.107.88.124 -> 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:17:27] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'dfsfgfsd34d' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:08] 113.107.88.124 -> mv 2.py sendMail.py
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:14] 113.107.88.124 -> sz sendMail.py 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:21] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:22] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:24] dump 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:32] 113.107.88.124 -> cd /data/iplist/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:37] 113.107.88.124 -> grep 64.237.36.163 *
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:38] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:46] 113.107.88.124 -> cd che checkList/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:49] 113.107.88.124 -> grep 64.237.36.163 *
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:39] dump 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:41] 202.55.9.157 -> ddtlist 
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> mlty
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:01] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:03] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:04] 202.55.9.157 -> GdS%@*bS38Xjshow databases;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:21] 202.55.9.157 -> use db_tank_mlty_0001
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:27] 202.55.9.157 -> show tables;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:46] 202.55.9.157 -> select * from t_s_mission limit 10;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:58] dump 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:00] 202.55.9.157 -> ddtlist 
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:09] 202.55.9.157 -> 7roaddbayiyou
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:10] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:11] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> show databases;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:17] 202.55.9.157 -> use db_tank_yiyou_0001
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:25] 202.55.9.157 -> select * from t_s_mission limit 5;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:34] 202.55.9.157 -> select * from t_s_mission limit 5;limit 1\G;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:45] 202.55.9.157 -> show create table t_s_mission;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:25] 202.55.9.157 -> elect *Id,Namefrom t_s_mission limit 1\Gwhere Name like '%%';
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:28] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:29] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:30] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:31] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:32] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:36] 202.55.9.157 -> mlcn
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:37] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:38] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROTraceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 173, in findKeyword
+    if keyword in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc4 in position 88: ordinal not in range(128)
+
+10.10.9.56:1077 - - [24/Jan/2014 18:09:16] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.56:1087 - - [24/Jan/2014 18:10:02] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.56:1087 - - [24/Jan/2014 18:10:04] "HTTP/1.1 GET /look" - 200 OK
+http://0.0.0.0:16380/
+Traceback (most recent call last):
+  File "code.py", line 22, in <module>
+    app.run()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+10.10.9.56:1118 - - [24/Jan/2014 18:13:18] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.56:1118 - - [24/Jan/2014 18:13:18] "HTTP/1.1 GET /static/css/main.css" - 304 Not Modified
+10.10.9.56:1118 - - [24/Jan/2014 18:13:27] "HTTP/1.1 GET /search" - 200 OK
+http://0.0.0.0:16380/
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:22] 119.147.247.240 -> cd /home/chengjun/update_new/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:27] 119.147.247.240 -> cd /data/tools/upload/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:28] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:01:33] 119.147.247.240 -> md5sum 2014012201_ww.zip 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:03] 119.147.247.240 -> cd -
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:02:04] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:14:23] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:16:54] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:17:44] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:18] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:23] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:51] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:57] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:18:59] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:06] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:08] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:12] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:16] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:27] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:30] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:32] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:19:36] 119.147.247.240 -> sh 1_stop_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:10] 119.147.247.240 -> hs_to 360_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:14] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:18] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:36] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:40] 119.147.247.240 -> hs_to 37wan_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:45] 119.147.247.240 -> cd /data/seawar/gamesvr1/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:20:48] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:31] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:29:50] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:08] 119.147.247.240 -> sh 3_update_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:09] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:27] 119.147.247.240 -> service nagios stop
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:35] 119.147.247.240 -> sh 4_update_web.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:36] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:30:52] 119.147.247.240 -> sh update_spanserver.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:16] 119.147.247.240 -> cd test_update/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:17] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:22] 119.147.247.240 -> more ip_site_list.txt 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:29] 119.147.247.240 -> sh 4_update_web.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:31] 119.147.247.240 -> yes
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:31:49] 119.147.247.240 -> sh 7_version_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:21] 119.147.247.240 -> sh 7_version_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:48] 119.147.247.240 -> cd ..
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:32:50] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:33:04] 119.147.247.240 -> more gamesvr1/conf/version.properties 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:34] 119.147.247.240 -> sh 5_start_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:44:48] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:17] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:45:28] 119.147.247.240 -> tail -f nohup.out 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:46:02] 119.147.247.240 -> service nagios start
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:47:20] 119.147.247.240 -> sh 2_check_gs.sh all
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:48:15] 119.147.247.240 -> history 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:04] 119.147.247.240 -> hs_to 8641_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:06] 119.147.247.240 -> jps
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:10] 119.147.247.240 -> lssite 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:26] 119.147.247.240 -> cd /data/ccu/service1/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:27] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:30] 119.147.247.240 -> cd logs/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:31] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:34] 119.147.247.240 -> ls
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:42] 119.147.247.240 -> tail -n100 error
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:55:47] 119.147.247.240 -> tail -n100 log
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:35] 119.147.247.240 -> cd /usr/local/nginx/conf/conf.d/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:36] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:56:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:34] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:57:42] 119.147.247.240 -> ping assist1.xhs.8641.com
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 09:59:12] 119.147.247.240 -> date
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:15] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:40:22] 119.147.247.240 -> ping 119.147.250.28
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:42] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:45] 119.147.247.240 -> cd ../dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:46] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:49] 119.147.247.240 -> vim site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:41:58] 119.147.247.240 -> dddd2:wq
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:27] 119.147.247.240 -> cat /etc/hosts | grep 8641_0012
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:42:57] 119.147.247.240 -> cat /etc/hosts | grep 250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:03] 119.147.247.240 -> vim site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:43:11] 119.147.247.240 -> yy03:wq
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:09] 119.147.247.240 -> more config_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:42] 119.147.247.240 ->  qmore 3_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:48] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:45:59] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:10] 119.147.247.240 -> cd /home/chengjun/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:11] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:13] 119.147.247.240 -> cd hefu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:15] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:21] 119.147.247.240 -> cd ../
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:23] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:25] 119.147.247.240 -> cd dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:26] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:50:30] 119.147.247.240 -> cat site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:02] 119.147.247.240 -> hs_to 37wan_0001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:24] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:39] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:42] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:47] 119.147.247.240 -> cd /home/chengjun/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:48] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:51] 119.147.247.240 -> cd dafu/
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:52] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:52:55] 119.147.247.240 -> cat site_list 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 12:53:35] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:02] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:07] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:02:20] 119.147.247.240 -> ping 119.147.250.30
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:16] 119.147.247.240 -> sh 3_start_check.sh 
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:53] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:17:55] 119.147.247.240 -> jps
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:43] 119.147.247.240 -> netstat -na | grep 9000
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:46] 119.147.247.240 -> netstat -na | grep 9001
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:18:55] 119.147.247.240 -> netstat -tpln
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 13:19:04] 119.147.247.240 -> exit
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:34] 119.147.247.240 -> hs_to 8641_0003
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:41] 119.147.247.240 -> netstat -na | grep 9300
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> cd /data/seawar/gamesvr1
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:16:59] 119.147.247.240 -> ll
+
+ascii 2014-01-23_7ROAD\chengjun__10.10.7.46_.log [2014-01-23 15:17:03] 119.147.247.240 -> more nohup.out 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:37] dump 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> cd /dba/gameTools/serverCheck/log/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:44] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:36:49] 202.55.9.157 -> cat * | grep 211.72.246.38 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:20] dump 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:21] 202.55.9.157 -> sqlist
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:32] 202.55.9.157 -> kimi
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:39] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:54] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:55] 202.55.9.157 -> 0002
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:38:56] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> cd /data/server_tools/serverCheck/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:01] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:05] 202.55.9.157 -> cat serverCheck.log 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:22] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:25] 202.55.9.157 -> ./serverCheck db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> cd /data/mysqllog
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:51] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:39:54] 202.55.9.157 -> ll -lh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:40:52] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:14] 202.55.9.157 -> cd -
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:15] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:18] 202.55.9.157 -> ./serverCheck 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:29] 202.55.9.157 -> ./serverCheck db '113.107.88.124' 3 '2014-01-23'
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:33] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:34] 202.55.9.157 -> rz -y
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:41:51] 202.55.9.157 -> OOsh serverCheck.sh db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:03] 202.55.9.157 -> vim serverCheck.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:15] 202.55.9.157 -> uu/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:19] 202.55.9.157 -> 0c
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:28] 202.55.9.157 -> 0c
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:31] 202.55.9.157 -> set +x:wq
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:42:32] 202.55.9.157 -> sh serverCheck.sh db
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:33] 202.55.9.157 ->         }
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:35] 202.55.9.157 -> testInit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:45:50] 202.55.9.157 ->                 done
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:46:55] 202.55.9.157 -> mysqlSocket=/data/mysqldata/mysql.sock
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:01] 202.55.9.157 -> mysqlPort=2433
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:11] 202.55.9.157 -> setMysqlInfo 'slave' "${mysqlPort}" "${mysqlSocket}"
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:33] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" | awk '{print $2}' | sed 's/slow-query.log//g'
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:40] 202.55.9.157 -> executeSql "show variables like 'slow_query_log_file'" 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:55] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> cd /data/gameTools/config/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:47:59] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:01] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:08] 202.55.9.157 -> ll 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:48:59] 202.55.9.157 -> date
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:49:09] 202.55.9.157 -> crontab -l
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:06] 202.55.9.157 -> echo cccc > toolsConfig.sh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:08] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:14] 202.55.9.157 -> cd /data/gameTools/dropDelDB/; ./dropDelDB DB1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:18] 202.55.9.157 -> ll
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:22] 202.55.9.157 -> cd -
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:23] 202.55.9.157 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:25] 202.55.9.157 -> ll -lh
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 09:50:28] 202.55.9.157 -> cat toolsConfig.sh 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:24] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:27] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:28] dump 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:30] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> cd eric
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:45] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:56] 113.107.88.124 -> cd ..
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:10:57] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:02] 113.107.88.124 -> cat 2.py
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:08] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:11:18] 113.107.88.124 -> cat 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:13:40] 113.107.88.124 -> python 2.py ''smtp.163.com ''ujfgsa43@163.com 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:24] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:31] 113.107.88.124 -> python 2.py 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:16:42] 113.107.88.124 -> 'smtp.163.com' 'ujfgsa43@163.com' 'ujfgsa43' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:17:27] 113.107.88.124 -> python 2.py 'smtp.163.com' 'ujfgsa43@163.com' 'dfsfgfsd34d' '4897393@qq.com' 'test by eric' 1.txt 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:08] 113.107.88.124 -> mv 2.py sendMail.py
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 11:18:14] 113.107.88.124 -> sz sendMail.py 
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:21] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:22] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:24] dump 1
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:32] 113.107.88.124 -> cd /data/iplist/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:37] 113.107.88.124 -> grep 64.237.36.163 *
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:38] 113.107.88.124 -> ls
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:46] 113.107.88.124 -> cd che checkList/
+
+ascii 2014-01-23_7ROAD\eric.chen__10.10.9.201_.log [2014-01-23 16:45:49] 113.107.88.124 -> grep 64.237.36.163 *
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:39] dump 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:41] 202.55.9.157 -> ddtlist 
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> mlty
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:45:53] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:01] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:03] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:04] 202.55.9.157 -> GdS%@*bS38Xjshow databases;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:21] 202.55.9.157 -> use db_tank_mlty_0001
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:27] 202.55.9.157 -> show tables;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:46] 202.55.9.157 -> select * from t_s_mission limit 10;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:46:58] dump 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:00] 202.55.9.157 -> ddtlist 
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:09] 202.55.9.157 -> 7roaddbayiyou
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:10] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:11] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> mysql -u7roaddba -p --default-character-set=utf8
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:13] 202.55.9.157 -> show databases;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:17] 202.55.9.157 -> use db_tank_yiyou_0001
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:25] 202.55.9.157 -> select * from t_s_mission limit 5;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:34] 202.55.9.157 -> select * from t_s_mission limit 5;limit 1\G;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:47:45] 202.55.9.157 -> show create table t_s_mission;
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:25] 202.55.9.157 -> elect *Id,Namefrom t_s_mission limit 1\Gwhere Name like '%%';
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:28] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:29] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:30] 202.55.9.157 -> exit
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:31] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:32] 202.55.9.157 -> r
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:36] 202.55.9.157 -> mlcn
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:37] 202.55.9.157 -> 1
+
+ascii 2014-01-23_7ROAD\jeff.wang__10.10.9.11_.log [2014-01-23 09:48:38] 202.55.9.157 -> 2
+
+ascii 2014-01-23_7ROAD\jeff.wang__10Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 152, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 164, in findKeyword
+    line = line.encode(enc['encoding']).decode('utf-8')
+  File "/usr/lib64/python2.6/encodings/iso8859_2.py", line 12, in encode
+    return codecs.charmap_encode(input,errors,encoding_table)
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe8 in position 88: ordinal not in range(128)
+
+10.10.9.56:1118 - - [24/Jan/2014 18:13:30] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.34:50891 - - [19/Mar/2014 11:00:36] "HTTP/1.1 GET /" - 200 OK
+10.10.9.34:50891 - - [19/Mar/2014 11:00:36] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:36] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:42] "HTTP/1.1 POST /login" - 303 See Other
+10.10.9.34:50891 - - [19/Mar/2014 11:00:42] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.34:50891 - - [19/Mar/2014 11:00:42] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:42] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:44] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:44] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:44] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:44] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.9.34:50891 - - [19/Mar/2014 11:00:51] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.34:50896 - - [19/Mar/2014 11:01:10] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.76:38181 - - [19/Mar/2014 18:01:24] "HTTP/1.1 GET /" - 200 OK
+10.10.9.76:38181 - - [19/Mar/2014 18:01:24] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.9.76:38181 - - [19/Mar/2014 18:01:24] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.9.15:2837 - - [19/Mar/2014 18:01:28] "HTTP/1.1 GET /" - 200 OK
+10.10.9.15:2837 - - [19/Mar/2014 18:01:28] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.9.15:2837 - - [19/Mar/2014 18:01:28] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.9.15:2837 - - [19/Mar/2014 18:01:37] "HTTP/1.1 POST /login" - 303 See Other
+10.10.9.15:2837 - - [19/Mar/2014 18:01:37] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.15:2837 - - [19/Mar/2014 18:01:37] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.9.15:2837 - - [19/Mar/2014 18:01:37] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.9.15:2840 - - [19/Mar/2014 18:01:48] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.9.15:2843 - - [19/Mar/2014 18:01:48] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+ 10.10.9.15:2842 - - [19/Mar/2014 18:01:48] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.9.15:2842 - - [19/Mar/2014 18:01:48] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.9.15:2845 - - [19/Mar/2014 18:02:22] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.15:2861 - - [19/Mar/2014 18:03:10] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.15:2863 - - [19/Mar/2014 18:03:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.15:2865 - - [19/Mar/2014 18:04:32] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.15:2880 - - [19/Mar/2014 18:06:02] "HTTP/1.1 GET /search" - 200 OK
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 157, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 167, in findKeyword
+    line = getstr(line)
+  File "/usr/local/web/controllers/main.py", line 30, in getstr
+    strings = strings.decode(enc['encoding'])
+  File "/usr/lib64/python2.6/encodings/tis_620.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+UnicodeDecodeError: 'charmap' codec can't decode byte 0xa0 in position 136: character maps to <undefined>
+
+10.10.9.15:2880 - - [19/Mar/2014 18:06:09] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.15:2880 - - [19/Mar/2014 18:06:09] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.9.15:2883 - - [19/Mar/2014 18:06:23] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.15:2995 - - [19/Mar/2014 18:19:28] "HTTP/1.1 GET /" - 200 OK
+10.10.9.15:2995 - - [19/Mar/2014 18:19:32] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.15:3008 - - [19/Mar/2014 18:19:55] "HTTP/1.1 POST /login" - 303 See Other
+10.10.9.15:3008 - - [19/Mar/2014 18:19:55] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.15:3008 - - [19/Mar/2014 18:19:57] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.47:41526 - - [24/Mar/2014 12:24:18] "HTTP/1.1 GET /" - 200 OK
+10.10.9.47:41547 - - [24/Mar/2014 12:25:09] "HTTP/1.1 GET /getlog" - 200 OK
+10.10.9.47:41547 - - [24/Mar/2014 12:25:09] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.9.47:54585 - - [25/Mar/2014 16:02:50] "HTTP/1.1 GET /getlog" - 200 OK
+10.10.9.47:54585 - - [25/Mar/2014 16:02:50] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.9.47:55401 - - [25/Mar/2014 16:46:31] "HTTP/1.1 GET /getlog" - 200 OK
+10.10.9.47:55435 - - [25/Mar/2014 16:47:47] "HTTP/1.1 GET /getlog" - 200 OK
+10.10.9.47:55561 - - [25/Mar/2014 16:55:09] "HTTP/1.1 GET /getlog" - 200 OK
+10.10.9.31:30437 - - [25/Apr/2014 15:17:40] "HTTP/1.1 GET /" - 200 OK
+10.10.9.31:30437 - - [25/Apr/2014 15:17:40] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.9.31:30437 - - [25/Apr/2014 15:17:40] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.9.31:30437 - - [25/Apr/2014 15:17:45] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.9.31:30437 - - [25/Apr/2014 15:17:45] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.9.31:30437 - - [25/Apr/2014 15:17:50] "HTTP/1.1 POST /login" - 303 See Other
+10.10.9.31:30437 - - [25/Apr/2014 15:17:50] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.31:30437 - - [25/Apr/2014 15:17:50] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.9.31:30437 - - [25/Apr/2014 15:17:50] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 157, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 167, in findKeyword
+    line = getstr(line)
+  File "/usr/local/web/controllers/main.py", line 30, in getstr
+    strings = strings.decode(enc['encoding'])
+  File "/usr/lib64/python2.6/encodings/tis_620.py", line 15, in decode
+    return codecs.charmap_decode(input,errors,decoding_table)
+UnicodeDecodeError: 'charmap' codec can't decode byte 0xa0 in position 136: character maps to <undefined>
+
+10.10.9.31:30437 - - [25/Apr/2014 15:17:57] "HTTP/1.1 POST /search" - 500 Internal Server Error
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 157, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 180, in findKeyword
+    if remoteip in line:
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xdd in position 40: ordinal not in range(128)
+
+10.10.9.31:30479 - - [25/Apr/2014 15:21:57] "HTTP/1.1 POST /search" - 500 Internal Server Error
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/usr/local/web/config/ctrl.py", line 24, in _checkIP
+    ret = func(*args, **kwargs)
+  File "/usr/local/web/config/ctrl.py", line 35, in _checkLogin
+    return func(*args, **kwargs)
+  File "/usr/local/web/controllers/main.py", line 158, in POST
+    model += self.findKeyword(f, _keyword, _remoteip)
+  File "/usr/local/web/controllers/main.py", line 168, in findKeyword
+    line = getstr(line)
+  File "/usr/local/web/controllers/main.py", line 31, in getstr
+    strings = strings.encode('utf-8', 'ignore')
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe7 in position 65: ordinal not in range(128)
+
+10.10.9.31:30494 - - [25/Apr/2014 15:25:35] "HTTP/1.1 POST /search" - 500 Internal Server Error
+10.10.9.31:30500 - - [25/Apr/2014 15:26:37] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.31:30500 - - [25/Apr/2014 15:26:37] "HTTP/1.1 GET /static/css/main.css" - 304 Not Modified
+10.10.9.31:30518 - - [25/Apr/2014 15:28:38] "HTTP/1.1 GET /logs" - 200 OK
+10.10.9.31:30519 - - [25/Apr/2014 15:28:57] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.31:30525 - - [25/Apr/2014 15:29:44] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.31:30527 - - [25/Apr/2014 15:30:09] "HTTP/1.1 GET /look" - 200 OK
+10.10.9.31:30530 - - [25/Apr/2014 15:30:57] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.31:30530 - - [25/Apr/2014 15:30:57] "HTTP/1.1 GET /static/css/main.css" - 304 Not Modified
+10.10.9.31:30530 - - [25/Apr/2014 15:30:59] "HTTP/1.1 GET /search" - 200 OK
+10.10.9.31:30530 - - [25/Apr/2014 15:31:05] "HTTP/1.1 POST /search" - 200 OK
+10.10.9.31:30645 - - [25/Apr/2014 15:45:33] "HTTP/1.1 GET /login" - 303 See Other
+10.10.9.31:30645 - - [25/Apr/2014 15:45:33] "HTTP/1.1 GET /" - 200 OK
+10.10.12.137:28320 - - [11/Oct/2014 10:21:55] "HTTP/1.1 GET /" - 200 OK
+10.10.12.137:28320 - - [11/Oct/2014 10:21:55] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.12.137:28320 - - [11/Oct/2014 10:21:55] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.12.137:28320 - - [11/Oct/2014 10:21:59] "HTTP/1.1 POST /login" - 303 See Other
+10.10.12.137:28320 - - [11/Oct/2014 10:21:59] "HTTP/1.1 GET /search" - 200 OK
+10.10.12.137:28320 - - [11/Oct/2014 10:21:59] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.12.137:28320 - - [11/Oct/2014 10:21:59] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.12.137:28326 - - [11/Oct/2014 10:22:23] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60717 - - [17/Mar/2015 09:34:05] "HTTP/1.1 GET /" - 200 OK
+10.10.18.16:60717 - - [17/Mar/2015 09:34:05] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.18.16:60717 - - [17/Mar/2015 09:34:05] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.18.16:60717 - - [17/Mar/2015 09:34:14] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.18.16:60717 - - [17/Mar/2015 09:34:14] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.18.16:60804 - - [17/Mar/2015 09:41:14] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.16:60804 - - [17/Mar/2015 09:41:14] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60804 - - [17/Mar/2015 09:41:14] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.18.16:60804 - - [17/Mar/2015 09:41:15] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.16:60806 - - [17/Mar/2015 09:41:17] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.18.16:60804 - - [17/Mar/2015 09:41:17] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 10.10.18.16:60805 - - [17/Mar/2015 09:41:17] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+
+10.10.18.16:60806 - - [17/Mar/2015 09:41:17] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.18.16:60807 - - [17/Mar/2015 09:41:34] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:41:42] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:41:48] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:41:52] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:41:58] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:42:01] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:42:09] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60807 - - [17/Mar/2015 09:42:11] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60811 - - [17/Mar/2015 09:43:26] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60811 - - [17/Mar/2015 09:43:30] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60811 - - [17/Mar/2015 09:43:37] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60812 - - [17/Mar/2015 09:43:58] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60812 - - [17/Mar/2015 09:44:06] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60812 - - [17/Mar/2015 09:44:14] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.60:3539 - - [17/Mar/2015 09:44:29] "HTTP/1.1 GET /" - 200 OK
+10.10.18.60:3539 - - [17/Mar/2015 09:44:29] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.18.60:3539 - - [17/Mar/2015 09:44:29] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.18.60:3539 - - [17/Mar/2015 09:44:33] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.60:3539 - - [17/Mar/2015 09:44:33] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.60:3539 - - [17/Mar/2015 09:44:33] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.18.60:3539 - - [17/Mar/2015 09:44:33] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.60:3539 - - [17/Mar/2015 09:44:35] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.18.60:3540 - - [17/Mar/2015 09:44:35] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.18.60:3543 - - [17/Mar/2015 09:44:35] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.18.60:3543 - - [17/Mar/2015 09:44:35] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.18.16:60813 - - [17/Mar/2015 09:44:37] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60813 - - [17/Mar/2015 09:44:46] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.60:3550 - - [17/Mar/2015 09:45:30] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.60:3550 - - [17/Mar/2015 09:45:31] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.60:3562 - - [17/Mar/2015 09:46:44] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.60:3562 - - [17/Mar/2015 09:46:49] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60838 - - [17/Mar/2015 09:47:49] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60841 - - [17/Mar/2015 09:48:18] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60841 - - [17/Mar/2015 09:48:19] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60840 - - [17/Mar/2015 09:48:21] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60841 - - [17/Mar/2015 09:48:27] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60893 - - [17/Mar/2015 09:53:06] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60893 - - [17/Mar/2015 09:53:11] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60893 - - [17/Mar/2015 09:53:19] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60894 - - [17/Mar/2015 09:53:31] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60894 - - [17/Mar/2015 09:53:40] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60897 - - [17/Mar/2015 09:53:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60897 - - [17/Mar/2015 09:54:03] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60898 - - [17/Mar/2015 09:54:15] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60898 - - [17/Mar/2015 09:54:19] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60898 - - [17/Mar/2015 09:54:21] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60898 - - [17/Mar/2015 09:54:31] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.16:60964 - - [17/Mar/2015 09:57:37] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.16:60965 - - [17/Mar/2015 09:57:48] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.16:60969 - - [17/Mar/2015 09:58:19] "HTTP/1.1 GET /search" - 200 OK
+10.10.11.51:58963 - - [27/May/2015 09:41:11] "HTTP/1.1 GET /" - 200 OK
+10.10.11.51:58963 - - [27/May/2015 09:41:11] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.11.51:58963 - - [27/May/2015 09:41:13] "HTTP/1.1 POST /login" - 303 See Other
+10.10.11.51:58963 - - [27/May/2015 09:41:13] "HTTP/1.1 GET /search" - 200 OK
+10.10.11.51:58963 - - [27/May/2015 09:41:13] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.11.51:58963 - - [27/May/2015 09:41:13] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.24:46018 - - [24/Jun/2015 16:58:49] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:46018 - - [24/Jun/2015 16:58:49] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.18.24:46018 - - [24/Jun/2015 16:58:49] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.18.24:46018 - - [24/Jun/2015 16:58:50] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.24:46018 - - [24/Jun/2015 16:58:50] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46018 - - [24/Jun/2015 16:58:50] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.18.24:46018 - - [24/Jun/2015 16:58:50] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.24:46018 - - [24/Jun/2015 16:58:52] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.18.24:46019 - - [24/Jun/2015 16:58:52] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.18.24:46021 - - [24/Jun/2015 16:58:52] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.18.24:46021 - - [24/Jun/2015 16:58:52] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.18.24:46025 - - [24/Jun/2015 16:59:03] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46025 - - [24/Jun/2015 16:59:06] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46026 - - [24/Jun/2015 17:00:01] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46036 - - [24/Jun/2015 17:00:56] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46036 - - [24/Jun/2015 17:00:57] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46036 - - [24/Jun/2015 17:01:05] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46041 - - [24/Jun/2015 17:02:23] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46041 - - [24/Jun/2015 17:02:25] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.24:46041 - - [24/Jun/2015 17:02:25] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46041 - - [24/Jun/2015 17:02:28] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:46044 - - [24/Jun/2015 17:03:12] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46049 - - [24/Jun/2015 17:04:37] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46049 - - [24/Jun/2015 17:04:41] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:46050 - - [24/Jun/2015 17:05:08] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46056 - - [24/Jun/2015 17:06:41] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46058 - - [24/Jun/2015 17:07:02] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46075 - - [24/Jun/2015 17:08:35] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:46076 - - [24/Jun/2015 17:08:48] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46077 - - [24/Jun/2015 17:09:10] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46083 - - [24/Jun/2015 17:09:26] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46086 - - [24/Jun/2015 17:09:44] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46088 - - [24/Jun/2015 17:09:57] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46166 - - [24/Jun/2015 17:15:44] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46166 - - [24/Jun/2015 17:15:50] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46166 - - [24/Jun/2015 17:15:53] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46166 - - [24/Jun/2015 17:15:58] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46167 - - [24/Jun/2015 17:16:36] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46175 - - [24/Jun/2015 17:19:21] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46175 - - [24/Jun/2015 17:19:23] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:46176 - - [24/Jun/2015 17:19:39] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46176 - - [24/Jun/2015 17:19:42] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:46176 - - [24/Jun/2015 17:19:51] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46177 - - [24/Jun/2015 17:20:06] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46177 - - [24/Jun/2015 17:20:16] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:03] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:06] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:08] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:11] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:13] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:16] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:17] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:20] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:21] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:24] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:25] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46182 - - [24/Jun/2015 17:21:30] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:46306 - - [24/Jun/2015 17:40:09] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:46308 - - [24/Jun/2015 17:40:25] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:15938 - - [05/Aug/2015 10:08:19] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:15938 - - [05/Aug/2015 10:08:19] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.18.24:15938 - - [05/Aug/2015 10:08:19] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.18.24:15938 - - [05/Aug/2015 10:08:20] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.24:15938 - - [05/Aug/2015 10:08:20] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:15938 - - [05/Aug/2015 10:08:20] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.18.24:15938 - - [05/Aug/2015 10:08:20] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.24:15938 - - [05/Aug/2015 10:08:23] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:15940 - - [05/Aug/2015 10:08:34] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:15940 - - [05/Aug/2015 10:08:36] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:15940 - - [05/Aug/2015 10:08:39] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:15960 - - [05/Aug/2015 10:13:14] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:15967 - - [05/Aug/2015 10:13:40] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:16014 - - [05/Aug/2015 10:19:16] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:16014 - - [05/Aug/2015 10:19:25] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:16056 - - [05/Aug/2015 10:23:54] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:16056 - - [05/Aug/2015 10:23:55] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.24:16056 - - [05/Aug/2015 10:23:55] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:16056 - - [05/Aug/2015 10:23:57] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.29:61322 - - [10/Aug/2015 17:41:08] "HTTP/1.1 GET /logs" - 404 Not Found
+10.10.18.29:61322 - - [10/Aug/2015 17:41:12] "HTTP/1.1 GET /" - 200 OK
+10.10.18.29:61322 - - [10/Aug/2015 17:41:12] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.18.29:61322 - - [10/Aug/2015 17:41:12] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.18.29:61332 - - [10/Aug/2015 17:41:23] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.29:61332 - - [10/Aug/2015 17:41:23] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.29:61332 - - [10/Aug/2015 17:41:23] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.18.29:61332 - - [10/Aug/2015 17:41:23] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.18.29:61332 - - [10/Aug/2015 17:41:26] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.29:61340 - - [10/Aug/2015 17:41:41] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22897 - - [12/Aug/2015 10:12:30] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:22897 - - [12/Aug/2015 10:12:33] "HTTP/1.1 POST /login" - 303 See Other
+10.10.18.24:22897 - - [12/Aug/2015 10:12:33] "HTTP/1.1 GET /search" - 200 OK
+10.10.18.24:22897 - - [12/Aug/2015 10:12:34] "HTTP/1.1 GET /logs" - 200 OK
+10.10.18.24:22897 - - [12/Aug/2015 10:12:43] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22897 - - [12/Aug/2015 10:12:50] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22903 - - [12/Aug/2015 10:13:05] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22907 - - [12/Aug/2015 10:13:18] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22907 - - [12/Aug/2015 10:13:24] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22909 - - [12/Aug/2015 10:13:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22911 - - [12/Aug/2015 10:14:35] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22913 - - [12/Aug/2015 10:14:46] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22913 - - [12/Aug/2015 10:14:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22915 - - [12/Aug/2015 10:15:05] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22915 - - [12/Aug/2015 10:15:09] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22915 - - [12/Aug/2015 10:15:18] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22920 - - [12/Aug/2015 10:15:37] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22925 - - [12/Aug/2015 10:15:48] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22930 - - [12/Aug/2015 10:16:00] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22938 - - [12/Aug/2015 10:18:18] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22940 - - [12/Aug/2015 10:18:47] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22943 - - [12/Aug/2015 10:19:05] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22943 - - [12/Aug/2015 10:19:11] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22945 - - [12/Aug/2015 10:19:24] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22949 - - [12/Aug/2015 10:19:57] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:22950 - - [12/Aug/2015 10:19:57] "HTTP/1.1 OPTIONS /" - 405 Method Not Allowed
+10.10.18.24:22951 - - [12/Aug/2015 10:19:57] "HTTP/1.1 OPTIONS /" - 405 Method Not Allowed
+10.10.18.24:22964 - - [12/Aug/2015 10:20:39] "HTTP/1.1 GET /nice ports,/Trinity.txt.bak" - 404 Not Found
+10.10.18.24:22983 - - [12/Aug/2015 10:21:33] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.18.24:22984 - - [12/Aug/2015 10:21:33] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.18.24:22985 - - [12/Aug/2015 10:21:33] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.18.24:22985 - - [12/Aug/2015 10:21:33] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.18.24:22987 - - [12/Aug/2015 10:21:34] "HTTP/1.1 GET /" - 200 OK
+10.10.18.24:22985 - - [12/Aug/2015 10:21:36] "HTTP/1.1 POST /search" - 200 OK
+10.10.18.24:22985 - - [12/Aug/2015 10:21:41] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22990 - - [12/Aug/2015 10:21:51] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22990 - - [12/Aug/2015 10:21:54] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22991 - - [12/Aug/2015 10:22:10] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22993 - - [12/Aug/2015 10:22:20] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22993 - - [12/Aug/2015 10:22:26] "HTTP/1.1 GET /look" - 200 OK
+10.10.18.24:22995 - - [12/Aug/2015 10:22:45] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:56853 - - [16/Nov/2016 17:35:20] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:56853 - - [16/Nov/2016 17:35:20] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.15.65:56853 - - [16/Nov/2016 17:35:20] "HTTP/1.1 GET /static/favicon.ico" - 200 
+10.10.15.65:56872 - - [16/Nov/2016 17:36:05] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.15.65:56872 - - [16/Nov/2016 17:36:05] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+10.10.15.65:56962 - - [16/Nov/2016 17:40:07] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.15.65:56962 - - [16/Nov/2016 17:40:09] "HTTP/1.1 GET /login" - 303 See Other
+10.10.15.65:56962 - - [16/Nov/2016 17:40:10] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:56962 - - [16/Nov/2016 17:40:16] "HTTP/1.1 POST /login" - 404 Not Found
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.6/site-packages/web.py-0.37-py2.6.egg/web/application.py", line 416, in _delegate
+    mod = __import__(mod, None, None, [''])
+  File "/usr/local/web/controllers/main.py", line 67
+    if username == settings.Username
+                                    ^
+SyntaxError: invalid syntax
+
+10.10.15.65:57018 - - [16/Nov/2016 17:42:43] "HTTP/1.1 POST /login" - 500 Internal Server Error
+10.10.15.65:57065 - - [16/Nov/2016 17:44:47] "HTTP/1.1 POST /login" - 303 See Other
+10.10.15.65:57065 - - [16/Nov/2016 17:44:47] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:57065 - - [16/Nov/2016 17:44:47] "HTTP/1.1 GET /static/My97DatePicker/WdatePicker.js" - 200 
+10.10.15.65:57065 - - [16/Nov/2016 17:44:47] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.15.65:57065 - - [16/Nov/2016 17:44:49] "HTTP/1.1 GET /static/My97DatePicker/lang/zh-cn.js" - 200 
+10.10.15.65:57066 - - [16/Nov/2016 17:44:49] "HTTP/1.1 GET /static/My97DatePicker/skin/default/datepicker.css" - 200 
+10.10.15.65:57069 - - [16/Nov/2016 17:44:49] "HTTP/1.1 GET /static/My97DatePicker/calendar.js" - 200 
+10.10.15.65:57069 - - [16/Nov/2016 17:44:49] "HTTP/1.1 GET /static/My97DatePicker/skin/default/img.gif" - 200 
+10.10.15.65:57069 - - [16/Nov/2016 17:44:55] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:57081 - - [16/Nov/2016 17:45:09] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57081 - - [16/Nov/2016 17:45:14] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:57081 - - [16/Nov/2016 17:45:17] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57081 - - [16/Nov/2016 17:45:19] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:57102 - - [16/Nov/2016 17:46:07] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57102 - - [16/Nov/2016 17:46:14] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:57102 - - [16/Nov/2016 17:46:17] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57102 - - [16/Nov/2016 17:46:20] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:57204 - - [16/Nov/2016 17:50:48] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57487 - - [16/Nov/2016 17:59:55] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57502 - - [16/Nov/2016 18:00:39] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:57534 - - [16/Nov/2016 18:01:59] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:58526 - - [16/Nov/2016 18:42:31] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:58540 - - [16/Nov/2016 18:42:58] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:59193 - - [16/Nov/2016 19:12:11] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:59209 - - [16/Nov/2016 19:12:52] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:59209 - - [16/Nov/2016 19:13:01] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:59219 - - [16/Nov/2016 19:13:23] "HTTP/1.1 GET /logout" - 303 See Other
+10.10.15.65:59219 - - [16/Nov/2016 19:13:23] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:20] "HTTP/1.1 POST /login" - 303 See Other
+10.10.15.65:59243 - - [16/Nov/2016 19:14:20] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:23] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:24] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:25] "HTTP/1.1 GET /logout" - 303 See Other
+10.10.15.65:59243 - - [16/Nov/2016 19:14:25] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:27] "HTTP/1.1 POST /login" - 404 Not Found
+10.10.15.65:59243 - - [16/Nov/2016 19:14:33] "HTTP/1.1 POST /login" - 303 See Other
+10.10.15.65:59243 - - [16/Nov/2016 19:14:33] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:59243 - - [16/Nov/2016 19:14:34] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:59252 - - [16/Nov/2016 19:14:51] "HTTP/1.1 GET /logout" - 303 See Other
+10.10.15.65:59252 - - [16/Nov/2016 19:14:51] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:59252 - - [16/Nov/2016 19:14:55] "HTTP/1.1 POST /login" - 303 See Other
+10.10.15.65:59252 - - [16/Nov/2016 19:14:55] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:59252 - - [16/Nov/2016 19:14:56] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:52740 - - [17/Nov/2016 19:15:55] "HTTP/1.1 GET /logs" - 404 Not Found
+10.10.15.65:52740 - - [17/Nov/2016 19:15:57] "HTTP/1.1 GET /logs" - 404 Not Found
+10.10.15.65:52740 - - [17/Nov/2016 19:16:05] "HTTP/1.1 GET /" - 200 OK
+10.10.15.65:52740 - - [17/Nov/2016 19:16:05] "HTTP/1.1 GET /static/css/main.css" - 200 
+10.10.15.65:52740 - - [17/Nov/2016 19:16:08] "HTTP/1.1 POST /login" - 303 See Other
+10.10.15.65:52740 - - [17/Nov/2016 19:16:08] "HTTP/1.1 GET /search" - 200 OK
+10.10.15.65:52740 - - [17/Nov/2016 19:16:09] "HTTP/1.1 GET /static/My97DatePicker/skin/WdatePicker.css" - 200 
+10.10.15.65:52740 - - [17/Nov/2016 19:16:10] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:52740 - - [17/Nov/2016 19:16:17] "HTTP/1.1 GET /look" - 200 OK
+10.10.15.65:53364 - - [17/Nov/2016 19:26:52] "HTTP/1.1 GET /logs" - 200 OK
+10.10.15.65:53375 - - [17/Nov/2016 19:27:03] "HTTP/1.1 GET /look" - 200 OK

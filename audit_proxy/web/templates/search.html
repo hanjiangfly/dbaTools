@@ -1,0 +1,21 @@
+$def with (model,keyword)
+$var title: - 搜索
+
+$if model == 'GET':
+    <script language="JavaScript" type="text/javascript" src="/static/My97DatePicker/WdatePicker.js"></script>
+    <form id="form" method="post" action="/search">
+        <table class="table">
+            <tr><td colspan="2" align="center"><b>文件名条件</b></td></tr>
+            <tr><td>日期范围:</td><td><input id="txt_Date" name="date" type="text" class="input" onClick="WdatePicker()"/></td></tr>
+            <tr><td>内网IP地址:</td><td><input id="txt_LanIP" name="lanip" type="text" class="input" /></td></tr>
+            <tr><td>内网用户:</td><td><input id="txt_User" name="user" type="text" class="input" /></td></tr>
+            <tr><td colspan="2" align="center"><b>内容条件</b></td></tr>
+            <tr><td>远程IP地址:</td><td><input id="txt_RemoteIP" name="remoteip" type="text" class="input" /></td></tr>
+            <tr><td>指令关键字:</td><td><input id="txt_keyword" name="keyword" type="text" class="input" /></td></tr>
+            <tr><td colspan="2" align="center"><input id="submit" type="submit" value="查询" class="bt" /></td></tr>
+        </table>
+    </form>
+$else:
+    $if keyword:
+        <span style="color:#920D0D">搜索关键字: $keyword</span></p>
+    $:model
